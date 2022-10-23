@@ -2,7 +2,9 @@
 // https://www.codewars.com/kata/57d83dfc950d842dcb00005b/train/javascript
 
 export const range2array = ranges => {
-  return ranges.reduce((arr, [min, max]) => {
+  return ranges.reduce((arr, range) => {
+    const min = range[0];
+    const max = range[1] ?? min;
     return arr.push(
       ...new Array(max - min + 1).fill(0).map((n ,i) => min + i)
     ), arr;
