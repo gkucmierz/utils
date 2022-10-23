@@ -7,6 +7,10 @@
     "test": "jasmine",
     "watch": "nodemon --exec 'npm test'"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkucmierz/utils"
+  },
   "author": "Grzegorz Kućmierz",
   "license": "MIT",
   "devDependencies": {
