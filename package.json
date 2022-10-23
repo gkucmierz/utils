@@ -12,5 +12,8 @@
   "dependencies": {
     "jasmine": "^4.4.0",
     "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1"
   }
 }
