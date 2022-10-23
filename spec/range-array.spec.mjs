@@ -2,7 +2,7 @@
 import {
   range2array,
   array2range,
-} from '../src/range-array/range-array.mjs';
+} from '../src/range-array.mjs';
 
 describe('range-array', () => {
   it('should work', function() {
