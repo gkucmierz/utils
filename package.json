@@ -4,8 +4,13 @@
   "description": "",
   "main": "src/main.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine",
+    "watch": "nodemon --exec 'npm test'"
   },
   "author": "Grzegorz Kućmierz",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jasmine": "^4.4.0",
+    "nodemon": "^2.0.20"
+  }
 }
