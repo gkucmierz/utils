@@ -53,6 +53,13 @@ describe('bijective-numeration', () => {
     });
   });
 
+  it('random tests', () => {
+    for (let i = 0; i < 1e3; ++i) {
+      const n = Math.round(Math.random() * 1e6);
+      const bj = num2bijective(n, alpha);
+      expect(bijective2num(bj, alpha)).toEqual(n);
+    }
+  });
 });
 
 describe('bijective-numeration BigInt', () => {
