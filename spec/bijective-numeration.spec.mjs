@@ -102,4 +102,15 @@ describe('bijective-numeration BigInt', () => {
     });
   });
 
+  it('random tests', () => {
+    for (let i = 0; i < 1e3; ++i) {
+      const b = BigInt(Math.round(Math.random() * 1000));
+      const n = BigInt(Math.round(Math.random() * 100));
+      const bi = b ** n;
+
+      const bj = num2bijectiveBI(bi, alpha);
+      expect(bijective2numBI(bj, alpha)).toEqual(bi);
+    }
+  });
+
 });
