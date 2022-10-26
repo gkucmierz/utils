@@ -27,25 +27,25 @@ describe('bijective-numeration', () => {
     [26 * 26 + 26 + 1, 'aaa'],
   ];
 
-  it('num2bijective', function() {
+  it('num2bijective', () => {
     map.map(([num, bij]) => {
       expect(num2bijective(num)).toEqual(bij);
     });
   });
 
-  it('num2bijective alpha', function() {
+  it('num2bijective alpha', () => {
     mapAlpha.map(([num, bij]) => {
       expect(num2bijective(num, alpha)).toEqual(bij);
     });
   });
 
-  it('bijective2num', function() {
+  it('bijective2num', () => {
     map.map(([num, bij]) => {
       expect(bijective2num(bij)).toEqual(num);
     });
   });
 
-  it('bijective2num alpha', function() {
+  it('bijective2num alpha', () => {
     mapAlpha.map(([num, bij]) => {
       expect(bijective2num(bij, alpha)).toEqual(num);
     });
