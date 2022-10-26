@@ -2,6 +2,8 @@
 import {
   num2bijective,
   bijective2num,
+  num2bijectiveBI,
+  bijective2numBI,
 } from '../src/bijective-numeration.mjs';
 
 describe('bijective-numeration', () => {
@@ -48,6 +50,55 @@ describe('bijective-numeration', () => {
   it('bijective2num alpha', () => {
     mapAlpha.map(([num, bij]) => {
       expect(bijective2num(bij, alpha)).toEqual(num);
+    });
+  });
+
+});
+
+describe('bijective-numeration BigInt', () => {
+  const alpha = 'abcdefghijklmnopqrstuvwxyz';
+
+  const map = [
+    [0n,    ''],
+    [1n,   '1'],
+    [2n,   '2'],
+    [3n,  '11'],
+    [4n,  '12'],
+    [5n,  '21'],
+    [6n,  '22'],
+    [7n, '111'],
+  ];
+
+  const mapAlpha = [
+    [0n, ''],
+    [1n, 'a'],
+    [26n, 'z'],
+    [26n + 1n, 'aa'],
+    [26n * 26n + 26n, 'zz'],
+    [26n * 26n + 26n + 1n, 'aaa'],
+  ];
+
+  it('num2bijectiveBI', () => {
+    map.map(([num, bij]) => {
+      expect(num2bijectiveBI(num)).toEqual(bij);
+    });
+  });
+
+  it('num2bijectiveBI alpha', () => {
+    mapAlpha.map(([num, bij]) => {
+      expect(num2bijectiveBI(num, alpha)).toEqual(bij);
+    });
+  });
+
+  it('bijective2numBI', () => {
+    map.map(([num, bij]) => {
+      expect(bijective2numBI(bij)).toEqual(num);
+    });
+  });
+
+  it('bijective2numBI alpha', () => {
+    mapAlpha.map(([num, bij]) => {
+      expect(bijective2numBI(bij, alpha)).toEqual(num);
     });
   });
 
