@@ -1,30 +1,23 @@
 
 // implementation of power function with modulus like native python pow
 
-export const powMod = (base, exponent, modulus) => {
-  if (modulus === 1) return 0;
-  let result = 1;
-  base = base % modulus;
-  while (exponent > 0) {
-    if (exponent % 2 === 1) {
-      result = (result * base) % modulus;
+const getPowMod = (ZERO, ONE, TWO, floor) => {
+  return (base, exponent, modulus = null) => {
+    if (modulus === null) return base ** exponent;
+    if (modulus === ONE) return ZERO;
+    let result = ONE;
+    base = base % modulus;
+    while (exponent > ZERO) {
+      if (exponent % TWO === ONE) {
+        result = (result * base) % modulus;
+      }
+      exponent = floor(exponent / TWO);
+      base = (base * base) % modulus;
     }
-    exponent = exponent >> 1;
-    base = (base * base) % modulus;
-  }
-  return result;
+    return result;
+  };
 };
 
-export const powModBI = (base, exponent, modulus) => {
-  if (modulus === 1n) return 0n;
-  let result = 1n;
-  base = base % modulus;
-  while (exponent > 0n) {
-    if (exponent % 2n === 1n) {
-      result = (result * base) % modulus;
-    }
-    exponent = exponent / 2n;
-    base = (base * base) % modulus;
-  }
-  return result;
-};
+export const powMod = getPowMod(0, 1, 2, n => Math.floor(n));
+
+export const powModBI = getPowMod(0n, 1n, 2n, n => n);
