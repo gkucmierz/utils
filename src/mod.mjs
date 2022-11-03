@@ -4,7 +4,8 @@
 const getMod = ZERO => {
   return (dividend, divisor) => {
     if ((dividend < ZERO) ^ (divisor < ZERO)) {
-      return divisor - (-dividend % divisor);
+      const res = -dividend % divisor;
+      return res === ZERO ? ZERO : divisor - res;
     }
     return dividend % divisor;
   };

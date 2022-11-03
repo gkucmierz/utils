@@ -9,6 +9,8 @@ describe('mod', () => {
     expect(mod(4, 100)).toEqual(4);
     expect(mod(104, 100)).toEqual(4);
     expect(mod(4 - 100, 100)).toEqual(4);
+    expect(mod(4 + 96, 100)).toEqual(0);
+    expect(mod(-4 - 96, 100)).toEqual(0);
   });
 
   it('mod sign', () => {
@@ -24,6 +26,8 @@ describe('mod BI', () => {
     expect(modBI(4n, 100n)).toEqual(4n);
     expect(modBI(104n, 100n)).toEqual(4n);
     expect(modBI(4n - 100n, 100n)).toEqual(4n);
+    expect(modBI(4n + 96n, 100n)).toEqual(0n);
+    expect(modBI(-4n - 96n, 100n)).toEqual(0n);
   });
 
   it('mod sign', () => {
