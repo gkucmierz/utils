@@ -1,6 +1,7 @@
 
 import {
   heronsFormula,
+  heronsFormulaBI,
 } from '../src/herons-formula.mjs';
 
 describe('herons-formula', () => {
@@ -25,6 +26,16 @@ describe('herons-formula', () => {
     expect(heronsFormula(10, 11, 18)).toEqual(48.59976851796724);
   });
 
-  // it('BigInt', () => {
-  // });
+  it('BigInt', () => {
+    expect(heronsFormulaBI(5n, 12n, 13n)).toEqual(30n);
+    expect(heronsFormulaBI(6n, 8n, 10n)).toEqual(24n);
+    expect(heronsFormulaBI(7n, 15n, 20n)).toEqual(42n);
+    expect(heronsFormulaBI(17n, 17n, 30n)).toEqual(120n);
+    expect(heronsFormulaBI(13n, 37n, 30n)).toEqual(180n);
+    expect(heronsFormulaBI(6n, 25n, 29n)).toEqual(60n);
+    expect(heronsFormulaBI(73n, 9n, 80n)).toEqual(216n);
+    expect(heronsFormulaBI(12n, 35n, 37n)).toEqual(210n);
+    expect(heronsFormulaBI(120n, 109n, 13n)).toEqual(396n);
+    expect(heronsFormulaBI(9n, 10n, 17n)).toEqual(36n);
+  });
 });

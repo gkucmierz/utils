@@ -1,6 +1,13 @@
 
-// calculat triangle area given 3 sides
+import {
+  squareRootBI,
+} from './square-root.mjs';
 
-export const heronsFormula = (a, b, c) => {
-  return Math.sqrt((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c)) / 4;
+// calculate triangle area given 3 sides
+
+const getHeronsFormula = (four, sq) => (a, b, c) => {
+  return sq((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c)) / four;
 };
+
+export const heronsFormula = getHeronsFormula(4, n => n ** 0.5);
+export const heronsFormulaBI = getHeronsFormula(4n, squareRootBI);
