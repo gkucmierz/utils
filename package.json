@@ -2,10 +2,11 @@
   "name": "@gkucmierz/utils",
   "version": "1.13.0",
   "description": "Usefull functions for solving programming tasks",
-  "main": "src/main.mjs",
+  "main": "main.mjs",
   "scripts": {
     "test": "jasmine",
-    "watch": "nodemon --exec 'npm test'"
+    "watch": "nodemon --exec 'npm test'",
+    "main": "node scripts/generate_main.mjs"
   },
   "repository": {
     "type": "git",
