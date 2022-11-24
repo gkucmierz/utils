@@ -15,3 +15,19 @@ export const fromBase64 = encoded => {
   }
   return String.fromCharCode(...new Uint16Array(bytes.buffer));
 };
+
+const toUrl = {
+  '+': '-',
+  '/': '_',
+};
+export const toBase64Url = string => {
+  return toBase64(string).replace(/[\+\/]/g, c => toUrl[c]);
+};
+
+const fromUrl = {
+  '-': '+',
+  '_': '/',
+};
+export const fromBase64Url = encoded => {
+  return fromBase64(encoded).replace(/[\-_]/g, c => fromUrl[c]);
+};

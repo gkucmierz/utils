@@ -2,6 +2,8 @@
 import {
   toBase64,
   fromBase64,
+  toBase64Url,
+  fromBase64Url,
 } from '../src/base64.mjs';
 
 describe('base64', () => {
@@ -14,4 +16,10 @@ describe('base64', () => {
     expect(fromBase64('Ptha3Q==')).toBe('🥚');
     expect(fromBase64('PdgU3A==')).toBe('🐔');
   });
+
+  // it('toBase64Url', () => {
+  // });
+
+  // it('fromBase64', () => {
+  // });
 });
