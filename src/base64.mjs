@@ -29,5 +29,5 @@ const fromUrl = {
   '_': '/',
 };
 export const fromBase64Url = encoded => {
-  return fromBase64(encoded).replace(/[\-_]/g, c => fromUrl[c]);
+  return fromBase64(encoded.replace(/[\-\_]/g, c => fromUrl[c]));
 };
