@@ -1,6 +1,9 @@
 
 import {
-  fromBase64, toBase64
+  SetCnt
+} from './src/SetCnt.mjs'
+import {
+  fromBase64, fromBase64Url, toBase64, toBase64Url
 } from './src/base64.mjs'
 import {
   bijective2num, bijective2numBI, num2bijective, num2bijectiveBI
@@ -42,6 +45,7 @@ import {
   tonelliShanksBI
 } from './src/tonelli-shanks.mjs'
 
+export * from './src/SetCnt.mjs';
 export * from './src/base64.mjs';
 export * from './src/bijective-numeration.mjs';
 export * from './src/egcd.mjs';
@@ -58,5 +62,5 @@ export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
 
 export default [
-  fromBase64, toBase64, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, egcd, factors, factorsBI, gcd, gcdBI, getType, heronsFormula, heronsFormulaBI, lcm, lcmBI, mod, modBI, phi, phiBI, powMod, powModBI, array2range, range2array, squareRoot, squareRootBI, tonelliShanksBI
+  SetCnt, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, egcd, factors, factorsBI, gcd, gcdBI, getType, heronsFormula, heronsFormulaBI, lcm, lcmBI, mod, modBI, phi, phiBI, powMod, powModBI, array2range, range2array, squareRoot, squareRootBI, tonelliShanksBI
 ];
