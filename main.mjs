@@ -33,6 +33,9 @@ import {
   lcm, lcmBI
 } from './src/lcm.mjs'
 import {
+  ListNode
+} from './src/list-node.mjs'
+import {
   memoize
 } from './src/memoize.mjs'
 import {
@@ -65,6 +68,7 @@ export * from './src/gpn.mjs';
 export * from './src/heap.mjs';
 export * from './src/herons-formula.mjs';
 export * from './src/lcm.mjs';
+export * from './src/list-node.mjs';
 export * from './src/memoize.mjs';
 export * from './src/mod.mjs';
 export * from './src/phi.mjs';
@@ -74,5 +78,5 @@ export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
 
 export default [
-  SetCnt, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, egcd, factors, factorsBI, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, memoize, mod, modBI, phi, phiBI, powMod, powModBI, array2range, range2array, squareRoot, squareRootBI, tonelliShanksBI
+  SetCnt, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, egcd, factors, factorsBI, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, memoize, mod, modBI, phi, phiBI, powMod, powModBI, array2range, range2array, squareRoot, squareRootBI, tonelliShanksBI
 ];
