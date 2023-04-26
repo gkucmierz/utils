@@ -1,5 +1,5 @@
 
-export const bisectionSearchArr = (arr, target) => {
+export const binarySearchArr = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
   while (b - a > 0) {
