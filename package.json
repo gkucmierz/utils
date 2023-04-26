@@ -1,6 +1,6 @@
 {
   "name": "@gkucmierz/utils",
-  "version": "1.22.0",
+  "version": "1.23.0",
   "description": "Usefull functions for solving programming tasks",
   "main": "main.mjs",
   "scripts": {
