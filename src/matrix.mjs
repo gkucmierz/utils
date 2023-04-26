@@ -1,6 +1,6 @@
 
 
-// represent matrix using array using Proxy
+// represent matrix as array using Proxy
 // todo: iterator can be added
 
 export const matrixAsArray = matrix => {
