@@ -9,7 +9,10 @@ export class ListNode {
   toArr() {
     const ret = [];
     let node = this;
+    const set = new Set();
     while (node) {
+      if (set.has(node)) throw Error('Cyclic reference detected');
+      set.add(node);
       ret.push(node.val);
       node = node.next;
     }

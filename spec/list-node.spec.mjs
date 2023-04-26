@@ -24,4 +24,10 @@ describe('ListNode', () => {
     const arr = [1, 2, 3, 4, 5];
     expect(ListNode.fromArr(arr).toArr()).toEqual(arr);
   });
+
+  it('cyclic reference', () => {
+    const node = ListNode.fromArr([1, 2]);
+    node.next.next = node;
+    expect(() => node.toArr()).toThrow(new Error('Cyclic reference detected'));
+  });
 });
