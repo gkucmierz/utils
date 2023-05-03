@@ -1,5 +1,10 @@
 
-
+/**
+ * Copy the case of a string into another.
+ * @param {string} target String to change the case.
+ * @param {string} source Source of case pattern.
+ * @return {string} Converted string.
+ */
 export const copyCase = (word, from) => {
   const isLower = w => w.toLowerCase() === w;
   const isUpper = w => w.toUpperCase() === w;
