@@ -2,6 +2,7 @@
 import {
   binarySearchArr,
   binarySearchLE,
+  binarySearchGE,
 } from '../src/binary-search.mjs';
 
 describe('binarySearchArr', () => {
@@ -40,5 +41,33 @@ describe('binarySearchLE', () => {
     expect(binarySearchLE(arr, 1)).toBe(0);
     expect(binarySearchLE(arr, 2)).toBe(2);
     expect(binarySearchLE(arr, 100)).toBe(2);
+  });
+});
+
+describe('binarySearchGE', () => {
+  it('mid group', () => {
+    const arr = [0,1,2,2,3];
+    expect(binarySearchGE(arr, -100)).toBe(0);
+    expect(binarySearchGE(arr, 0)).toBe(0);
+    expect(binarySearchGE(arr, 1)).toBe(1);
+    expect(binarySearchGE(arr, 2)).toBe(2);
+    expect(binarySearchGE(arr, 3)).toBe(4);
+    expect(binarySearchGE(arr, 100)).toBe(5);
+  });
+
+  it('begin group', () => {
+    const arr = [2,2,3];
+    expect(binarySearchGE(arr, -100)).toBe(0);
+    expect(binarySearchGE(arr, 2)).toBe(0);
+    expect(binarySearchGE(arr, 3)).toBe(2);
+    expect(binarySearchGE(arr, 100)).toBe(3);
+  });
+
+  it('end group', () => {
+    const arr = [1,2,2];
+    expect(binarySearchGE(arr, -100)).toBe(0);
+    expect(binarySearchGE(arr, 1)).toBe(0);
+    expect(binarySearchGE(arr, 2)).toBe(1);
+    expect(binarySearchGE(arr, 100)).toBe(3);
   });
 });
