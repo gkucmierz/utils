@@ -55,3 +55,11 @@ export const binarySearchGE = (arr, target) => {
   }
   return 0;
 };
+
+// binary search for range of elements in array inclusive
+export const binarySearchRangeIncl = (arr, target) => {
+  return [
+    binarySearchGE(arr, target),
+    binarySearchLE(arr, target),
+  ];
+};

@@ -3,6 +3,7 @@ import {
   binarySearchArr,
   binarySearchLE,
   binarySearchGE,
+  binarySearchRangeIncl,
 } from '../src/binary-search.mjs';
 
 describe('binarySearchArr', () => {
@@ -71,3 +72,20 @@ describe('binarySearchGE', () => {
     expect(binarySearchGE(arr, 100)).toBe(3);
   });
 });
+
+describe('binarySearchRangeIncl', () => {
+  it('basic', () => {
+    const arr = [0,1,1,3];
+    const check = [-10, ...arr, 10];
+    const expected = [
+      [0, -1],
+      [0, 0], [1, 2], [1, 2], [3, 3],
+      [4, 3],
+    ];
+
+    for (let i = 0; i < check.length; ++i) {
+      expect(binarySearchRangeIncl(arr, check[i])).toEqual(expected[i]);
+    }
+  });
+});
+
