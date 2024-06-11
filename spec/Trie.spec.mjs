@@ -33,4 +33,37 @@ describe('Trie', () => {
     expect(trie.get('aa')).toEqual([]);
     expect(trie.get('')).toEqual(['', 'abc', 'abcdef', 'xyz']);
   });
+
+  it('remove node', () => {
+    const trie = Trie(['a', 'ab', 'abc']);
+    
+    expect(trie.has('abc')).toEqual(true);
+    expect(trie.remove('abc')).toEqual(true);
+    expect(trie.remove('abc')).toEqual(false);
+    expect(trie.has('abc')).toEqual(false);
+
+    expect(trie.has('ab')).toEqual(true);
+    expect(trie.remove('ab')).toEqual(true);
+    expect(trie.remove('ab')).toEqual(false);
+    expect(trie.has('ab')).toEqual(false);
+
+    expect(trie.has('a')).toEqual(true);
+    expect(trie.remove('a')).toEqual(true);
+    expect(trie.remove('a')).toEqual(false);
+    expect(trie.has('a')).toEqual(false);
+  });
+
+  it('keep child node after parent removal', () => {
+    const trie = Trie(['a', 'abc']);
+
+    expect(trie.has('a')).toEqual(true);
+    expect(trie.remove('a')).toEqual(true);
+    expect(trie.remove('a')).toEqual(false);
+    expect(trie.has('a')).toEqual(false);
+
+    expect(trie.has('abc')).toEqual(true);
+    expect(trie.remove('abc')).toEqual(true);
+    expect(trie.remove('abc')).toEqual(false);
+    expect(trie.has('abc')).toEqual(false);
+  })
 });
