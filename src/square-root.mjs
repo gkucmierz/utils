@@ -1,8 +1,17 @@
 
 
+/**
+ * Native square root
+ * @param {Number} js double number
+ * @return {Number} result
+ */
 export const squareRoot = n => n ** 0.5;
 
-// Newrton's formula
+/**
+ * Calculate square root using Newton's formula
+ * @param {BigInt} big integer number
+ * @return {BigInt} result
+ */
 export const squareRootBI = n => {
   if (n === 0n) return 0n;
   if (n < 4n) return 1n;
