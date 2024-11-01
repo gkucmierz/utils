@@ -1,5 +1,10 @@
 
-
+/**
+ * Prime factorization
+ * @function
+ * @param {Number} number
+ * @return {Number} result
+ */
 export const factors = n => {
   if (n < 2) return [];
   const res = [];
@@ -16,6 +21,12 @@ export const factors = n => {
   return res;
 };
 
+/**
+ * Prime factorization (BigInt version)
+ * @function
+ * @param {BigInt} number
+ * @return {BigInt} result
+ */
 export const factorsBI = n => {
   if (n < 2n) return [];
   const res = [];
