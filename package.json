@@ -7,7 +7,9 @@
     "test": "jasmine",
     "watch": "nodemon --exec 'npm test'",
     "main": "node scripts/generate_main.mjs",
-    "docs": "jsdoc -c jsdoc.json"
+    "docs": "npm run docs:build; npm run docs:open",
+    "docs:build": "jsdoc -c jsdoc.json --readme README.md",
+    "docs:open": "open docs/index.html"
   },
   "repository": {
     "type": "git",
