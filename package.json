@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jasmine",
     "watch": "nodemon --exec 'npm test'",
-    "main": "node scripts/generate_main.mjs"
+    "main": "node scripts/generate_main.mjs",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -15,8 +16,10 @@
   "author": "Grzegorz Kućmierz",
   "license": "MIT",
   "devDependencies": {
+    "docdash": "^2.0.2",
+    "husky": "^8.0.1",
     "jasmine": "^4.4.0",
-    "nodemon": "^2.0.20",
-    "husky": "^8.0.1"
+    "jsdoc": "^4.0.4",
+    "nodemon": "^2.0.20"
   }
 }
