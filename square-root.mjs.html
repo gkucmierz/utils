@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>copy-case.mjs - Documentation</title>
+    <title>square-root.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">copy-case.mjs</h1>
+    <h1 class="page-title">square-root.mjs</h1>
     
 
     
@@ -46,21 +46,36 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>
+
 /**
- * Copy the case of a string into another.
- * @param {string} target String to change the case.
- * @param {string} source Source of case pattern.
- * @return {string} Converted string.
+ * Native square root
+ * @param {Number} js double number
+ * @return {Number} result
  */
-export const copyCase = (word, from) => {
-  const isLower = w => w.toLowerCase() === w;
-  const isUpper = w => w.toUpperCase() === w;
-  if (isLower(from)) return word.toLowerCase();
-  if (isUpper(from)) return word.toUpperCase();
-  if (isUpper(from[0]) &amp;&amp; isLower(from.slice(1))) {
-    return word[0].toUpperCase() + word.slice(1).toLowerCase();
+export const squareRoot = n => n ** 0.5;
+
+/**
+ * Calculate square root using Newton's formula
+ * @param {BigInt} big integer number
+ * @return {BigInt} result
+ */
+export const squareRootBI = n => {
+  if (n === 0n) return 0n;
+  if (n &lt; 4n) return 1n;
+  if (n &lt; 9n) return 2n;
+  if (n &lt; 16n) return 3n;
+  let res = BigInt(n.toString().substr(0, n.toString().length / 2));
+  let last;
+  while (true) {
+    last = res;
+    res = (res + n / res) / 2n;
+    const p = res * res;
+    if (p === n) return res;
+    if (last === res) return res;
+    const next = p + res * 2n - 1n;
+    if (n > next) return res;
   }
-  return word;
+  return res;
 };
 </code></pre>
         </article>
