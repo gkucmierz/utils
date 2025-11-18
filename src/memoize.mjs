@@ -1,4 +1,11 @@
 
+/**
+ * Memoize function, that builds tree structure for arguments
+ * and compares arguments by reference
+ * @method
+ * @param {Function} Function to memoize
+ * @return {Function} Memoized function
+ */
 export const memoize = fn => {
   const maps = [];
 
