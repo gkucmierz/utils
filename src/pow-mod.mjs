@@ -18,6 +18,22 @@ const getPowMod = (ZERO, ONE, TWO, floor) => {
   };
 };
 
+/**
+ * Power like python implementation with optional modulus
+ * @method
+ * @param {Number} Base
+ * @param {Number} Exponent
+ * @param [Number] Modulus
+ * @return {Number} Power
+ */
 export const powMod = getPowMod(0, 1, 2, n => Math.floor(n));
 
+/**
+ * Power like python implementation with optional modulus
+ * @method
+ * @param {BigInt} Base
+ * @param {BigInt} Exponent
+ * @param [BigInt] Modulus
+ * @return {BigInt} Power
+ */
 export const powModBI = getPowMod(0n, 1n, 2n, n => n);
