@@ -1,6 +1,7 @@
 
 /**
  * Copy the case of a string into another.
+ * @method
  * @param {string} target String to change the case.
  * @param {string} source Source of case pattern.
  * @return {string} Converted string.
