@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>square-root.mjs - Documentation</title>
+    <title>pow-mod.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">square-root.mjs</h1>
+    <h1 class="page-title">pow-mod.mjs</h1>
     
 
     
@@ -46,39 +46,44 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>
+// implementation of power function with modulus like native python pow
 
-/**
- * Native square root
- * @function
- * @param {Number} number - js double number
- * @return {Number} result
- */
-export const squareRoot = n => n ** 0.5;
-
-/**
- * Calculate square root using Newton's formula
- * @function
- * @param {BigInt} number - big integer number
- * @return {BigInt} result
- */
-export const squareRootBI = n => {
-  if (n === 0n) return 0n;
-  if (n &lt; 4n) return 1n;
-  if (n &lt; 9n) return 2n;
-  if (n &lt; 16n) return 3n;
-  let res = BigInt(n.toString().substr(0, n.toString().length / 2));
-  let last;
-  while (true) {
-    last = res;
-    res = (res + n / res) / 2n;
-    const p = res * res;
-    if (p === n) return res;
-    if (last === res) return res;
-    const next = p + res * 2n - 1n;
-    if (n > next) return res;
-  }
-  return res;
+const getPowMod = (ZERO, ONE, TWO, floor) => {
+  return (base, exponent, modulus = null) => {
+    if (modulus === null) return base ** exponent;
+    if (modulus === ONE) return ZERO;
+    let result = ONE;
+    base = base % modulus;
+    while (exponent > ZERO) {
+      if (exponent % TWO === ONE) {
+        result = (result * base) % modulus;
+      }
+      exponent = floor(exponent / TWO);
+      base = (base * base) % modulus;
+    }
+    return result;
+  };
 };
+
+/**
+ * Power like python implementation with optional modulus
+ * @method
+ * @param {Number} Base
+ * @param {Number} Exponent
+ * @param [Number] Modulus
+ * @return {Number} Power
+ */
+export const powMod = getPowMod(0, 1, 2, n => Math.floor(n));
+
+/**
+ * Power like python implementation with optional modulus
+ * @method
+ * @param {BigInt} Base
+ * @param {BigInt} Exponent
+ * @param [BigInt] Modulus
+ * @return {BigInt} Power
+ */
+export const powModBI = getPowMod(0n, 1n, 2n, n => n);
 </code></pre>
         </article>
     </section>

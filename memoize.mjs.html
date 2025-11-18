@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>square-root.mjs - Documentation</title>
+    <title>memoize.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">square-root.mjs</h1>
+    <h1 class="page-title">memoize.mjs</h1>
     
 
     
@@ -46,38 +46,49 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>
-
 /**
- * Native square root
- * @function
- * @param {Number} number - js double number
- * @return {Number} result
+ * Memoize function, that builds tree structure for arguments
+ * and compares arguments by reference
+ * @method
+ * @param {Function} Function to memoize
+ * @return {Function} Memoized function
  */
-export const squareRoot = n => n ** 0.5;
+export const memoize = fn => {
+  const maps = [];
 
-/**
- * Calculate square root using Newton's formula
- * @function
- * @param {BigInt} number - big integer number
- * @return {BigInt} result
- */
-export const squareRootBI = n => {
-  if (n === 0n) return 0n;
-  if (n &lt; 4n) return 1n;
-  if (n &lt; 9n) return 2n;
-  if (n &lt; 16n) return 3n;
-  let res = BigInt(n.toString().substr(0, n.toString().length / 2));
-  let last;
-  while (true) {
-    last = res;
-    res = (res + n / res) / 2n;
-    const p = res * res;
-    if (p === n) return res;
-    if (last === res) return res;
-    const next = p + res * 2n - 1n;
-    if (n > next) return res;
-  }
-  return res;
+  const getLeafMap = args => {
+    if (!maps[args.length]) maps[args.length] = new Map();
+    const map = maps[args.length];
+
+    const leaf = args.reduce((map, arg) => {
+      if (map.has(arg)) return map.get(arg);
+      const tmp = new Map();
+      map.set(arg, tmp);
+      return tmp;
+    }, map);
+
+    return leaf;
+  };
+
+  const zero = {
+    called: false,
+    ret: null,
+  };
+  
+  return function() {
+    const args = [...arguments];
+    if (args.length === 0) {
+      if (zero.called) return zero.ret;
+      zero.called = true;
+      return zero.ret = fn();
+    }
+    const [firstArg, ...restArgs] = args;
+    const map = getLeafMap(restArgs);
+    if (map.has(firstArg)) return map.get(firstArg);
+    const ret = fn(...args);
+    map.set(firstArg, ret);
+    return ret;
+  };
 };
 </code></pre>
         </article>
