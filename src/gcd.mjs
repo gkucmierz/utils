@@ -15,5 +15,16 @@ const getGCD = ZERO => {
   };
 };
 
+/**
+ * Calculate GCD - Greatest Common Divisor
+ * @param {Number} Natural number
+ * @return {Number} GCD
+ */
 export const gcd = getGCD(0);
+
+/**
+ * Calculate GCD - Greatest Common Divisor (BigInt version)
+ * @param {BigInt} Natural BigInt number
+ * @return {BigInt} GCD
+ */
 export const gcdBI = getGCD(0n);
