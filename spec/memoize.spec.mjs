@@ -28,5 +28,19 @@ describe('memoize', () => {
     expect(fn(1, 2)).toBe(2);
     expect(fn(1, 2, 3)).toBe(3);
   });
+
+  it('different empty object arrays', () => {
+    let cnt = 0;
+    const fn = memoize(() => ++cnt);
+    const emptyArr = [];
+    fn(emptyArr);
+    expect(cnt).toBe(1);
+    fn(emptyArr);
+    expect(cnt).toBe(1);
+    fn([]);
+    expect(cnt).toBe(2);
+    fn([]);
+    expect(cnt).toBe(3);
+  });
 });
 
