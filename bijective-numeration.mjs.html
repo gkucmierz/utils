@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>bijective-numeration.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,39 +35,97 @@
 
 <div id="main">
     
+    <h1 class="page-title">bijective-numeration.mjs</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * Converts a number to a bijective base-k string.
+ * @param {number} num - The number to convert.
+ * @param {string} [alpha='12'] - The alphabet to use for the conversion.
+ * @returns {string} The bijective base-k string representation.
+ */
+export const num2bijective = (num, alpha = '12') => {
+  const len = alpha.length;
+  let c = 0;
+  let x = 1;
+  while (num >= x) {
+    c++;
+    num -= x;
+    x *= len;
+  }
+  const res = [];
+  for (let i = 0; i &lt; c; i++) {
+    const rem = num % len;
+    res.unshift(alpha.charAt(num % len));
+    num = (num - rem) / len;
+  }
+  return res.join('');
+};
 
+/**
+ * Converts a bijective base-k string to a number.
+ * @param {string} str - The bijective base-k string to convert.
+ * @param {string} [alpha='12'] - The alphabet used for the conversion.
+ * @returns {number} The numeric value of the string.
+ */
+export const bijective2num = (str, alpha = '12') => {
+  const map = new Map([...alpha].map((c, i) => [c, i]));
+  let res = 0;
+  const len = alpha.length;
+  return [...str].reduce((res, c) => {
+    return res * len + map.get(c) + 1;
+  }, 0);
+};
 
-    <section class="package">
-        <h3> </h3>		
-    </section>
+/**
+ * Converts a BigInt to a bijective base-k string.
+ * @param {bigint} num - The BigInt to convert.
+ * @param {string} [alpha='12'] - The alphabet to use for the conversion.
+ * @returns {string} The bijective base-k string representation.
+ */
+export const num2bijectiveBI = (num, alpha = '12') => {
+  const len = BigInt(alpha.length);
+  let c = 0n;
+  let x = 1n;
+  while (num >= x) {
+    c++;
+    num -= x;
+    x *= len;
+  }
+  const res = [];
+  for (let i = 0n; i &lt; c; i++) {
+    const rem = num % len;
+    res.unshift(alpha.charAt(Number(num % len)));
+    num = (num - rem) / len;
+  }
+  return res.join('');
+};
 
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h3>Install</h3>
-<pre class="prettyprint source lang-bash"><code>npm i @gkucmierz/utils
+/**
+ * Converts a bijective base-k string to a BigInt.
+ * @param {string} str - The bijective base-k string to convert.
+ * @param {string} [alpha='12'] - The alphabet used for the conversion.
+ * @returns {bigint} The BigInt value of the string.
+ */
+export const bijective2numBI = (str, alpha = '12') => {
+  const map = new Map([...alpha].map((c, i) => [c, BigInt(i)]));
+  let res = 0n;
+  const len = BigInt(alpha.length);
+  return [...str].reduce((res, c) => {
+    return res * len + map.get(c) + 1n;
+  }, 0n);
+};
 </code></pre>
-<h3>Docs</h3>
-<p><a href="https://gkucmierz.github.io/utils">https://gkucmierz.github.io/utils</a></p></article>
+        </article>
     </section>
-
-
 
 
 

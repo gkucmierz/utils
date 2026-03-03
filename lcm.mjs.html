@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>lcm.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,39 +35,46 @@
 
 <div id="main">
     
+    <h1 class="page-title">lcm.mjs</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+import {
+  gcd,
+  gcdBI,
+} from './gcd.mjs';
 
+// Least common multiple
 
-    <section class="package">
-        <h3> </h3>		
-    </section>
+const getLcm = gcd => {
+  return (a, b) => a * b / gcd(a, b);
+}
 
+/**
+ * Calculates the Least Common Multiple (LCM) of two numbers.
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} The LCM of a and b.
+ */
+export const lcm = getLcm(gcd);
 
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h3>Install</h3>
-<pre class="prettyprint source lang-bash"><code>npm i @gkucmierz/utils
+/**
+ * Calculates the Least Common Multiple (LCM) of two BigInts.
+ * @param {bigint} a - The first BigInt.
+ * @param {bigint} b - The second BigInt.
+ * @returns {bigint} The LCM of a and b.
+ */
+export const lcmBI = getLcm(gcdBI);
 </code></pre>
-<h3>Docs</h3>
-<p><a href="https://gkucmierz.github.io/utils">https://gkucmierz.github.io/utils</a></p></article>
+        </article>
     </section>
-
-
 
 
 

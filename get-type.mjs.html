@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>get-type.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,39 +35,30 @@
 
 <div id="main">
     
+    <h1 class="page-title">get-type.mjs</h1>
+    
 
     
 
 
 
     
-
-
-    <section class="package">
-        <h3> </h3>		
-    </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h3>Install</h3>
-<pre class="prettyprint source lang-bash"><code>npm i @gkucmierz/utils
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * Returns the type of the value as a lowercase string.
+ * More specific than the typeof operator (e.g., distinguishes 'array', 'null', 'date').
+ * @param {*} val - The value to check.
+ * @returns {string} The type of the value.
+ */
+export const getType = val => {
+  const str = Object.prototype.toString.call(val);
+  return str.slice(8, -1).toLowerCase();
+};
 </code></pre>
-<h3>Docs</h3>
-<p><a href="https://gkucmierz.github.io/utils">https://gkucmierz.github.io/utils</a></p></article>
+        </article>
     </section>
-
-
 
 
 

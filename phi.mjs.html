@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>phi.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,39 +35,70 @@
 
 <div id="main">
     
+    <h1 class="page-title">phi.mjs</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+import {
+  gcd,
+  gcdBI,
+} from './gcd.mjs';
 
+import {
+  factors,
+  factorsBI,
+} from './factors.mjs';
 
-    <section class="package">
-        <h3> </h3>		
-    </section>
+// Euler's Totient Function
 
+const getPhi = (ONE, TWO, gcd) => {
+  return n => {
+    let result = ONE;
+    for (let i = TWO; i &lt; n; ++i) {
+      if (gcd(i, n) === ONE) {
+        result++;
+      }
+    }
+    return result;
+  };
+}
 
+// Eulers formula
 
+const getPhiEuler = factors => {
+  return n => {
+    return [...new Set(factors(n))].reduce((res, f) => res - res / f, n);
+  };
+};
 
+/**
+ * Euler's Totient Function (Phi).
+ * Counts the positive integers less than or equal to n that are relatively prime to n.
+ * Uses Euler's product formula based on prime factorization.
+ * @param {number} n - The number to calculate phi for.
+ * @returns {number} The value of phi(n).
+ */
+export const phi = getPhiEuler(factors);
 
+/**
+ * Euler's Totient Function (Phi) - BigInt version.
+ * @param {bigint} n - The BigInt to calculate phi for.
+ * @returns {bigint} The value of phi(n).
+ */
+export const phiBI = getPhiEuler(factorsBI);
 
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h3>Install</h3>
-<pre class="prettyprint source lang-bash"><code>npm i @gkucmierz/utils
+// export const phi = getPhi(1, 2, gcd);
+// export const phiBI = getPhi(1n, 2n, gcdBI);
 </code></pre>
-<h3>Docs</h3>
-<p><a href="https://gkucmierz.github.io/utils">https://gkucmierz.github.io/utils</a></p></article>
+        </article>
     </section>
-
-
 
 
 

@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>base64.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,39 +35,76 @@
 
 <div id="main">
     
+    <h1 class="page-title">base64.mjs</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * Encodes a string to Base64.
+ * Handles Unicode characters correctly.
+ * @param {string} string - The string to encode.
+ * @returns {string} The Base64 encoded string.
+ */
+export const toBase64 = string => {
+  const codeUnits = new Uint16Array(string.length);
+  for (let i = 0; i &lt; codeUnits.length; i++) {
+    codeUnits[i] = string.charCodeAt(i);
+  }
+  return btoa(String.fromCharCode(...new Uint8Array(codeUnits.buffer)));
+};
 
+/**
+ * Decodes a Base64 string.
+ * Handles Unicode characters correctly.
+ * @param {string} encoded - The Base64 encoded string.
+ * @returns {string} The decoded string.
+ */
+export const fromBase64 = encoded => {
+  const binary = atob(encoded);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i &lt; bytes.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return String.fromCharCode(...new Uint16Array(bytes.buffer));
+};
 
-    <section class="package">
-        <h3> </h3>		
-    </section>
+const toUrl = {
+  '+': '-',
+  '/': '_',
+};
+/**
+ * Encodes a string to Base64Url format.
+ * Replaces '+' with '-' and '/' with '_'.
+ * @param {string} string - The string to encode.
+ * @returns {string} The Base64Url encoded string.
+ */
+export const toBase64Url = string => {
+  return toBase64(string).replace(/[\+\/]/g, c => toUrl[c]);
+};
 
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h3>Install</h3>
-<pre class="prettyprint source lang-bash"><code>npm i @gkucmierz/utils
+const fromUrl = {
+  '-': '+',
+  '_': '/',
+};
+/**
+ * Decodes a Base64Url string.
+ * Replaces '-' with '+' and '_' with '/'.
+ * @param {string} encoded - The Base64Url encoded string.
+ * @returns {string} The decoded string.
+ */
+export const fromBase64Url = encoded => {
+  return fromBase64(encoded.replace(/[\-\_]/g, c => fromUrl[c]));
+};
 </code></pre>
-<h3>Docs</h3>
-<p><a href="https://gkucmierz.github.io/utils">https://gkucmierz.github.io/utils</a></p></article>
+        </article>
     </section>
-
-
 
 
 

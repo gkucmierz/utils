@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>tonelli-shanks.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,39 +35,68 @@
 
 <div id="main">
     
+    <h1 class="page-title">tonelli-shanks.mjs</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+import {
+  powModBI,
+} from './pow-mod.mjs';
 
-
-    <section class="package">
-        <h3> </h3>		
-    </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h3>Install</h3>
-<pre class="prettyprint source lang-bash"><code>npm i @gkucmierz/utils
+/**
+ * Computes the modular square root of n modulo p using the Tonelli-Shanks algorithm.
+ * Solves the congruence r^2 = n (mod p) where p is an odd prime.
+ * @param {bigint} n - The number to find the square root of.
+ * @param {bigint} p - The modulus (must be an odd prime).
+ * @returns {bigint} The square root r such that r^2 = n (mod p), or 0n if no solution exists.
+ */
+export const tonelliShanksBI = (n, p) => {
+  let s = 0n;
+  let q = p - 1n;
+  while ((q &amp; 1n) === 0n) {
+    q /= 2n;
+    ++s;
+  }
+  if (s === 1n) {
+    const r = powModBI(n, (p+1n) / 4n, p);
+    if ((r * r) % p === n) return r;
+    return 0n;
+  }
+  // Find the first quadratic non-residue z by brute-force search
+  let z = 1n;
+  while (powModBI(++z, (p-1n)/2n, p) !== p - 1n);
+  let c = powModBI(z, q, p);
+  let r = powModBI(n, (q+1n)/2n, p);
+  let t = powModBI(n, q, p);
+  let m = s;
+  while (t !== 1n) {
+    let tt = t;
+    let i = 0n;
+    while (tt !== 1n) {
+      tt = (tt * tt) % p;
+      ++i;
+      if (i === m) return 0n;
+    }
+    let b = powModBI(c, powModBI(2n, m-i-1n, p-1n), p);
+    let b2 = (b * b) % p;
+    r = (r * b) % p;
+    t = (t * b2) % p;
+    c = b2;
+    m = i;
+  }
+  if ((r * r) % p === n) return r;
+  return 0n;
+};
 </code></pre>
-<h3>Docs</h3>
-<p><a href="https://gkucmierz.github.io/utils">https://gkucmierz.github.io/utils</a></p></article>
+        </article>
     </section>
-
-
 
 
 

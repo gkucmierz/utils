@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>range-array.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,39 +35,58 @@
 
 <div id="main">
     
+    <h1 class="page-title">range-array.mjs</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+// https://www.codewars.com/kata/57d83dfc950d842dcb00005b/train/javascript
 
+/**
+ * Converts a list of ranges into a flat array of numbers.
+ * @param {Array&lt;Array&lt;number>>} ranges - An array of ranges, where each range is [min, max] or [min].
+ * @returns {Array&lt;number>} An array containing all numbers in the specified ranges.
+ */
+export const range2array = ranges => {
+  return ranges.reduce((arr, range) => {
+    const min = range[0];
+    const max = range[1] ?? min;
+    return arr.push(
+      ...new Array(max - min + 1).fill(0).map((n ,i) => min + i)
+    ), arr;
+  }, []);
+};
 
-    <section class="package">
-        <h3> </h3>		
-    </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h3>Install</h3>
-<pre class="prettyprint source lang-bash"><code>npm i @gkucmierz/utils
+/**
+ * Converts a sorted array of numbers into a list of ranges.
+ * Consecutive numbers are grouped into a single range [min, max].
+ * Isolated numbers are represented as [num, num].
+ * @param {Array&lt;number>} arr - The sorted array of numbers.
+ * @returns {Array&lt;Array&lt;number>>} An array of ranges.
+ */
+export const array2range = arr => {
+  const ranges = [];
+  let last = arr[0];
+  let begin = last;
+  for (let i = 1; i &lt;= arr.length; ++i) {
+    const n = arr[i];
+    if (n !== last + 1) {
+      ranges.push([begin, last]);
+      begin = n;
+    }
+    last = n;
+  }
+  return ranges;
+};
 </code></pre>
-<h3>Docs</h3>
-<p><a href="https://gkucmierz.github.io/utils">https://gkucmierz.github.io/utils</a></p></article>
+        </article>
     </section>
-
-
 
 
 

@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>egcd.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,39 +35,38 @@
 
 <div id="main">
     
+    <h1 class="page-title">egcd.mjs</h1>
+    
 
     
 
 
 
     
-
-
-    <section class="package">
-        <h3> </h3>		
-    </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h3>Install</h3>
-<pre class="prettyprint source lang-bash"><code>npm i @gkucmierz/utils
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * Extended Euclidean Algorithm.
+ * Computes the greatest common divisor (GCD) of a and b,
+ * and the coefficients of Bézout's identity.
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number[]} An array [gcd, x, y] such that ax + by = gcd.
+ */
+export const egcd = (a, b) => {
+  let [x, y] = [0, 1];
+  let [u, v] = [1, 0];
+  while (a !== 0) {
+    const [q, r] = [b/a | 0, b%a];
+    const [m, n] = [x - u * q, y - v * q];
+    [b, a, x, y, u, v] = [a, r, u, v, m, n];
+  }
+  return [b, x, y];
+};
 </code></pre>
-<h3>Docs</h3>
-<p><a href="https://gkucmierz.github.io/utils">https://gkucmierz.github.io/utils</a></p></article>
+        </article>
     </section>
-
-
 
 
 
