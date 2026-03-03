@@ -1,10 +1,21 @@
 
-// stric = true - remove removes whole unused data structure
-// stric = false - quick remove (data structure can grow fast)
+/**
+ * Creates a Trie (prefix tree) data structure.
+ * @param {string[]} [words=[]] - Initial words to add to the Trie.
+ * @param {boolean} [strict=true] - If true, removing a word cleans up unused nodes.
+ *                                  If false, removal is faster but may leave unused nodes.
+ * @returns {object} The Trie instance with methods.
+ */
 export const Trie = (words = [], strict = true) => {
   const HAS = 0;
   const MAP = 1;
   const data = [false, new Map()];
+  
+  /**
+   * Adds a word to the Trie.
+   * @param {string} word - The word to add.
+   * @returns {boolean} True if the word was added (didn't exist before), false otherwise.
+   */
   const add = word => {
     let node = data;
     for (let i = 0; i < word.length; ++i) {
@@ -34,6 +45,12 @@ export const Trie = (words = [], strict = true) => {
   const findNode = word => {
     return listNodes(word).at(-1);
   };
+  
+  /**
+   * Removes a word from the Trie.
+   * @param {string} word - The word to remove.
+   * @returns {boolean} True if the word was removed, false if it didn't exist.
+   */
   const remove = word => {
     const nodes = listNodes(word);
     const rev = nodes.reverse();
@@ -58,7 +75,19 @@ export const Trie = (words = [], strict = true) => {
     }
     return removed;
   };
+  
+  /**
+   * Checks if a word exists in the Trie.
+   * @param {string} word - The word to check.
+   * @returns {boolean} True if the word exists, false otherwise.
+   */
   const has = word => findNode(word)[HAS];
+  
+  /**
+   * Returns all words in the Trie that start with the given prefix.
+   * @param {string} begin - The prefix to search for.
+   * @returns {string[]} An array of words starting with the prefix.
+   */
   const get = begin => {
     const res = [];
     const loop = (node, str = '') => {
@@ -73,6 +102,10 @@ export const Trie = (words = [], strict = true) => {
   words.map(word => add(word));
   return {
     add, has, get, remove,
+    /**
+     * Returns the internal data structure of the Trie.
+     * @returns {Array} The root node of the Trie.
+     */
     getData: () => data,
   };
 };

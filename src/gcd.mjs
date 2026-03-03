@@ -16,17 +16,17 @@ const getGCD = ZERO => {
 };
 
 /**
- * Calculate GCD - Greatest Common Divisor
- * @method
- * @param {Number} Natural number
- * @return {Number} GCD
+ * Calculates the Greatest Common Divisor (GCD) of two numbers.
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} The GCD of a and b.
  */
 export const gcd = getGCD(0);
 
 /**
- * Calculate GCD - Greatest Common Divisor (BigInt version)
- * @method
- * @param {BigInt} Natural BigInt number
- * @return {BigInt} GCD
+ * Calculates the Greatest Common Divisor (GCD) of two BigInts.
+ * @param {bigint} a - The first BigInt.
+ * @param {bigint} b - The second BigInt.
+ * @returns {bigint} The GCD of a and b.
  */
 export const gcdBI = getGCD(0n);

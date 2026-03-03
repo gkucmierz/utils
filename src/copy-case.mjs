@@ -1,10 +1,10 @@
 
 /**
- * Copy the case of a string into another.
- * @method
- * @param {string} target String to change the case.
- * @param {string} source Source of case pattern.
- * @return {string} Converted string.
+ * Copies the case pattern from one string to another.
+ * Handles lower case, upper case, and capitalized strings.
+ * @param {string} word - The string to change the case of.
+ * @param {string} from - The source string providing the case pattern.
+ * @returns {string} The converted string.
  */
 export const copyCase = (word, from) => {
   const isLower = w => w.toLowerCase() === w;

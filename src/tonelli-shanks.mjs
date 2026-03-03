@@ -3,8 +3,13 @@ import {
   powModBI,
 } from './pow-mod.mjs';
 
-/* Takes as input an odd prime p and n < p and returns r
- * such that r * r = n [mod p]. */
+/**
+ * Computes the modular square root of n modulo p using the Tonelli-Shanks algorithm.
+ * Solves the congruence r^2 = n (mod p) where p is an odd prime.
+ * @param {bigint} n - The number to find the square root of.
+ * @param {bigint} p - The modulus (must be an odd prime).
+ * @returns {bigint} The square root r such that r^2 = n (mod p), or 0n if no solution exists.
+ */
 export const tonelliShanksBI = (n, p) => {
   let s = 0n;
   let q = p - 1n;

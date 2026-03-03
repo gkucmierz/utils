@@ -1,6 +1,10 @@
 
-// binary search array exact element
-// in sorted array
+/**
+ * Performs a binary search for an exact element in a sorted array.
+ * @param {Array<number>} arr - The sorted array to search in.
+ * @param {number} target - The element to search for.
+ * @returns {number} The index of the element if found, otherwise -1.
+ */
 export const binarySearchArr = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
@@ -20,7 +24,12 @@ export const binarySearchArr = (arr, target) => {
   return -1;
 };
 
-// binary search array less or equal element
+/**
+ * Performs a binary search for the largest element less than or equal to the target.
+ * @param {Array<number>} arr - The sorted array to search in.
+ * @param {number} target - The target value.
+ * @returns {number} The index of the found element.
+ */
 export const binarySearchLE = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
@@ -38,7 +47,12 @@ export const binarySearchLE = (arr, target) => {
   return -1;
 };
 
-// binary search array greater or equal element
+/**
+ * Performs a binary search for the smallest element greater than or equal to the target.
+ * @param {Array<number>} arr - The sorted array to search in.
+ * @param {number} target - The target value.
+ * @returns {number} The index of the found element.
+ */
 export const binarySearchGE = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
@@ -56,7 +70,13 @@ export const binarySearchGE = (arr, target) => {
   return 0;
 };
 
-// binary search for range of elements in array inclusive
+/**
+ * Performs a binary search for a range of elements inclusive of the target.
+ * Uses binarySearchGE and binarySearchLE.
+ * @param {Array<number>} arr - The sorted array to search in.
+ * @param {number} target - The target value.
+ * @returns {Array<number>} An array containing the start and end indices of the range [start, end].
+ */
 export const binarySearchRangeIncl = (arr, target) => {
   return [
     binarySearchGE(arr, target),

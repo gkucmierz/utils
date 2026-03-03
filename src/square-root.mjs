@@ -1,18 +1,16 @@
 
 
 /**
- * Native square root
- * @function
- * @param {Number} number - js double number
- * @return {Number} result
+ * Calculates the square root of a number.
+ * @param {number} n - The number to calculate the square root of.
+ * @returns {number} The square root of n.
  */
 export const squareRoot = n => n ** 0.5;
 
 /**
- * Calculate square root using Newton's formula
- * @function
- * @param {BigInt} number - big integer number
- * @return {BigInt} result
+ * Calculates the integer square root of a BigInt using Newton's method.
+ * @param {bigint} n - The BigInt to calculate the square root of.
+ * @returns {bigint} The integer square root of n.
  */
 export const squareRootBI = n => {
   if (n === 0n) return 0n;

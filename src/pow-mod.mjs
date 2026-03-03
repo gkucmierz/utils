@@ -19,21 +19,21 @@ const getPowMod = (ZERO, ONE, TWO, floor) => {
 };
 
 /**
- * Power like python implementation with optional modulus
- * @method
- * @param {Number} Base
- * @param {Number} Exponent
- * @param [Number] Modulus
- * @return {Number} Power
+ * Calculates the power of a base to an exponent, optionally modulo a number.
+ * Similar to Python's pow(base, exponent, modulus).
+ * @param {number} base - The base number.
+ * @param {number} exponent - The exponent.
+ * @param {number} [modulus] - The optional modulus.
+ * @returns {number} The result of (base ** exponent) % modulus.
  */
 export const powMod = getPowMod(0, 1, 2, n => Math.floor(n));
 
 /**
- * Power like python implementation with optional modulus
- * @method
- * @param {BigInt} Base
- * @param {BigInt} Exponent
- * @param [BigInt] Modulus
- * @return {BigInt} Power
+ * Calculates the power of a base to an exponent, optionally modulo a BigInt.
+ * Similar to Python's pow(base, exponent, modulus).
+ * @param {bigint} base - The base BigInt.
+ * @param {bigint} exponent - The exponent BigInt.
+ * @param {bigint} [modulus] - The optional modulus BigInt.
+ * @returns {bigint} The result of (base ** exponent) % modulus.
  */
 export const powModBI = getPowMod(0n, 1n, 2n, n => n);

@@ -1,9 +1,8 @@
 
 /**
- * Prime factorization
- * @function
- * @param {Number} number
- * @return {Number} result
+ * Calculates the prime factorization of a number.
+ * @param {number} n - The number to factorize.
+ * @returns {number[]} An array of prime factors.
  */
 export const factors = n => {
   if (n < 2) return [];
@@ -22,10 +21,9 @@ export const factors = n => {
 };
 
 /**
- * Prime factorization (BigInt version)
- * @function
- * @param {BigInt} number
- * @return {BigInt} result
+ * Calculates the prime factorization of a BigInt.
+ * @param {bigint} n - The BigInt to factorize.
+ * @returns {bigint[]} An array of prime factors as BigInts.
  */
 export const factorsBI = n => {
   if (n < 2n) return [];

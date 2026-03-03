@@ -10,23 +10,17 @@ const getMod = ZERO => {
 };
 
 /**
- * Python like modulo implementation.
- * It behaves different than JavaScript %
- * with negative values
- * @method
- * @param {Number} Dividend
- * @param {Number} Divisor
- * @return {Number} Modulus
+ * Calculates the modulo of two numbers (Python-like behavior for negative numbers).
+ * @param {number} dividend - The dividend.
+ * @param {number} divisor - The divisor.
+ * @returns {number} The result of the modulo operation.
  */
 export const mod = getMod(0);
 
 /**
- * Python like modulo implementation.
- * It behaves different than JavaScript %
- * with negative values
- * @method
- * @param {BigInt} Dividend
- * @param {BigInt} Divisor
- * @return {BigInt} Modulus
+ * Calculates the modulo of two BigInts (Python-like behavior for negative numbers).
+ * @param {bigint} dividend - The dividend.
+ * @param {bigint} divisor - The divisor.
+ * @returns {bigint} The result of the modulo operation.
  */
 export const modBI = getMod(0n);
