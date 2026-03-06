@@ -20,12 +20,22 @@ const formatBigNumberBoth = (num, separator = '', wrapFn = _ => _) => {
 };
 
 /**
- * @type {typeof formatBigNumberBoth}
+ * Formats a BigNumber, Number or string representation of a number
+ * by separating thousands with a provided separator.
+ * @param {number|string|bigint} num - The number to format.
+ * @param {string} [separator=''] - The string to use as a thousand separator.
+ * @param {function(string): string} [wrapFn=_=>_] - Optional function to wrap each part of the number.
+ * @returns {string} The formatted number.
  */
 export const formatBigNumber = formatBigNumberBoth;
 
 /**
- * @type {typeof formatBigNumberBoth}
+ * Formats a BigNumber, Number or string representation of a number
+ * by separating thousands with a provided separator. (Alias for BigInt logic)
+ * @param {number|string|bigint} num - The number to format.
+ * @param {string} [separator=''] - The string to use as a thousand separator.
+ * @param {function(string): string} [wrapFn=_=>_] - Optional function to wrap each part of the number.
+ * @returns {string} The formatted number.
  */
 export const formatBigNumberBI = formatBigNumberBoth;
 
