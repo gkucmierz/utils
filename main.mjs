@@ -71,6 +71,9 @@ import {
 import {
   tonelliShanksBI
 } from './src/tonelli-shanks.mjs'
+import {
+  naturalSearch
+} from './src/natural-search.mjs'
 
 export * from './src/SetCnt.mjs';
 export * from './src/Trie.mjs';
@@ -96,7 +99,8 @@ export * from './src/pow-mod.mjs';
 export * from './src/range-array.mjs';
 export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
+export * from './src/natural-search.mjs';
 
 export default [
-  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, matrixAsArray, memoize, mod, modBI, phi, phiBI, powMod, powModBI, array2range, range2array, squareRoot, squareRootBI, tonelliShanksBI
+  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, matrixAsArray, memoize, mod, modBI, phi, phiBI, powMod, powModBI, array2range, range2array, squareRoot, squareRootBI, tonelliShanksBI, naturalSearch
 ];
