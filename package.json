@@ -1,6 +1,7 @@
 {
   "name": "@gkucmierz/utils",
   "version": "1.30.3",
+  "type": "module",
   "description": "Usefull functions for solving programming tasks",
   "keywords": [
     "utils",
@@ -35,10 +36,12 @@
   "scripts": {
     "test": "jasmine",
     "watch": "nodemon --exec 'npm test'",
-    "main": "node scripts/generate_main.mjs",
     "docs": "npm run docs:build; npm run docs:open",
+    "build:main": "node scripts/generate_main.mjs",
     "docs:build": "jsdoc -c jsdoc.json --readme README.md",
-    "docs:open": "open docs/index.html"
+    "docs:open": "open docs/index.html",
+    "lint": "eslint .",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -47,8 +50,11 @@
   "author": "Grzegorz Kućmierz",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "docdash": "^2.0.2",
-    "husky": "^8.0.1",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0",
+    "husky": "^8.0.3",
     "jasmine": "^4.4.0",
     "jsdoc": "^4.0.4",
     "nodemon": "^3.1.14"

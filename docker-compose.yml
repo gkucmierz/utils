@@ -1,0 +1,17 @@
+name: utils-docs
+
+services:
+  utils-docs:
+    container_name: utils-docs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "80"
+    restart: unless-stopped
+    networks:
+      - npm_public
+
+networks:
+  npm_public:
+    external: true

@@ -28,9 +28,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Setup Gitea Registry
-        run: |
-          npm config set @gkucmierz:registry https://gitea.7u.pl/api/packages/gkucmierz/npm/
-          npm config set //gitea.7u.pl/api/packages/gkucmierz/npm/:_authToken ${{ secrets.LOCAL_PACKAGE_REGISTRY }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://gitea.7u.pl/api/packages/gkucmierz/npm/'
 
       - name: Publish to Gitea Registry
         run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.LOCAL_PACKAGE_REGISTRY }}

@@ -57,6 +57,12 @@ import {
   mod, modBI
 } from './src/mod.mjs'
 import {
+  nelderMead
+} from './src/nelder-mead.mjs'
+import {
+  particleSwarmOptimization
+} from './src/particle-swarm.mjs'
+import {
   phi, phiBI
 } from './src/phi.mjs'
 import {
@@ -65,6 +71,9 @@ import {
 import {
   array2range, range2array
 } from './src/range-array.mjs'
+import {
+  simulatedAnnealing
+} from './src/simulated-annealing.mjs'
 import {
   squareRoot, squareRootBI
 } from './src/square-root.mjs'
@@ -94,13 +103,16 @@ export * from './src/list-node.mjs';
 export * from './src/matrix.mjs';
 export * from './src/memoize.mjs';
 export * from './src/mod.mjs';
+export * from './src/nelder-mead.mjs';
+export * from './src/particle-swarm.mjs';
 export * from './src/phi.mjs';
 export * from './src/pow-mod.mjs';
 export * from './src/range-array.mjs';
+export * from './src/simulated-annealing.mjs';
 export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
 export * from './src/natural-search.mjs';
 
 export default [
-  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, matrixAsArray, memoize, mod, modBI, phi, phiBI, powMod, powModBI, array2range, range2array, squareRoot, squareRootBI, tonelliShanksBI, naturalSearch
+  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, matrixAsArray, memoize, mod, modBI, nelderMead, particleSwarmOptimization, phi, phiBI, powMod, powModBI, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI, naturalSearch
 ];

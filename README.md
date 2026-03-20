@@ -1,5 +1,6 @@
 # @gkucmierz/utils
 
+[![Socket Badge](https://socket.dev/api/badge/npm/package/@gkucmierz/utils)](https://socket.dev/npm/package/@gkucmierz/utils)
 ![NPM Version](https://img.shields.io/npm/v/@gkucmierz/utils)
 ![License](https://img.shields.io/npm/l/@gkucmierz/utils)
 ![Downloads](https://img.shields.io/npm/dm/@gkucmierz/utils)

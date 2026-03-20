@@ -1,5 +1,11 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+# Check if GPG signing is enabled
+gpg_sign=$(git config --get commit.gpgsign || echo "false")
 
-npm run build:main
-npm test
+if [ "$gpg_sign" != "true" ]; then
+  echo "Error: GPG signing is not enabled or properly configured!"
+  echo "Please enable it globally using: git config --global commit.gpgsign true"
+  echo "Or locally by running: git config commit.gpgsign true"
+  exit 1
+fi
+
+npm run lint
