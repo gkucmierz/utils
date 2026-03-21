@@ -16,3 +16,14 @@ jobs:
         run: |
           docker compose down --remove-orphans || true
           docker compose up -d --build
+
+      - name: Setup Node for Gitea Packages
+        uses: actions/setup-node@v3
+        with:
+          registry-url: 'https://gitea.7u.pl/api/packages/gkucmierz/npm/'
+          scope: '@gkucmierz'
+
+      - name: Publish to Native Registry
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITEA_TOKEN }}

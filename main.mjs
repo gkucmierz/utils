@@ -48,6 +48,9 @@ import {
   ListNode
 } from './src/list-node.mjs'
 import {
+  axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball
+} from './src/math3d.mjs'
+import {
   matrixAsArray
 } from './src/matrix.mjs'
 import {
@@ -56,6 +59,9 @@ import {
 import {
   mod, modBI
 } from './src/mod.mjs'
+import {
+  naturalSearch
+} from './src/natural-search.mjs'
 import {
   nelderMead
 } from './src/nelder-mead.mjs'
@@ -80,9 +86,6 @@ import {
 import {
   tonelliShanksBI
 } from './src/tonelli-shanks.mjs'
-import {
-  naturalSearch
-} from './src/natural-search.mjs'
 
 export * from './src/SetCnt.mjs';
 export * from './src/Trie.mjs';
@@ -100,9 +103,11 @@ export * from './src/heap.mjs';
 export * from './src/herons-formula.mjs';
 export * from './src/lcm.mjs';
 export * from './src/list-node.mjs';
+export * from './src/math3d.mjs';
 export * from './src/matrix.mjs';
 export * from './src/memoize.mjs';
 export * from './src/mod.mjs';
+export * from './src/natural-search.mjs';
 export * from './src/nelder-mead.mjs';
 export * from './src/particle-swarm.mjs';
 export * from './src/phi.mjs';
@@ -111,8 +116,7 @@ export * from './src/range-array.mjs';
 export * from './src/simulated-annealing.mjs';
 export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
-export * from './src/natural-search.mjs';
 
 export default [
-  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, matrixAsArray, memoize, mod, modBI, nelderMead, particleSwarmOptimization, phi, phiBI, powMod, powModBI, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI, naturalSearch
+  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, naturalSearch, nelderMead, particleSwarmOptimization, phi, phiBI, powMod, powModBI, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI
 ];

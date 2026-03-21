@@ -1,7 +1,10 @@
 {
   "name": "@gkucmierz/utils",
-  "version": "1.30.3",
+  "version": "1.31.0",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://gitea.7u.pl/api/packages/gkucmierz/npm/"
+  },
   "description": "Usefull functions for solving programming tasks",
   "keywords": [
     "utils",
