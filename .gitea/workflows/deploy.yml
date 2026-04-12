@@ -1,9 +1,9 @@
-name: Deploy JSDoc to Production
+name: Deploy and Publish Packages (Gitea + NPM)
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 jobs:
   deploy:
@@ -12,18 +12,25 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Build and deploy with Docker Compose
-        run: |
-          docker compose down --remove-orphans || true
-          docker compose up -d --build
+      # -------------- PUBLISH DO NPMJS.ORG ----------------
+      - name: Setup Node for NPM Registry
+        uses: actions/setup-node@v3
+        with:
+          registry-url: 'https://registry.npmjs.org'
 
+      - name: Publish to Native Global Registry
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      # -------------- PUBLISH DO GITEA.7U.PL --------------
       - name: Setup Node for Gitea Packages
         uses: actions/setup-node@v3
         with:
           registry-url: 'https://gitea.7u.pl/api/packages/gkucmierz/npm/'
           scope: '@gkucmierz'
 
-      - name: Publish to Native Registry
+      - name: Publish to Internal Registry
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITEA_TOKEN }}
