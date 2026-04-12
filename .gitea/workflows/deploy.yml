@@ -12,6 +12,14 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build:main
+
+      - name: Run automated tests
+        run: npm test
+
       # -------------- PUBLISH DO NPMJS.ORG ----------------
       - name: Setup Node for NPM Registry
         uses: actions/setup-node@v3
