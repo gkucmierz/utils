@@ -1,111 +1,121 @@
-
 /**
  * Creates a Trie (prefix tree) data structure.
- * @param {string[]} [words=[]] - Initial words to add to the Trie.
- * @param {boolean} [strict=true] - If true, removing a word cleans up unused nodes.
- *                                  If false, removal is faster but may leave unused nodes.
- * @returns {object} The Trie instance with methods.
+ * Implemented as a proper ES6 Class to fix prototyping documentation and encapsulate nodes.
  */
-export const Trie = (words = [], strict = true) => {
-  const HAS = 0;
-  const MAP = 1;
-  const data = [false, new Map()];
+export class Trie {
+  static #HAS = 0;
+  static #MAP = 1;
+
+  #data = [false, new Map()];
+  #strict;
+
+  /**
+   * Initializes the Trie class object.
+   * @param {string[]} [words=[]] - Initial words to add to the Trie.
+   * @param {boolean} [strict=true] - If true, removing a word cleans up unused nodes.
+   *                                  If false, removal is faster but may leave unused nodes.
+   */
+  constructor(words = [], strict = true) {
+    this.#strict = strict;
+    words.forEach(word => this.add(word));
+  }
   
   /**
    * Adds a word to the Trie.
    * @param {string} word - The word to add.
    * @returns {boolean} True if the word was added (didn't exist before), false otherwise.
    */
-  const add = word => {
-    let node = data;
+  add(word) {
+    let node = this.#data;
     for (let i = 0; i < word.length; ++i) {
       const char = word[i];
-      if (!node[MAP]) node[MAP] = new Map();
-      const child = node[MAP].get(char) ?? [false];
-      node[MAP].set(char, child);
+      if (!node[Trie.#MAP]) node[Trie.#MAP] = new Map();
+      const child = node[Trie.#MAP].get(char) ?? [false];
+      node[Trie.#MAP].set(char, child);
       node = child;
     }
-    if (node[HAS]) return false;
-    node[HAS] = true;
+    if (node[Trie.#HAS]) return false;
+    node[Trie.#HAS] = true;
     return true;
-  };
-  const listNodes = word => {
-    const nodes = [data];
+  }
+
+  #listNodes(word) {
+    const nodes = [this.#data];
     for (let i = 0; i < word.length; ++i) {
       const node = nodes.at(-1);
       const char = word[i];
-      if (!node[MAP]?.has(char)) {
+      if (!node[Trie.#MAP]?.has(char)) {
         nodes.push([false]);
         break;
       }
-      nodes.push(node[MAP].get(char));
+      nodes.push(node[Trie.#MAP].get(char));
     }
     return nodes;
-  };
-  const findNode = word => {
-    return listNodes(word).at(-1);
-  };
+  }
+
+  #findNode(word) {
+    return this.#listNodes(word).at(-1);
+  }
   
   /**
    * Removes a word from the Trie.
    * @param {string} word - The word to remove.
    * @returns {boolean} True if the word was removed, false if it didn't exist.
    */
-  const remove = word => {
-    const nodes = listNodes(word);
+  remove(word) {
+    const nodes = this.#listNodes(word);
     const rev = nodes.reverse();
-    const removed = rev.at(0)[HAS];
-    rev.at(0)[HAS] = false;
-    if (!strict) return removed;
+    const removed = rev.at(0)[Trie.#HAS];
+    rev.at(0)[Trie.#HAS] = false;
+    if (!this.#strict) return removed;
     for (let i = 0; i < rev.length; ++i) {
       const node = rev[i];
       const first = i === 0;
-      const noMap = !node[MAP];
-      const size1 = node[MAP]?.size <= 1;
       if (first) {
-        if (node[MAP]) break;
+        if (node[Trie.#MAP]) break;
       } else {
-        if (node[MAP]?.size <= 1) {
-          delete node[MAP];
+        if (node[Trie.#MAP]?.size <= 1) {
+          delete node[Trie.#MAP];
         } else {
           break;
         }
       }
-      if (node[HAS]) break;
+      if (node[Trie.#HAS]) break;
     }
     return removed;
-  };
+  }
   
   /**
    * Checks if a word exists in the Trie.
    * @param {string} word - The word to check.
    * @returns {boolean} True if the word exists, false otherwise.
    */
-  const has = word => findNode(word)[HAS];
+  has(word) {
+    return this.#findNode(word)[Trie.#HAS];
+  }
   
   /**
    * Returns all words in the Trie that start with the given prefix.
    * @param {string} begin - The prefix to search for.
    * @returns {string[]} An array of words starting with the prefix.
    */
-  const get = begin => {
+  get(begin) {
     const res = [];
     const loop = (node, str = '') => {
       if (!node) return;
-      if (node[HAS]) res.push(begin + str);
-      const map = node[MAP] || new Map();
-      [...map].map(([char, node]) => loop(node, str + char));
+      if (node[Trie.#HAS]) res.push(begin + str);
+      const map = node[Trie.#MAP] || new Map();
+      [...map].forEach(([char, n]) => loop(n, str + char));
     };
-    loop(findNode(begin));
+    loop(this.#findNode(begin));
     return res;
-  };
-  words.map(word => add(word));
-  return {
-    add, has, get, remove,
-    /**
-     * Returns the internal data structure of the Trie.
-     * @returns {Array} The root node of the Trie.
-     */
-    getData: () => data,
-  };
-};
+  }
+  
+  /**
+   * Returns the internal data structure of the Trie.
+   * @returns {Array} The root node of the Trie.
+   */
+  getData() {
+    return this.#data;
+  }
+}

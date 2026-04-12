@@ -3,7 +3,7 @@ import { Heap } from '../src/heap.mjs';
 
 describe('Heap', () => {
   it('size', () => {
-    const heap = Heap();
+    const heap = new Heap();
     expect(heap.size()).toBe(0);
     heap.add(1);
     expect(heap.size()).toBe(1);
@@ -13,7 +13,7 @@ describe('Heap', () => {
   });
 
   it('take', () => {
-    const heap = Heap();
+    const heap = new Heap();
     heap.add(2);
     heap.add(1);
     heap.add(3);
@@ -23,7 +23,7 @@ describe('Heap', () => {
   });
 
   it('valFn', () => {
-    const heap = Heap(obj => obj.value);
+    const heap = new Heap(obj => obj.value);
     heap.add({ value: 42, other: 'second' });
     heap.add({ value: 23, other: 'first' });
     expect(heap.take().other).toBe('first');
