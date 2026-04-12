@@ -41,4 +41,4 @@ jobs:
       - name: Publish to Internal Registry
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITEA_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.LOCAL_PACKAGE_REGISTRY }}
