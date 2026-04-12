@@ -15,6 +15,9 @@ import {
   binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl
 } from './src/binary-search.mjs'
 import {
+  consumeIteratorNonBlocking
+} from './src/consume-iterator.mjs'
+import {
   copyCase
 } from './src/copy-case.mjs'
 import {
@@ -92,6 +95,7 @@ export * from './src/Trie.mjs';
 export * from './src/base64.mjs';
 export * from './src/bijective-numeration.mjs';
 export * from './src/binary-search.mjs';
+export * from './src/consume-iterator.mjs';
 export * from './src/copy-case.mjs';
 export * from './src/egcd.mjs';
 export * from './src/factors.mjs';
@@ -118,5 +122,5 @@ export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
 
 export default [
-  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, naturalSearch, nelderMead, particleSwarmOptimization, phi, phiBI, powMod, powModBI, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI
+  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, naturalSearch, nelderMead, particleSwarmOptimization, phi, phiBI, powMod, powModBI, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI
 ];

@@ -46,3 +46,10 @@ Thumbs.db
 
 # dependencies
 /docs
+
+
+# Extension keys and builds
+*.pem
+*.pub
+*.key
+*.crx
