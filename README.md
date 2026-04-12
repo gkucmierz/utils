@@ -63,7 +63,7 @@ This library provides a wide range of mathematical functions and data structures
 ## 📚 Documentation
 
 Full API documentation with examples is available at:
-👉 **[https://gitea.7u.pl/gkucmierz/utils/pages](https://gitea.7u.pl/gkucmierz/utils/pages)** *(or GitHub parity)*
+👉 **[https://gkucmierz.github.io/utils](https://gkucmierz.github.io/utils)**
 
 ## 🔗 Repository
 - **Internal Gitea**: [https://gitea.7u.pl/gkucmierz/utils](https://gitea.7u.pl/gkucmierz/utils)
