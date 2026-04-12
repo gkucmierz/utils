@@ -13,15 +13,25 @@ A collection of useful utility functions and data structures for solving algorit
 npm install @gkucmierz/utils
 ```
 
-## 🚀 Features
+## 🚀 What's New in v2.0.0
+- **Combinatorics Arsenal**: High-performance, memory-safe O(1) generators powered by native `BigInt`.
+- **OOP Encapsulation**: `Heap` and `Trie` data structures were refactored into robust ES6 Classes (`new Heap()`, `new Trie()`).
+
+## ✨ Features
 
 This library provides a wide range of mathematical functions and data structures, including:
 
+- **Combinatorics**:
+  - `combinations`, `combinationsIterator`: Fast base-k combinations builder via Lexicographic progressions.
+  - `permutations`, `permutationsIterator`: Pointer-optimized `yield*` permutations generator.
+  - `nChooseK`: Massive scale limit-breaker for combinatorial variation calculations (Newton's Symbol via `BigInt`).
+  - `bin2gray`, `gray2bin`: Pure array-cloning bit formatters for Gray code translations.
+
 - **Data Structures**:
-  - `SetCnt`: A set-like structure with element counting.
-  - `Trie`: Efficient prefix tree implementation.
-  - `Heap`: Min-heap priority queue.
-  - `ListNode`: Linked list node implementation.
+  - `SetCnt`: A set-like structure with element counting (`class`).
+  - `Trie`: Efficient prefix tree implementation (`class`).
+  - `Heap`: Min-heap priority queue (`class`).
+  - `ListNode`: Linked list node implementation (`class`).
   - `matrixAsArray`: 2D matrix representation as a flat array.
 
 - **Number Theory**:
@@ -37,27 +47,27 @@ This library provides a wide range of mathematical functions and data structures
   - `heronsFormula`: Triangle area calculation.
   - `squareRoot`: Integer square root using Newton's method.
 
-- **String & Encoding**:
+- **String & Encoding & Arrays**:
   - `base64`: Base64 and Base64Url encoding/decoding.
   - `copyCase`: Match case of a string to another.
+  - `arrayHistogram`: Creates Map mappings counting absolute frequencies across any `Iterable`.
   - `bijectiveNumeration`: Bijective base-k numeration system.
 
-- **Utilities**:
+- **Developer Utilities**:
+  - `consumeIteratorNonBlocking`: Yield consumption macro-tasks queue resolver for heavy computations.
   - `memoize`: Function memoization based on arguments.
   - `binarySearch`: Various binary search implementations (exact, lower bound, upper bound).
   - `range2array`, `array2range`: Convert between ranges and arrays.
-  - `getType`: Precise type checking.
+  - `getType`: Precise dynamic type checking.
 
 ## 📚 Documentation
 
-Full documentation with examples is available at:
-👉 **[https://gkucmierz.github.io/utils](https://gkucmierz.github.io/utils)**
+Full API documentation with examples is available at:
+👉 **[https://gitea.7u.pl/gkucmierz/utils/pages](https://gitea.7u.pl/gkucmierz/utils/pages)** *(or GitHub parity)*
 
-## 🔗 Links
-
+## 🔗 Repository
+- **Internal Gitea**: [https://gitea.7u.pl/gkucmierz/utils](https://gitea.7u.pl/gkucmierz/utils)
 - **NPM Package**: [https://www.npmjs.com/package/@gkucmierz/utils](https://www.npmjs.com/package/@gkucmierz/utils)
-- **GitHub Repository**: [https://github.com/gkucmierz/utils](https://github.com/gkucmierz/utils)
 
 ## 📄 License
-
 MIT
