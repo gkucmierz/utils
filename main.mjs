@@ -6,6 +6,9 @@ import {
   Trie
 } from './src/Trie.mjs'
 import {
+  arrayHistogram
+} from './src/array-histogram.mjs'
+import {
   fromBase64, fromBase64Url, toBase64, toBase64Url
 } from './src/base64.mjs'
 import {
@@ -14,6 +17,9 @@ import {
 import {
   binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl
 } from './src/binary-search.mjs'
+import {
+  combinations, combinationsIterator
+} from './src/combinations.mjs'
 import {
   consumeIteratorNonBlocking
 } from './src/consume-iterator.mjs'
@@ -39,6 +45,9 @@ import {
   gpn, gpnBI
 } from './src/gpn.mjs'
 import {
+  bin2gray, gray2bin
+} from './src/gray-code.mjs'
+import {
   Heap
 } from './src/heap.mjs'
 import {
@@ -63,6 +72,9 @@ import {
   mod, modBI
 } from './src/mod.mjs'
 import {
+  nChooseK
+} from './src/n-choose-k.mjs'
+import {
   naturalSearch
 } from './src/natural-search.mjs'
 import {
@@ -72,6 +84,9 @@ import {
   particleSwarmOptimization
 } from './src/particle-swarm.mjs'
 import {
+  permutations, permutationsIterator
+} from './src/permutations.mjs'
+import {
   phi, phiBI
 } from './src/phi.mjs'
 import {
@@ -80,6 +95,9 @@ import {
 import {
   array2range, range2array
 } from './src/range-array.mjs'
+import {
+  randNormal
+} from './src/rand-normal.mjs'
 import {
   simulatedAnnealing
 } from './src/simulated-annealing.mjs'
@@ -92,9 +110,11 @@ import {
 
 export * from './src/SetCnt.mjs';
 export * from './src/Trie.mjs';
+export * from './src/array-histogram.mjs';
 export * from './src/base64.mjs';
 export * from './src/bijective-numeration.mjs';
 export * from './src/binary-search.mjs';
+export * from './src/combinations.mjs';
 export * from './src/consume-iterator.mjs';
 export * from './src/copy-case.mjs';
 export * from './src/egcd.mjs';
@@ -103,6 +123,7 @@ export * from './src/format-big-number.mjs';
 export * from './src/gcd.mjs';
 export * from './src/get-type.mjs';
 export * from './src/gpn.mjs';
+export * from './src/gray-code.mjs';
 export * from './src/heap.mjs';
 export * from './src/herons-formula.mjs';
 export * from './src/lcm.mjs';
@@ -111,16 +132,19 @@ export * from './src/math3d.mjs';
 export * from './src/matrix.mjs';
 export * from './src/memoize.mjs';
 export * from './src/mod.mjs';
+export * from './src/n-choose-k.mjs';
 export * from './src/natural-search.mjs';
 export * from './src/nelder-mead.mjs';
 export * from './src/particle-swarm.mjs';
+export * from './src/permutations.mjs';
 export * from './src/phi.mjs';
 export * from './src/pow-mod.mjs';
+export * from './src/rand-normal.mjs';
 export * from './src/range-array.mjs';
 export * from './src/simulated-annealing.mjs';
 export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
 
 export default [
-  SetCnt, Trie, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, naturalSearch, nelderMead, particleSwarmOptimization, phi, phiBI, powMod, powModBI, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI
+  SetCnt, Trie, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, combinations, combinationsIterator, consumeIteratorNonBlocking, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, bin2gray, gray2bin, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, nChooseK, naturalSearch, nelderMead, particleSwarmOptimization, permutations, permutationsIterator, phi, phiBI, powMod, powModBI, randNormal, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI
 ];
