@@ -20,9 +20,9 @@ export const projectToTrackball = (x, y, radius = 1) => {
   const d2 = x*x + y*y;
   const r2 = radius * radius;
   if (d2 <= r2 * 0.5) {
-     return normalize([x, y, Math.sqrt(r2 - d2)]);
+    return normalize([x, y, Math.sqrt(r2 - d2)]);
   } else {
-     return normalize([x, y, (r2 * 0.5) / Math.sqrt(d2)]);
+    return normalize([x, y, (r2 * 0.5) / Math.sqrt(d2)]);
   }
 };
 
@@ -47,7 +47,7 @@ export const multiplyMatrix4 = (a, b) => {
     for (let r = 0; r < 4; r++) {
       let sum = 0;
       for (let i = 0; i < 4; i++) {
-         sum += a[i*4 + r] * b[c*4 + i]; // Note: column-major alignment
+        sum += a[i*4 + r] * b[c*4 + i]; // Note: column-major alignment
       }
       out[c*4 + r] = sum;
     }
@@ -58,7 +58,7 @@ export const multiplyMatrix4 = (a, b) => {
 export const getRotationMatrixFromVectors = (u, v) => {
   const axis = crossProduct(u, v);
   if (axis[0] === 0 && axis[1] === 0 && axis[2] === 0) {
-      return [1,0,0,0,  0,1,0,0,  0,0,1,0,  0,0,0,1]; // Identity
+    return [1,0,0,0,  0,1,0,0,  0,0,1,0,  0,0,0,1]; // Identity
   }
   const dot = dotProduct(u, v);
   const angle = Math.acos(Math.max(-1, Math.min(1, dot)));

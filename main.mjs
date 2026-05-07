@@ -60,6 +60,9 @@ import {
   ListNode
 } from './src/list-node.mjs'
 import {
+  lucasLehmerBI
+} from './src/lucas-lehmer.mjs'
+import {
   axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball
 } from './src/math3d.mjs'
 import {
@@ -93,17 +96,14 @@ import {
   powMod, powModBI
 } from './src/pow-mod.mjs'
 import {
-  array2range, range2array
-} from './src/range-array.mjs'
-import {
   randNormal
 } from './src/rand-normal.mjs'
 import {
+  array2range, range2array
+} from './src/range-array.mjs'
+import {
   simulatedAnnealing
 } from './src/simulated-annealing.mjs'
-import {
-  lucasLehmerBI
-} from './src/lucas-lehmer.mjs'
 import {
   squareRoot, squareRootBI
 } from './src/square-root.mjs'
@@ -150,5 +150,5 @@ export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
 
 export default [
-  SetCnt, Trie, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, combinations, combinationsIterator, consumeIteratorNonBlocking, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, bin2gray, gray2bin, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, nChooseK, naturalSearch, nelderMead, particleSwarmOptimization, permutations, permutationsIterator, phi, phiBI, powMod, powModBI, randNormal, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI, lucasLehmerBI
+  SetCnt, Trie, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, combinations, combinationsIterator, consumeIteratorNonBlocking, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, bin2gray, gray2bin, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, lucasLehmerBI, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, nChooseK, naturalSearch, nelderMead, particleSwarmOptimization, permutations, permutationsIterator, phi, phiBI, powMod, powModBI, randNormal, array2range, range2array, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI
 ];
