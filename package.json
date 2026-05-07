@@ -1,6 +1,6 @@
 {
   "name": "@gkucmierz/utils",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "type": "module",
   "description": "Usefull functions for solving programming tasks",
   "keywords": [
@@ -19,8 +19,10 @@
     "iterator",
     "javascript",
     "lcm",
+    "lucas-lehmer",
     "math",
     "memoize",
+    "mersenne",
     "mod",
     "n-choose-k",
     "node",
@@ -29,6 +31,8 @@
     "permutations",
     "phi",
     "pow-mod",
+    "primality-test",
+    "prime",
     "range-array",
     "square-root",
     "tonelli-shanks",

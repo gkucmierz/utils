@@ -41,6 +41,7 @@ This library provides a wide range of mathematical functions and data structures
   - `mod`, `powMod`: Modular arithmetic with Python-like behavior for negative numbers.
   - `egcd`: Extended Euclidean Algorithm.
   - `tonelliShanksBI`: Modular square root algorithm.
+  - `lucasLehmerBI`: Lucas-Lehmer primality test for Mersenne primes.
 
 - **Sequences & Formulas**:
   - `gpn`: Generalized Pentagonal Numbers.
