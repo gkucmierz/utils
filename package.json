@@ -1,6 +1,6 @@
 {
   "name": "@gkucmierz/utils",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "type": "module",
   "description": "Usefull functions for solving programming tasks",
   "keywords": [
@@ -34,6 +34,9 @@
     "primality-test",
     "prime",
     "range-array",
+    "set-safe-interval",
+    "setinterval",
+    "settimeout",
     "square-root",
     "tonelli-shanks",
     "trie",

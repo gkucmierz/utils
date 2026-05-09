@@ -55,6 +55,7 @@ This library provides a wide range of mathematical functions and data structures
   - `bijectiveNumeration`: Bijective base-k numeration system.
 
 - **Developer Utilities**:
+  - `setSafeInterval`: A safe, asynchronous alternative to `setInterval` that prevents overlapping executions and supports immediate yielding.
   - `consumeIteratorNonBlocking`: Yield consumption macro-tasks queue resolver for heavy computations.
   - `memoize`: Function memoization based on arguments.
   - `binarySearch`: Various binary search implementations (exact, lower bound, upper bound).
