@@ -1,6 +1,6 @@
 {
   "name": "@gkucmierz/utils",
-  "version": "2.0.8",
+  "version": "2.1.0",
   "type": "module",
   "description": "Usefull functions for solving programming tasks",
   "keywords": [
@@ -19,8 +19,10 @@
     "iterator",
     "javascript",
     "lcm",
+    "langtons-ant",
     "lucas-lehmer",
     "math",
+    "cellular-automaton",
     "memoize",
     "mersenne",
     "mod",

@@ -48,6 +48,9 @@ This library provides a wide range of mathematical functions and data structures
   - `heronsFormula`: Triangle area calculation.
   - `squareRoot`: Integer square root using Newton's method.
 
+- **Automata & Simulation**:
+  - `createLangtonsAnt`, `createUnlimitedGrid`: Infinite 2D grid and Langton's Ant cellular automaton engine (Project Euler 349 compatible).
+
 - **String & Encoding & Arrays**:
   - `base64`: Base64 and Base64Url encoding/decoding.
   - `copyCase`: Match case of a string to another.
