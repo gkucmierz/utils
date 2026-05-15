@@ -10,7 +10,7 @@ export const binarySearchArr = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
   while (b - a > 0) {
-    const mid = (a + b) / 2 | 0;
+    const mid = Math.trunc((a + b) / 2);
     const val = arr[mid];
     if (target < val) {
       b = mid;
@@ -36,7 +36,7 @@ export const binarySearchLE = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
   while (b - a > 0) {
-    const mid = (a + b) / 2 | 0;
+    const mid = Math.trunc((a + b) / 2);
     const val = arr[mid];
     if (target < val) {
       b = mid;
@@ -60,7 +60,7 @@ export const binarySearchGE = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
   while (b - a > 0) {
-    const mid = (a + b) / 2 | 0;
+    const mid = Math.trunc((a + b) / 2);
     const val = arr[mid];
     if (target > val) {
       a = mid;
@@ -93,7 +93,7 @@ const binarySearchL = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
   while (b - a > 0) {
-    const mid = (a + b) / 2 | 0;
+    const mid = Math.trunc((a + b) / 2);
     const val = arr[mid];
     if (target <= val) {
       b = mid;
@@ -111,7 +111,7 @@ const binarySearchG = (arr, target) => {
   let [a, b] = [0, arr.length];
   let lm;
   while (b - a > 0) {
-    const mid = (a + b) / 2 | 0;
+    const mid = Math.trunc((a + b) / 2);
     const val = arr[mid];
     if (target >= val) {
       a = mid;

@@ -3,6 +3,7 @@
 
 const getPowMod = (ZERO, ONE, TWO, floor) => {
   return (base, exponent, modulus = null) => {
+    if (exponent < ZERO) throw new RangeError('Negative exponent is not supported');
     if (modulus === null) return base ** exponent;
     if (modulus === ONE) return ZERO;
     let result = ONE;

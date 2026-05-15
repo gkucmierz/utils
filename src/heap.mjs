@@ -18,7 +18,7 @@ export class Heap {
 
   #up(idx) {
     while (idx > 1) {
-      const ni = idx / 2 | 0;
+      const ni = Math.trunc(idx / 2);
       if (this.#valFn(this.#arr[idx]) < this.#valFn(this.#arr[ni])) {
         [this.#arr[idx], this.#arr[ni]] = [this.#arr[ni], this.#arr[idx]];
       }
