@@ -3,6 +3,7 @@
  * 
  * @param {number|Array} sizeOrArr Integer size or an array of items
  * @yields {Array} Re-arranged array of items/indices
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IgUxmArnAhnEKAOwGcBJODfWBAXwQDMYowEAiAAQHMBrLAYzAgMALwD0OEABsSbANzBg6TDnyFSFKnFgKgA|▶ Try it live in Instacode}
  */
 export const permutationsIterator = function*(sizeOrArr) {
   const arr = Array.isArray(sizeOrArr) ? [...sizeOrArr] : new Array(sizeOrArr).fill(0).map((_, i) => i);
@@ -28,6 +29,7 @@ export const permutationsIterator = function*(sizeOrArr) {
  * 
  * @param {number|Array} sizeOrArr 
  * @returns {Array<Array>} Array of permutation sets
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IgUxmArnAhnEKAOwGcEBfBAMxijAQCIABAcwGssBjMEDALwD0OEABsSDANzBg6TDnyFSUoA|▶ Try it live in Instacode}
  */
 export const permutations = (sizeOrArr) => {
   return [...permutationsIterator(sizeOrArr)];

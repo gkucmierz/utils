@@ -4,6 +4,7 @@
  * @param {number} [mean=0] - The mean of the normal distribution.
  * @param {number} [sigma=1] - The standard deviation of the normal distribution.
  * @returns {number} A random number from the specified normal distribution.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4JgQwHYBMBysxoA2CAvggGYxRgIBEAAgOYDWArgMZggCmMAXgHpWcEIQDOtANzBg6bHhgFC0oA|▶ Try it live in Instacode}
  */
 export const randNormal = (mean = 0, sigma = 1) => {
   const y1 = Math.random();

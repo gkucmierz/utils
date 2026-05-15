@@ -3,6 +3,7 @@ import { squareRootBI } from './square-root.mjs';
 /**
  * The standard float approximation of the Golden Ratio (phi).
  * @constant {number}
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IOZQDYBMCmA7AJQEM4QoEBfBAMxijAQCIABVAawFcBjMEHGAF4B6DqQwBnRgG5gwdNnzFSUGUA|▶ Try it live in Instacode}
  */
 export const goldenRatio = ((5 ** 0.5) + 1) / 2;
 
@@ -14,6 +15,7 @@ export const goldenRatio = ((5 ** 0.5) + 1) / 2;
  * @param {number|bigint} precision - The number of decimal places to calculate.
  * @returns {BigInt} A boxed BigInt representing the Golden Ratio scaled by 10^precision.
  * @throws {Error} If precision is negative.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IOZQDYBMCmA7AJQEM4QoAhASQQF8EAzGKMBAIgAFUBrAVwGMwIHDABeAeh6kMAZ1YBuYMHTZ8xUhUoKgA|▶ Try it live in Instacode}
  */
 export const goldenRatioBI = precision => {
   if (precision < 0) throw new Error('Precision cannot be negative');

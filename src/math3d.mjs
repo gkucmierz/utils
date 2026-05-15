@@ -1,5 +1,6 @@
 /**
  * Pure 3D Math Engine for Arcball/Trackball raw matrix transformations
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMYygZ0wBQwEwFdVEBfBAMwzAQCIABAcwGtiwQBTGALwHpC4IADaZaAbmDB0WXAWJwJQA|▶ Try it live in Instacode}
  */
 
 export const crossProduct = (u, v) => [

@@ -8,6 +8,7 @@
  * @param {number} n Size of the combination
  * @param {number} k Size of the set to choose from (indices 0 to k-1)
  * @yields {number[]} Array of indices
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMZTAIxAOwIZwhQ4DOAknAKYwGwIC+CAZjBggEQACA5gNYCuqMCGoAvAPT9CAGxLsA3MGDosuAkVIVqtGIqA|▶ Try it live in Instacode}
  */
 export const combinationsIterator = function* (n, k) {
   if (n > k || n < 0) return;
@@ -35,6 +36,7 @@ export const combinationsIterator = function* (n, k) {
  * @param {number} n Size of the combination
  * @param {number} k Size of the set
  * @returns {Array<number[]>} Array containing all combinations
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMZTAIxAOwIZwhQ4DOCAvggGYwYIBEAAgOYDWArqmCAKYwBeAenaEANiXoBuYMHRZcBIqWlA|▶ Try it live in Instacode}
  */
 export const combinations = (n, k) => {
   return [...combinationsIterator(n, k)];

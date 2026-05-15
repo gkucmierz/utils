@@ -4,6 +4,7 @@
  * Handles Unicode characters correctly.
  * @param {string} string - The string to encode.
  * @returns {string} The Base64 encoded string.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4LlAQgQwM4FMBsALAgL4IBmMUYCARAAIDmA1gK4DGYIuMAXgPSs4IADbZaAbmDA0WPESlA|▶ Try it live in Instacode}
  */
 export const toBase64 = string => {
   const codeUnits = new Uint16Array(string.length);
@@ -18,6 +19,7 @@ export const toBase64 = string => {
  * Handles Unicode characters correctly.
  * @param {string} encoded - The Base64 encoded string.
  * @returns {string} The decoded string.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IGYymAQgQwM4CmAbACwIC+aGYCARAAIDmA1gK4DGYIBMAXgPSs4IADZ5aAbmDB0mXIVJSgA|▶ Try it live in Instacode}
  */
 export const fromBase64 = encoded => {
   const binary = atob(encoded);
@@ -37,6 +39,7 @@ const toUrl = {
  * Replaces '+' with '-' and '/' with '_'.
  * @param {string} string - The string to encode.
  * @returns {string} The Base64Url encoded string.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4LlAQgQwM4FMBsALAKowA2CAvggGYxRgIBEAAgOYDWArgMZgi4YALwD0XOCDLYmAbmDA0WPEVJk5QA|▶ Try it live in Instacode}
  */
 export const toBase64Url = string => {
   return toBase64(string).replace(/[\+\/]/g, c => toUrl[c]);
@@ -51,6 +54,7 @@ const fromUrl = {
  * Replaces '-' with '+' and '_' with '/'.
  * @param {string} encoded - The Base64Url encoded string.
  * @returns {string} The decoded string.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IGYymAQgQwM4CmAbACwCqMANggL5oZgIBEAAgOYDWArgMZggEYALwD0XOCEp4mAbmDB0mXIVIVKcoA|▶ Try it live in Instacode}
  */
 export const fromBase64Url = encoded => {
   return fromBase64(encoded.replace(/[\-\_]/g, c => fromUrl[c]));

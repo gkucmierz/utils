@@ -17,6 +17,7 @@ const getGpn = (zero, one, two, three) => {
  * https://oeis.org/A001318
  * @param {number} n - The index of the sequence (0-based).
  * @returns {number} The n-th generalized pentagonal number.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IOYQHYIL4IGYxRgIBEAAqgNYCuAxmCAKYwBeA9NXCADYDOJAbmDB0GIUA|▶ Try it live in Instacode}
  */
 export const gpn = getGpn(0, 1, 2, 3);
 
@@ -24,5 +25,6 @@ export const gpn = getGpn(0, 1, 2, 3);
  * Generalized Pentagonal Numbers (GPN) - BigInt version.
  * @param {bigint} n - The index of the sequence (0-based).
  * @returns {bigint} The n-th generalized pentagonal number.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IOYQHYCECSCC+CAZjFGAgEQACqA1gK4DGYIApjAF4D09cIANgGcKAbmDB02HGKA|▶ Try it live in Instacode}
  */
 export const gpnBI = getGpn(0n, 1n, 2n, 3n);

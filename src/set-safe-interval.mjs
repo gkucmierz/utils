@@ -8,6 +8,7 @@
  * @param {boolean} [immediate=true] - Whether to fire the first execution immediately
  * @param {boolean} [nextTick=false] - If immediate is true, whether to yield to the event loop before the first execution
  * @returns {Function} A function to clear the interval
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IM4FM4GUCGAzdASQDs50YA3HAGwQF8E8YowEAiAAQHMBrAVwDGYEOQBeAej5wQ1VGwDcwYBmz4ipclWqKgA|▶ Try it live in Instacode}
  */
 export const setSafeInterval = (cb, delay, immediate = true, nextTick = false) => {
   let isCleared = false;

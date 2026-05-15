@@ -26,6 +26,7 @@ const formatBigNumberBoth = (num, separator = '', wrapFn = _ => _) => {
  * @param {string} [separator=''] - The string to use as a thousand separator.
  * @param {function(string): string} [wrapFn=_=>_] - Optional function to wrap each part of the number.
  * @returns {string} The formatted number.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IGazAQzgIRAcwDkBXMAIwFMYEBfNGKMBAIgAF8BrYgYzBCoBeAemJwQAGwDOzANzBg6GFlwES5KnKA|▶ Try it live in Instacode}
  */
 export const formatBigNumber = formatBigNumberBoth;
 
@@ -36,6 +37,7 @@ export const formatBigNumber = formatBigNumberBoth;
  * @param {string} [separator=''] - The string to use as a thousand separator.
  * @param {function(string): string} [wrapFn=_=>_] - Optional function to wrap each part of the number.
  * @returns {string} The formatted number.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IGazAQzgIRAcwDkBXMAIwFMYcBJBAXzRijAQCIABfAa2IGMwIKgC8A9MTggANgGc2AbmDB0MLLgIlyVWoqA|▶ Try it live in Instacode}
  */
 export const formatBigNumberBI = formatBigNumberBoth;
 

@@ -4,6 +4,7 @@
  * @param {Array<number>} arr - The sorted array to search in.
  * @param {number} target - The element to search for.
  * @returns {number} The index of the element if found, otherwise -1.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IEYgHYEMYE8DKApjgMYAWAgjDAgL4IBmMUYCARAAIDmA1gK4kwIQjABeAej5wQAGwDObANzBg6bHiKlK1ZUA|▶ Try it live in Instacode}
  */
 export const binarySearchArr = (arr, target) => {
   let [a, b] = [0, arr.length];
@@ -29,6 +30,7 @@ export const binarySearchArr = (arr, target) => {
  * @param {Array<number>} arr - The sorted array to search in.
  * @param {number} target - The target value.
  * @returns {number} The index of the found element.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IEYgHYEMYE8DKApjgMYAWAMgKIIC+CAZjFGAgEQACA5gNYCuJMCEIwAXgHo+cEABsAzmwDcwYOmx4ipSlWVA|▶ Try it live in Instacode}
  */
 export const binarySearchLE = (arr, target) => {
   let [a, b] = [0, arr.length];
@@ -52,6 +54,7 @@ export const binarySearchLE = (arr, target) => {
  * @param {Array<number>} arr - The sorted array to search in.
  * @param {number} target - The target value.
  * @returns {number} The index of the found element.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IEYgHYEMYE8DKApjgMYAWA4gKIIC+CAZjFGAgEQACA5gNYCuJMCEIwAXgHo+cEABsAzmwDcwYOmx4ipSlWVA|▶ Try it live in Instacode}
  */
 export const binarySearchGE = (arr, target) => {
   let [a, b] = [0, arr.length];
@@ -76,6 +79,7 @@ export const binarySearchGE = (arr, target) => {
  * @param {Array<number>} arr - The sorted array to search in.
  * @param {number} target - The target value.
  * @returns {Array<number>} An array containing the start and end indices of the range [start, end].
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IEYgHYEMYE8DKApjgMYAWASlhgOaECSGJANggL4IBmMUYCARAAEaAawCuJMCEIwAXgHoxcEMwDO-ANzBg6bHiKlK1OoxZagA|▶ Try it live in Instacode}
  */
 export const binarySearchRangeIncl = (arr, target) => {
   return [

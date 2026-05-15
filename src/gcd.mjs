@@ -20,6 +20,7 @@ const getGCD = ZERO => {
  * @param {number} a - The first number.
  * @param {number} b - The second number.
  * @returns {number} The GCD of a and b.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IOYGMAmCC+CBmMUYCARAAKoDWArumCAKYwBeA9DXCADYDOpAbmDAMmIUA|▶ Try it live in Instacode}
  */
 export const gcd = getGCD(0);
 
@@ -28,5 +29,6 @@ export const gcd = getGCD(0);
  * @param {bigint} a - The first BigInt.
  * @param {bigint} b - The second BigInt.
  * @returns {bigint} The GCD of a and b.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IOYGMAmAhAkggXwQDMYowEAiAAVQGsBXdMEAUxgC8B6BuEAGwDOlANzBgGHLjFA|▶ Try it live in Instacode}
  */
 export const gcdBI = getGCD(0n);

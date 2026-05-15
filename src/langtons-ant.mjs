@@ -3,6 +3,7 @@
  * Ideal for sparse matrices or algorithms operating on an infinite plane (e.g., Langton's Ant, Game of Life).
  * 
  * @returns {Object} An object containing `get(x, y)` and `set(x, y, val)` methods.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMYwKYEM4YKoB2ANuCLgCYDiMI5CAvggGYxRgIBEAAgOYDWAV1RgQGGAC8A9ALggiAZw4BuYMHTZchEiIrVaKoA|▶ Try it live in Instacode}
  */
 export const createUnlimitedGrid = () => {
   const grid = new Map();
@@ -38,6 +39,7 @@ export const createUnlimitedGrid = () => {
  * @param {number} startY - The initial Y coordinate of the ant.
  * @param {number} [initialDir=-1] - The initial direction (0: TOP, 1: RIGHT, 2: BOTTOM, 3: LEFT). If -1, a random direction is chosen.
  * @returns {Object} An object containing a `step()` method which advances the simulation by one tick and returns `{x, y, state}` of the modified cell.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMYwKYEM4YDJYB2A5nFIQM4CChiAvggGYxRgIBEAAsQNYCuqMCAwwAXgHo+cEABsK7ANzBg6bLgIkylGnCVA|▶ Try it live in Instacode}
  */
 export const createLangtonsAnt = (grid, startX, startY, initialDir = -1) => {
   const [X, Y] = [0, 1];

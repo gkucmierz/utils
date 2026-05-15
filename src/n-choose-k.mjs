@@ -7,6 +7,7 @@
  * @param {number|bigint|string} n Total elements
  * @param {number|bigint|string} k Elements to pick
  * @returns {bigint} Total possible subset combinations
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IHYGEAWUoGcCmA0ggL4IBmMUYCARAAIDmA1gK4DGYI+MAXgPSs4IADa5aAbmDAM2PESlA|▶ Try it live in Instacode}
  */
 export const nChooseK = (n, k) => {
   const bigN = BigInt(n);

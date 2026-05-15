@@ -6,6 +6,7 @@
  * @param {Array<Array<Number>>} bounds - [[min1, max1], [min2, max2], ...] bounds per dimension
  * @param {Object} options - { particles: 10, steps: 30, w: 0.5, c1: 1.5, c2: 1.5, onProgress: async (state) => {} }
  * @returns {Promise<{bestParams: Array<Number>, bestScore: Number}>}
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IgQ3iAxgGwKYDKA7hmAPIRzggBeaVUAdggL4IBmMUYCARAAIBzANYBXLGBB4YNAPSiqOAM68A3MGDpMuQiRjlK1Og0bqgA|▶ Try it live in Instacode}
  */
 export const particleSwarmOptimization = async (evaluate, bounds, options = {}) => {
   const numParticles = options.particles || 12;

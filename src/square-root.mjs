@@ -4,6 +4,7 @@
  * Calculates the square root of a number.
  * @param {number} n - The number to calculate the square root of.
  * @returns {number} The square root of n.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IM4EcCuBDGBTAJSikQF8EAzGKMBAIgAEBzAa0wGMwQ8YAvAekxwQAG1R0A3MGAYc+IiSlA|▶ Try it live in Instacode}
  */
 export const squareRoot = n => n ** 0.5;
 
@@ -11,6 +12,7 @@ export const squareRoot = n => n ** 0.5;
  * Calculates the integer square root of a BigInt using Newton's method.
  * @param {bigint} n - The BigInt to calculate the square root of.
  * @returns {bigint} The integer square root of n.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IM4EcCuBDGBTAJSijgCEBJBAXwQDMYowEAiAAQHMBrTAYzBDwwAXgHpMcEABtUzANzBgGHPiIkK8oA|▶ Try it live in Instacode}
  */
 export const squareRootBI = n => {
   if (n === 0n) return 0n;

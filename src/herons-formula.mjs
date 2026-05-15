@@ -16,6 +16,7 @@ const getHeronsFormula = (four, sq) => (a, b, c) => {
  * @param {number} b - Length of side b.
  * @param {number} c - Length of side c.
  * @returns {number} The area of the triangle.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IBYFMZQHYGcBisYArgDYCGCAvggGZZgIBEAAgOYDWxAxmCJgC8A9MTghSuJgG5gwDFjyEYJCjKA|▶ Try it live in Instacode}
  */
 export const heronsFormula = getHeronsFormula(4, n => n ** 0.5);
 
@@ -26,5 +27,6 @@ export const heronsFormula = getHeronsFormula(4, n => n ** 0.5);
  * @param {bigint} b - Length of side b.
  * @param {bigint} c - Length of side c.
  * @returns {bigint} The area of the triangle.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IBYFMZQHYGcBisYArgDYCGAQgJIIC+CAZlmAgEQACA5gNbEDGYEJgBeAemJwQpXGwDcwYBix5CMEhRoKgA|▶ Try it live in Instacode}
  */
 export const heronsFormulaBI = getHeronsFormula(4n, squareRootBI);

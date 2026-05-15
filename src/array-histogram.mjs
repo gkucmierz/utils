@@ -5,6 +5,7 @@
  * @param {Array} arr Target array
  * @param {function} pick Projection callback (defaults to identity function)
  * @returns {Map} Histogram mapping
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IIYxqgngCRAZzigHNMwEBfBAMxinICIABYgawFcBjMEAUxgBeAenZwQAG3wMA3MGDpMuAkVKowsoA|▶ Try it live in Instacode}
  */
 export const arrayHistogram = (iter, pick = el => el) => {
   const quant = new Map();

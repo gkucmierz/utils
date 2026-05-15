@@ -15,6 +15,7 @@ const getLcm = gcd => {
  * @param {number} a - The first number.
  * @param {number} b - The second number.
  * @returns {number} The LCM of a and b.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IDYGMwIL4IGYxRYBEAAgOYDWArpiAKYwBeA9NXCKgM7EDcwwDGH5A|▶ Try it live in Instacode}
  */
 export const lcm = getLcm(gcd);
 
@@ -23,5 +24,6 @@ export const lcm = getLcm(gcd);
  * @param {bigint} a - The first BigInt.
  * @param {bigint} b - The second BigInt.
  * @returns {bigint} The LCM of a and b.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IDYGMwCECSCC+CAZjFGAgEQACA5gNYCumIApjAF4D0DcIqAzhQDcwYBmw4RQA|▶ Try it live in Instacode}
  */
 export const lcmBI = getLcm(gcdBI);

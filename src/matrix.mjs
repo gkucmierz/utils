@@ -5,6 +5,7 @@
  * Allows accessing elements using a single index (row-major order).
  * @param {Array<Array<*>>} matrix - The 2D matrix to wrap.
  * @returns {Proxy} A proxy that behaves like a flat array.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4LAQzjEAPAggZ1xhjQE8EBfBAMxijAQCIABAcwGsBXAYzBAFMYALwD0nOCAA2+RgG5gwdJhwEiJUvKA|▶ Try it live in Instacode}
  */
 export const matrixAsArray = matrix => {
   const [h, w] = [matrix.length, matrix[0].length];

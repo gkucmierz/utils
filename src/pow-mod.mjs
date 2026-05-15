@@ -25,6 +25,7 @@ const getPowMod = (ZERO, ONE, TWO, floor) => {
  * @param {number} exponent - The exponent.
  * @param {number} [modulus] - The optional modulus.
  * @returns {number} The result of (base ** exponent) % modulus.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4OgdwLJQCYIL4IBmMUYCARAAIDmA1gK4DGYIApjAF4D09cIANgGdyAbmDB0WbGKA|▶ Try it live in Instacode}
  */
 export const powMod = getPowMod(0, 1, 2, n => Math.floor(n));
 
@@ -35,5 +36,6 @@ export const powMod = getPowMod(0, 1, 2, n => Math.floor(n));
  * @param {bigint} exponent - The exponent BigInt.
  * @param {bigint} [modulus] - The optional modulus BigInt.
  * @returns {bigint} The result of (base ** exponent) % modulus.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4OgdwLJQCYCECSCAvggGYxRgIBEAAgOYDWArgMZggCmMAXgPTM4IADYBnagG5gwdFjz4pQA|▶ Try it live in Instacode}
  */
 export const powModBI = getPowMod(0n, 1n, 2n, n => n);

@@ -14,6 +14,7 @@ const getMod = ZERO => {
  * @param {number} dividend - The dividend.
  * @param {number} divisor - The divisor.
  * @returns {number} The result of the modulo operation.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4LFAJggvggZjKMBAIgAEBzAawFcBjMEAUxgC8B6auEAGwGdiA3MGBp0QoA|▶ Try it live in Instacode}
  */
 export const mod = getMod(0);
 
@@ -22,5 +23,6 @@ export const mod = getMod(0);
  * @param {bigint} dividend - The dividend.
  * @param {bigint} divisor - The divisor.
  * @returns {bigint} The result of the modulo operation.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4LFAJgIQJIIL4IBmMUYCARAAIDmA1gK4DGYIApjAF4D09cIANgGdyAbmDA0WbGKA|▶ Try it live in Instacode}
  */
 export const modBI = getMod(0n);

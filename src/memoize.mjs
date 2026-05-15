@@ -5,6 +5,7 @@
  * Compares arguments by reference.
  * @param {Function} fn - The function to memoize.
  * @returns {Function} The memoized function.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4LAUzFEAvNCC+CAZjFGAgEQACA5gNYCuAxmCGjNgPQNwgA2AZwoBuYMHSYcaUUA|▶ Try it live in Instacode}
  */
 export const memoize = fn => {
   const maps = [];

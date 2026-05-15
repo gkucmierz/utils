@@ -4,6 +4,7 @@
  * @param {number|bigint} exp - The exponent p of the Mersenne number M_p.
  * @param {boolean} [verbose=false] - If true, logs the calculation progress.
  * @returns {boolean} True if the Mersenne number is prime, false otherwise.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IDYFcDGBDAzgGQFMALMQmAIQEkEBfBAMxijAQCIABAcwGsswQ5AF4B6dHBCpcbANzBgGHARJlKVOUA|▶ Try it live in Instacode}
  */
 export const lucasLehmerBI = (exp, verbose = false) => {
   const steps = exp - 2;

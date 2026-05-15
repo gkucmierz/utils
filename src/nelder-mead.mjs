@@ -6,6 +6,7 @@
  * @param {Array<Array<Number>>} bounds - [[min1, max1], ... ] bounds per dimension
  * @param {Object} options - { steps: 30, onProgress: async (state) => {} }
  * @returns {Promise<{bestParams: Array<Number>, bestScore: Number}>}
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IHYFMA2ATdMCy6AhtggL4IBmMUYCARAAIDmA1gK4DGYIeAXgHp2cEJgDO9ANzBgGHHkIlpQA|▶ Try it live in Instacode}
  */
 export const nelderMead = async (evaluate, bounds, options = {}) => {
   const steps = options.steps || 30;

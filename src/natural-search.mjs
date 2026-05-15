@@ -5,6 +5,7 @@
  * @param {Function} cond - The condition evaluator function.
  * @param {Boolean} [retFirstTrue=true] - If true, returns the first match bounding condition true.
  * @returns {Number} The optimized integer step boundary that satisfies the condition structure.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IHYEM4FcboDYDKApujAMYAWCAvggGYxRgIBEAAgOYDWWZYIRGAC8A9Fjgg8AZxYBuYMAzZchEuQrygA|▶ Try it live in Instacode}
  */
 export const naturalSearch = (cond, retFirstTrue = true) => {
   let min = 1;

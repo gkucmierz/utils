@@ -5,6 +5,7 @@
  * Converts a list of ranges into a flat array of numbers.
  * @param {Array<Array<number>>} ranges - An array of ranges, where each range is [min, max] or [min].
  * @returns {Array<number>} An array containing all numbers in the specified ranges.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4JgQwHYHMCmAmNGdATwQF8EAzGKMBAIgAEsBrAVwGMwQcYAvAPRs4IADYBnegG5gwdNnyESMoA|▶ Try it live in Instacode}
  */
 export const range2array = ranges => {
   return ranges.reduce((arr, range) => {
@@ -22,6 +23,7 @@ export const range2array = ranges => {
  * Isolated numbers are represented as [num, num].
  * @param {Array<number>} arr - The sorted array of numbers.
  * @returns {Array<Array<number>>} An array of ranges.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IIYxqgngJkwOwHMBTBAXwQDMYowEAiAAUIGsBXAYzBGJgC8A9GzggANgGd6AbmDB0mXARIygA|▶ Try it live in Instacode}
  */
 export const array2range = arr => {
   const ranges = [];

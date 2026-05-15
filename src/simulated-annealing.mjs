@@ -6,6 +6,7 @@
  * @param {Array<Array<Number>>} bounds - [[min1, max1], [min2, max2], ...] bounds per dimension
  * @param {Object} options - { steps: 100, initialTemp: 100, finalTemp: 0.1, onProgress: async (state) => {} }
  * @returns {Promise<{bestParams: Array<Number>, bestScore: Number}>}
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IM7gK4BsCGcCmAJgIIB2p+OWIpA5ggL4IBmMUYCARAAK0DWGAMZgQ+GAC8A9BjggsqTgG5gwdGGx4iZClRq1lQA|▶ Try it live in Instacode}
  */
 export const simulatedAnnealing = async (evaluate, bounds, options = {}) => {
   const steps = options.steps || 100;

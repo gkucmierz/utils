@@ -3,6 +3,7 @@
  * Calculates the prime factorization of a number.
  * @param {number} n - The number to factorize.
  * @returns {number[]} An array of prime factors.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IGYEMDGdYGcEC+aMUYCARAAIDmA1gK6ZggCmMAXgPT1wgA2ucgG5gwDNjwigA|▶ Try it live in Instacode}
  */
 export const factors = n => {
   if (n < 2) return [];
@@ -24,6 +25,7 @@ export const factors = n => {
  * Calculates the prime factorization of a BigInt.
  * @param {bigint} n - The BigInt to factorize.
  * @returns {bigint[]} An array of prime factors as BigInts.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IGYEMDGdYGcBCAkggL5oxRgIBEAAgOYDWArpmCAKYwBeA9M3BAAbXNQDcwYBmx4iEoA|▶ Try it live in Instacode}
  */
 export const factorsBI = n => {
   if (n < 2n) return [];

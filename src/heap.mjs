@@ -2,6 +2,7 @@
  * Creates a Min Heap data structure.
  * Implemented as a ES6 Class to fix prototyping documentation 
  * and properly encapsulate internal mechanics.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IBIFMCGEEF8EBmMUYCARAAIDmA1gK4DGYI6MAXgPR1wgA2AzmQDcwYBmwigA|▶ Try it live in Instacode}
  */
 export class Heap {
   #arr = [-1];

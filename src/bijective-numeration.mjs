@@ -4,6 +4,7 @@
  * @param {number} num - The number to convert.
  * @param {string} [alpha='12'] - The alphabet to use for the conversion.
  * @returns {string} The bijective base-k string representation.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IHYFcwCYBGIBWApgMZwgBuhCAvggGYxRgIBEAAgOYDW6xYIhGAC8A9OjIAbAM4sA3MGAZseIqQqF5QA|▶ Try it live in Instacode}
  */
 export const num2bijective = (num, alpha = '12') => {
   const len = alpha.length;
@@ -28,6 +29,7 @@ export const num2bijective = (num, alpha = '12') => {
  * @param {string} str - The bijective base-k string to convert.
  * @param {string} [alpha='12'] - The alphabet used for the conversion.
  * @returns {number} The numeric value of the string.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IEYgFYFMDGcQBuWATAHYCuYCAvggGYxRUBEAAgOYDW5OYIWMAF4B6cvgA2AZ2YBuYMHTY8hEhTBygA|▶ Try it live in Instacode}
  */
 export const bijective2num = (str, alpha = '12') => {
   const map = new Map([...alpha].map((c, i) => [c, i]));
@@ -43,6 +45,7 @@ export const bijective2num = (str, alpha = '12') => {
  * @param {bigint} num - The BigInt to convert.
  * @param {string} [alpha='12'] - The alphabet to use for the conversion.
  * @returns {string} The bijective base-k string representation.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IHYFcwCYBGIBWApgMZwgBuhAQgJIIC+CAZjFGAgEQACA5gNbpiYEIRgAvAPToyAGwDOHANzBgGbHiKkK1GsqA|▶ Try it live in Instacode}
  */
 export const num2bijectiveBI = (num, alpha = '12') => {
   const len = BigInt(alpha.length);
@@ -67,6 +70,7 @@ export const num2bijectiveBI = (num, alpha = '12') => {
  * @param {string} str - The bijective base-k string to convert.
  * @param {string} [alpha='12'] - The alphabet used for the conversion.
  * @returns {bigint} The BigInt value of the string.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IEYgFYFMDGcQBuWATAHYCuYAQgJIIC+CAZjFGAgEQACA5gNbkcYEFhgAvAPTl8AGwDOHANzBg6bHkIkK1GsqA|▶ Try it live in Instacode}
  */
 export const bijective2numBI = (str, alpha = '12') => {
   const map = new Map([...alpha].map((c, i) => [c, BigInt(i)]));

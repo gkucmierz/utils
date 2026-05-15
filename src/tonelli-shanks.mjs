@@ -9,6 +9,7 @@ import {
  * @param {bigint} n - The number to find the square root of.
  * @param {bigint} p - The modulus (must be an odd prime).
  * @returns {bigint} The square root r such that r^2 = n (mod p), or 0n if no solution exists.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4LlAdgUwDbZAZQAsBDdAawGcAhASQQF8EAzGKMBAIgAEBzMgVwDGYEJhgAvAPT84IbBQ4BuYMDRZcBEuWo1lQA|▶ Try it live in Instacode}
  */
 export const tonelliShanksBI = (n, p) => {
   let s = 0n;

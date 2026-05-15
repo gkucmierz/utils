@@ -1,6 +1,7 @@
 /**
  * Creates a Trie (prefix tree) data structure.
  * Implemented as a proper ES6 Class to fix prototyping documentation and encapsulate nodes.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4ICoxAUwQXwQMxijAQCIABAcwGsBXAYzCxgC8B6WuEAGwGdSA3MGDosQoA|▶ Try it live in Instacode}
  */
 export class Trie {
   static #HAS = 0;

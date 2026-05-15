@@ -37,6 +37,7 @@ const getPhiEuler = factors => {
  * Uses Euler's product formula based on prime factorization.
  * @param {number} n - The number to calculate phi for.
  * @returns {number} The value of phi(n).
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IgCxAgvggZjKMBAIgAEBzAawFcBjMEAUxgC8B6auEAGwGdiA3MGDoQQoA|▶ Try it live in Instacode}
  */
 export const phi = getPhiEuler(factors);
 
@@ -44,6 +45,7 @@ export const phi = getPhiEuler(factors);
  * Euler's Totient Function (Phi) - BigInt version.
  * @param {bigint} n - The BigInt to calculate phi for.
  * @returns {bigint} The value of phi(n).
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IgCxAIQJIIL4IBmMUYCARAAIDmA1gK4DGYIApjAF4D09cIANgGdyAbmDB0WbGKA|▶ Try it live in Instacode}
  */
 export const phiBI = getPhiEuler(factorsBI);
 

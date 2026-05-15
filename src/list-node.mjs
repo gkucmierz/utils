@@ -2,6 +2,7 @@
 
 /**
  * Represents a node in a singly linked list.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IDIgM5wHJQCYCmCAvggGYxRgIBEAAgOYDWArgMZggEwBeA9CzggANhhoBuYMHRZchSUA|▶ Try it live in Instacode}
  */
 export class ListNode {
   /**
