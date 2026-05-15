@@ -13,10 +13,6 @@ A collection of useful utility functions and data structures for solving algorit
 npm install @gkucmierz/utils
 ```
 
-## 🚀 What's New in v2.0.0
-- **Combinatorics Arsenal**: High-performance, memory-safe O(1) generators powered by native `BigInt`.
-- **OOP Encapsulation**: `Heap` and `Trie` data structures were refactored into robust ES6 Classes (`new Heap()`, `new Trie()`).
-
 ## ✨ Features
 
 This library provides a wide range of mathematical functions and data structures, including:

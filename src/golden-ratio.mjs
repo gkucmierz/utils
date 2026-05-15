@@ -25,8 +25,8 @@ export const goldenRatioBI = precision => {
   
   // Wrap primitive BigInt in an Object (Boxing)
   const boxedResult = Object(result);
-  boxedResult.toString = function() {
-    const str = this.valueOf().toString();
+  boxedResult.toString = () => {
+    const str = result.toString();
     if (precision === 0) return str;
     
     // The Golden Ratio is ~1.618, so the integer part is always '1'.

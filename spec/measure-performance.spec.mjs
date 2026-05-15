@@ -8,7 +8,7 @@ describe('measure-performance', () => {
     expect(typeof result.duration).toEqual('number');
   });
 
-  it('runs the function the specified number of times', () => {
+  it('runs the function the specified number of steps', () => {
     let count = 0;
     measurePerformance(() => { count++; }, 50);
     expect(count).toEqual(50);
