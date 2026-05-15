@@ -15,6 +15,7 @@ export const squareRoot = n => n ** 0.5;
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IM4EcCuBDGBTAJSijgCEBJBAXwQDMYowEAiAAQHMBrTAYzBDwwAXgHpMcEABtUzANzBgGHPiIkK8oA|▶ Try it live in Instacode}
  */
 export const squareRootBI = n => {
+  if (n < 0n) throw new RangeError('Square root of negative numbers is not supported');
   if (n === 0n) return 0n;
   if (n < 4n) return 1n;
   if (n < 9n) return 2n;
