@@ -47,6 +47,7 @@ This library provides a wide range of mathematical functions and data structures
   - `gpn`: Generalized Pentagonal Numbers.
   - `heronsFormula`: Triangle area calculation.
   - `squareRoot`: Integer square root using Newton's method.
+  - `goldenRatio`, `goldenRatioBI`: The Golden Ratio calculation (with arbitrary precision support).
 
 - **Automata & Simulation**:
   - `createLangtonsAnt`, `createUnlimitedGrid`: Infinite 2D grid and Langton's Ant cellular automaton engine (Project Euler 349 compatible).
@@ -58,6 +59,7 @@ This library provides a wide range of mathematical functions and data structures
   - `bijectiveNumeration`: Bijective base-k numeration system.
 
 - **Developer Utilities**:
+  - `measurePerformance`: A micro-benchmarking tool for high-iteration performance testing.
   - `setSafeInterval`: A safe, asynchronous alternative to `setInterval` that prevents overlapping executions and supports immediate yielding.
   - `consumeIteratorNonBlocking`: Yield consumption macro-tasks queue resolver for heavy computations.
   - `memoize`: Function memoization based on arguments.

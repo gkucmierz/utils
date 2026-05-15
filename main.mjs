@@ -114,8 +114,14 @@ import {
   tonelliShanksBI
 } from './src/tonelli-shanks.mjs'
 import {
+  goldenRatio, goldenRatioBI
+} from './src/golden-ratio.mjs'
+import {
   createLangtonsAnt, createUnlimitedGrid
 } from './src/langtons-ant.mjs'
+import {
+  measurePerformance
+} from './src/measure-performance.mjs'
 
 export * from './src/SetCnt.mjs';
 export * from './src/Trie.mjs';
@@ -155,8 +161,10 @@ export * from './src/set-safe-interval.mjs';
 export * from './src/simulated-annealing.mjs';
 export * from './src/square-root.mjs';
 export * from './src/tonelli-shanks.mjs';
+export * from './src/golden-ratio.mjs';
 export * from './src/langtons-ant.mjs';
+export * from './src/measure-performance.mjs';
 
 export default [
-  SetCnt, Trie, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, combinations, combinationsIterator, consumeIteratorNonBlocking, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, bin2gray, gray2bin, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, lucasLehmerBI, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, nChooseK, naturalSearch, nelderMead, particleSwarmOptimization, permutations, permutationsIterator, phi, phiBI, powMod, powModBI, randNormal, array2range, range2array, setSafeInterval, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI, createLangtonsAnt, createUnlimitedGrid
+  SetCnt, Trie, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, combinations, combinationsIterator, consumeIteratorNonBlocking, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, bin2gray, gray2bin, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, lucasLehmerBI, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, nChooseK, naturalSearch, nelderMead, particleSwarmOptimization, permutations, permutationsIterator, phi, phiBI, powMod, powModBI, randNormal, array2range, range2array, setSafeInterval, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI, goldenRatio, goldenRatioBI, createLangtonsAnt, createUnlimitedGrid, measurePerformance
 ];

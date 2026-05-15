@@ -1,6 +1,6 @@
 {
   "name": "@gkucmierz/utils",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "type": "module",
   "description": "Usefull functions for solving programming tasks",
   "keywords": [
@@ -9,11 +9,13 @@
     "base64",
     "bijective",
     "binary-search",
+    "benchmark",
     "combinations",
     "competitive-programming",
     "data-structures",
     "factors",
     "gcd",
+    "golden-ratio",
     "gray-code",
     "heap",
     "iterator",
