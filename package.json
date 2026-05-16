@@ -1,6 +1,6 @@
 {
   "name": "@gkucmierz/utils",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "type": "module",
   "description": "Usefull functions for solving programming tasks",
   "keywords": [
@@ -44,7 +44,15 @@
     "square-root",
     "tonelli-shanks",
     "trie",
-    "utils"
+    "utils",
+    "chunks",
+    "math3d",
+    "nelder-mead",
+    "particle-swarm",
+    "simulated-annealing",
+    "rand-normal",
+    "format-big-number",
+    "natural-search"
   ],
   "files": [
     "main.mjs",
