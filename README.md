@@ -45,14 +45,25 @@ This library provides a wide range of mathematical functions and data structures
   - `squareRoot`: Integer square root using Newton's method.
   - `goldenRatio`, `goldenRatioBI`: The Golden Ratio calculation (with arbitrary precision support).
 
+- **Optimization & Machine Learning**:
+  - `nelderMead`: Nelder-Mead (simplex) optimization algorithm for multi-dimensional functions.
+  - `particleSwarmOptimization`: PSO algorithm for global optimization.
+  - `simulatedAnnealing`: Probabilistic technique for approximating the global optimum of a given function.
+
+- **Math & 3D Geometry**:
+  - `math3d`: Utilities for 3D vector and matrix math (`crossProduct`, `dotProduct`, `normalize`, `multiplyMatrix4`, `projectToTrackball`, `getRotationMatrixFromVectors`).
+  - `randNormal`: Normal (Gaussian) distribution random number generator (Box-Muller transform).
+
 - **Automata & Simulation**:
   - `createLangtonsAnt`, `createUnlimitedGrid`: Infinite 2D grid and Langton's Ant cellular automaton engine (Project Euler 349 compatible).
 
 - **String & Encoding & Arrays**:
+  - `chunks`, `chunksIterator`, `chunksAsyncIterator`: Synchronous and asynchronous array/string chunking generators.
   - `base64`: Base64 and Base64Url encoding/decoding.
   - `copyCase`: Match case of a string to another.
   - `arrayHistogram`: Creates Map mappings counting absolute frequencies across any `Iterable`.
   - `bijectiveNumeration`: Bijective base-k numeration system.
+  - `formatBigNumber`: Intelligent formatting for massively large numbers with suffixes.
 
 - **Developer Utilities**:
   - `measurePerformance`: A micro-benchmarking tool for high-iteration performance testing.
@@ -60,6 +71,7 @@ This library provides a wide range of mathematical functions and data structures
   - `consumeIteratorNonBlocking`: Yield consumption macro-tasks queue resolver for heavy computations.
   - `memoize`: Function memoization based on arguments.
   - `binarySearch`: Various binary search implementations (exact, lower bound, upper bound).
+  - `naturalSearch`: Natural sorting/search utility for human-readable string comparisons.
   - `range2array`, `array2range`: Convert between ranges and arrays.
   - `getType`: Precise dynamic type checking.
 

@@ -122,6 +122,9 @@ import {
 import {
   measurePerformance
 } from './src/measure-performance.mjs'
+import {
+  chunks, chunksIterator, chunksAsyncIterator
+} from './src/chunks.mjs'
 
 export * from './src/SetCnt.mjs';
 export * from './src/Trie.mjs';
@@ -131,6 +134,7 @@ export * from './src/bijective-numeration.mjs';
 export * from './src/binary-search.mjs';
 export * from './src/combinations.mjs';
 export * from './src/consume-iterator.mjs';
+export * from './src/chunks.mjs';
 export * from './src/copy-case.mjs';
 export * from './src/egcd.mjs';
 export * from './src/factors.mjs';
@@ -166,5 +170,5 @@ export * from './src/langtons-ant.mjs';
 export * from './src/measure-performance.mjs';
 
 export default [
-  SetCnt, Trie, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, combinations, combinationsIterator, consumeIteratorNonBlocking, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, bin2gray, gray2bin, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, lucasLehmerBI, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, nChooseK, naturalSearch, nelderMead, particleSwarmOptimization, permutations, permutationsIterator, phi, phiBI, powMod, powModBI, randNormal, array2range, range2array, setSafeInterval, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI, goldenRatio, goldenRatioBI, goldenRatioStr, createLangtonsAnt, createUnlimitedGrid, measurePerformance
+  SetCnt, Trie, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, combinations, combinationsIterator, consumeIteratorNonBlocking, chunks, chunksIterator, chunksAsyncIterator, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, bin2gray, gray2bin, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, lucasLehmerBI, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, nChooseK, naturalSearch, nelderMead, particleSwarmOptimization, permutations, permutationsIterator, phi, phiBI, powMod, powModBI, randNormal, array2range, range2array, setSafeInterval, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI, goldenRatio, goldenRatioBI, goldenRatioStr, createLangtonsAnt, createUnlimitedGrid, measurePerformance
 ];
