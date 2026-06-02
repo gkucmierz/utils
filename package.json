@@ -1,6 +1,6 @@
 {
   "name": "@gkucmierz/utils",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "type": "module",
   "description": "Usefull functions for solving programming tasks",
   "keywords": [
@@ -52,7 +52,8 @@
     "simulated-annealing",
     "rand-normal",
     "format-big-number",
-    "natural-search"
+    "natural-search",
+    "mobius"
   ],
   "files": [
     "main.mjs",
