@@ -2,8 +2,8 @@ name: Deploy and Publish Packages (Gitea + NPM)
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
 
 jobs:
   deploy:
