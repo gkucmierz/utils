@@ -1,4 +1,8 @@
 /**
+ * @module developer-utils
+ */
+
+/**
  * A safe alternative to setInterval that uses recursive setTimeout.
  * It waits for the callback (even if it's async) to finish before scheduling the next tick,
  * preventing overlapping executions and event loop blocking.

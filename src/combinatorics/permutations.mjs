@@ -1,4 +1,8 @@
 /**
+ * @module combinatorics
+ */
+
+/**
  * Creates a permutations generator from a specified size or an array of elements.
  * 
  * @param {number|Array} sizeOrArr Integer size or an array of items

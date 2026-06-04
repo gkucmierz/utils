@@ -1,3 +1,7 @@
+/**
+ * @module developer-utils
+ */
+
 
 /**
  * Creates a memoized version of a function.

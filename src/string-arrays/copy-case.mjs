@@ -1,3 +1,7 @@
+/**
+ * @module string-arrays
+ */
+
 
 /**
  * Copies the case pattern from one string to another.

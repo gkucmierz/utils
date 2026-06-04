@@ -1,3 +1,7 @@
+/**
+ * @module string-arrays
+ */
+
 
 /**
  * Encodes a string to Base64.

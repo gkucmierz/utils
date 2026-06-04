@@ -1,4 +1,8 @@
 /**
+ * @module developer-utils
+ */
+
+/**
  * Measures the execution time of a given function by running it multiple times.
  * Useful for micro-benchmarking and performance comparison.
  * 

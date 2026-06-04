@@ -1,4 +1,8 @@
 /**
+ * @module geometry
+ */
+
+/**
  * Calculates the barycentric coordinates of a 2D point P relative to a triangle ABC.
  * @param {Array<number>} p - Point [x, y]
  * @param {Array<number>} a - Vertex A [x, y]

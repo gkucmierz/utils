@@ -1,3 +1,7 @@
+/**
+ * @module string-arrays
+ */
+
 
 /**
  * Formats a BigNumber, Number or string representation of a number

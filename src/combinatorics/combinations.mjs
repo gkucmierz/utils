@@ -1,4 +1,8 @@
 /**
+ * @module combinatorics
+ */
+
+/**
  * Generates all possible combinations of size n from a set of size k without repetition.
  * Yields arrays of indices representing the current combination.
  * 

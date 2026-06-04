@@ -1,4 +1,8 @@
 /**
+ * @module optimization
+ */
+
+/**
  * Nelder-Mead Simplex Algorithm (Direct Search Gradient-Free Optimization)
  * Maximizes continuous N-dimensional spaces through contraction and expansion.
  * 

@@ -1,4 +1,8 @@
 /**
+ * @module optimization
+ */
+
+/**
  * Particle Swarm Optimization (PSO)
  * A stochastic, population-based metaheuristic for maximizing complex multidimensional bounds.
  * 

@@ -1,3 +1,7 @@
+/**
+ * @module sequences
+ */
+
 import { squareRootBI } from './square-root.mjs';
 
 /**

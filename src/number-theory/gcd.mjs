@@ -1,3 +1,7 @@
+/**
+ * @module number-theory
+ */
+
 
 const getGCD = ZERO => {
   return (a, b) => {

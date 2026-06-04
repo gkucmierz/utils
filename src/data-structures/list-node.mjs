@@ -1,3 +1,7 @@
+/**
+ * @module data-structures
+ */
+
 
 
 /**

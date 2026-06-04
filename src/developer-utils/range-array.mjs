@@ -1,3 +1,7 @@
+/**
+ * @module developer-utils
+ */
+
 
 // https://www.codewars.com/kata/57d83dfc950d842dcb00005b/train/javascript
 

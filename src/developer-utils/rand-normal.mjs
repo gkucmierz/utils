@@ -1,4 +1,8 @@
 /**
+ * @module developer-utils
+ */
+
+/**
  * Generates a random number from a normal (Gaussian) distribution.
  * Uses the Box-Muller transform.
  * @param {number} [mean=0] - The mean of the normal distribution.

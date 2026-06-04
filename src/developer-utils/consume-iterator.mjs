@@ -1,4 +1,8 @@
 /**
+ * @module developer-utils
+ */
+
+/**
  * Consume iterator values asynchronously utilizing macro-task queue
  * to prevent Event Loop blocking.
  *

@@ -1,3 +1,7 @@
+/**
+ * @module developer-utils
+ */
+
 
 /**
  * Returns the type of the value as a lowercase string.

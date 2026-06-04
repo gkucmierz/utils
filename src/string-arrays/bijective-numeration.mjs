@@ -1,3 +1,7 @@
+/**
+ * @module string-arrays
+ */
+
 
 /**
  * Converts a number to a bijective base-k string.

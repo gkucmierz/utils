@@ -1,3 +1,7 @@
+/**
+ * @module sequences
+ */
+
 
 // Generalized pentagonal numbers
 // https://oeis.org/A001318

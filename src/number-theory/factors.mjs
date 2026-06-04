@@ -1,3 +1,7 @@
+/**
+ * @module number-theory
+ */
+
 
 /**
  * Calculates the prime factorization of a number.

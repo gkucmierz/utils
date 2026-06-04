@@ -1,3 +1,8 @@
+/**
+ * @module string-arrays
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMYAsCuA7A1gZwQF8EAzGKMBAIgAEBzXTVMEAUxgC8B6TOEADb5qAbmDAMOAmKA|▶ Try it live in Instacode}
+ */
+
 export const chunks = (input, size = 1) => {
   if (size < 1) size = 1;
   

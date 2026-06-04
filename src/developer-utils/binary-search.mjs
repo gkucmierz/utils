@@ -1,3 +1,7 @@
+/**
+ * @module developer-utils
+ */
+
 
 /**
  * Performs a binary search for an exact element in a sorted array.

@@ -1,3 +1,7 @@
+/**
+ * @module number-theory
+ */
+
 
 const getMod = ZERO => {
   return (dividend, divisor) => {

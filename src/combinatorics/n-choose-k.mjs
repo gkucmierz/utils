@@ -1,4 +1,8 @@
 /**
+ * @module combinatorics
+ */
+
+/**
  * Newton's formula (Binomial Coefficient) n choose k.
  * Evaluates the number of possible combinations.
  * Built strictly on BigInt and optimized iterative fraction reduction 

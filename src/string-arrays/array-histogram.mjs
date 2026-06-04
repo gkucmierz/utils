@@ -1,4 +1,8 @@
 /**
+ * @module string-arrays
+ */
+
+/**
  * Generates a Map with unique elements and their occurring frequencies.
  * Transforms an array into a Map of (key -> quantity) using an optional mapping callback.
  * 

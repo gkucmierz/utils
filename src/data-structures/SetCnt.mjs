@@ -1,4 +1,8 @@
 /**
+ * @module data-structures
+ */
+
+/**
  * Set-like data structure built using Map with elements counter.
  * Allows adding multiple occurrences of the same element.
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMoFM4GEB2iC+CAZjFGAgEQACA5gNYCuAxmCOjAF4D0DcIANgGcKAbmDAM2PGKA|▶ Try it live in Instacode}

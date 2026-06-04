@@ -1,4 +1,8 @@
 /**
+ * @module number-theory
+ */
+
+/**
  * Calculates whether a given Mersenne number (2^p - 1) is prime using the Lucas-Lehmer primality test.
  * 
  * @param {number|bigint} exp - The exponent p of the Mersenne number M_p.

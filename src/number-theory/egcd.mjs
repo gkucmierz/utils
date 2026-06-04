@@ -1,3 +1,7 @@
+/**
+ * @module number-theory
+ */
+
 
 /**
  * Extended Euclidean Algorithm.

@@ -1,4 +1,8 @@
 /**
+ * @module developer-utils
+ */
+
+/**
  * Natural Search Algorithm by gkucmierz
  * Mathematically finds the exponential boundary and binary searches bounds for a conditional function.
  * Useful for finding bounds in sigmoidal functions without known boundaries.

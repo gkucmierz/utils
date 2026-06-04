@@ -1,4 +1,8 @@
 /**
+ * @module optimization
+ */
+
+/**
  * Simulated Annealing (Derivative-Free Stochastic Optimization)
  * Maximizes the evaluate function payload.
  * 

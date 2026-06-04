@@ -1,3 +1,7 @@
+/**
+ * @module number-theory
+ */
+
 
 // implementation of power function with modulus like native python pow
 

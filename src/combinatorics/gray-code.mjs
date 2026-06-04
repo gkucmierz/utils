@@ -1,4 +1,8 @@
 /**
+ * @module combinatorics
+ */
+
+/**
  * Internal logic for toggling bit state based on MSB progression.
  */
 const convertBit = (p, v, i) => {

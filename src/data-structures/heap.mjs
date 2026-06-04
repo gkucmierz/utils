@@ -1,4 +1,8 @@
 /**
+ * @module data-structures
+ */
+
+/**
  * Creates a Min Heap data structure.
  * Implemented as a ES6 Class to fix prototyping documentation 
  * and properly encapsulate internal mechanics.

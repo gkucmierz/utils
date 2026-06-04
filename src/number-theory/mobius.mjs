@@ -1,3 +1,7 @@
+/**
+ * @module number-theory
+ */
+
 import { factors, factorsBI } from './factors.mjs';
 
 /**

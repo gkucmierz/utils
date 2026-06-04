@@ -1,4 +1,8 @@
 /**
+ * @module automata
+ */
+
+/**
  * Creates an unlimited, dynamically expanding 2D grid using nested Maps.
  * Ideal for sparse matrices or algorithms operating on an infinite plane (e.g., Langton's Ant, Game of Life).
  * 
