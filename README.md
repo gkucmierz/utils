@@ -28,7 +28,6 @@ This library provides a wide range of mathematical functions and data structures
   - `Trie`: Efficient prefix tree implementation (`class`).
   - `Heap`: Min-heap priority queue (`class`).
   - `ListNode`: Linked list node implementation (`class`).
-  - `matrixAsArray`: 2D matrix representation as a flat array.
 
 - **Number Theory**:
   - `gcd`, `lcm`: Greatest Common Divisor and Least Common Multiple (supports BigInt).
@@ -50,9 +49,10 @@ This library provides a wide range of mathematical functions and data structures
   - `particleSwarmOptimization`: PSO algorithm for global optimization.
   - `simulatedAnnealing`: Probabilistic technique for approximating the global optimum of a given function.
 
-- **Math & 3D Geometry**:
+- **Geometry & Math**:
+  - `barycentricCoordinates`: Triangle barycentric coordinates computation (supports coordinate arrays).
+  - `matrixAsArray`: 2D matrix representation as a flat array.
   - `math3d`: Utilities for 3D vector and matrix math (`crossProduct`, `dotProduct`, `normalize`, `multiplyMatrix4`, `projectToTrackball`, `getRotationMatrixFromVectors`).
-  - `randNormal`: Normal (Gaussian) distribution random number generator (Box-Muller transform).
 
 - **Automata & Simulation**:
   - `createLangtonsAnt`, `createUnlimitedGrid`: Infinite 2D grid and Langton's Ant cellular automaton engine (Project Euler 349 compatible).
@@ -66,6 +66,7 @@ This library provides a wide range of mathematical functions and data structures
   - `formatBigNumber`: Intelligent formatting for massively large numbers with suffixes.
 
 - **Developer Utilities**:
+  - `randNormal`: Normal (Gaussian) distribution random number generator (Box-Muller transform).
   - `measurePerformance`: A micro-benchmarking tool for high-iteration performance testing.
   - `setSafeInterval`: A safe, asynchronous alternative to `setInterval` that prevents overlapping executions and supports immediate yielding.
   - `consumeIteratorNonBlocking`: Yield consumption macro-tasks queue resolver for heavy computations.
