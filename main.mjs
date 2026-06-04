@@ -1,174 +1,182 @@
 
 import {
-  SetCnt
-} from './src/SetCnt.mjs'
-import {
-  Trie
-} from './src/Trie.mjs'
-import {
-  arrayHistogram
-} from './src/array-histogram.mjs'
-import {
-  fromBase64, fromBase64Url, toBase64, toBase64Url
-} from './src/base64.mjs'
-import {
-  bijective2num, bijective2numBI, num2bijective, num2bijectiveBI
-} from './src/bijective-numeration.mjs'
-import {
-  binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl
-} from './src/binary-search.mjs'
+  createLangtonsAnt, createUnlimitedGrid
+} from './src/automata/langtons-ant.mjs'
 import {
   combinations, combinationsIterator
-} from './src/combinations.mjs'
-import {
-  consumeIteratorNonBlocking
-} from './src/consume-iterator.mjs'
-import {
-  copyCase
-} from './src/copy-case.mjs'
-import {
-  egcd
-} from './src/egcd.mjs'
-import {
-  factors, factorsBI
-} from './src/factors.mjs'
-import {
-  formatBigNumber, formatBigNumberBI, wrapFn
-} from './src/format-big-number.mjs'
-import {
-  gcd, gcdBI
-} from './src/gcd.mjs'
-import {
-  getType
-} from './src/get-type.mjs'
-import {
-  gpn, gpnBI
-} from './src/gpn.mjs'
+} from './src/combinatorics/combinations.mjs'
 import {
   bin2gray, gray2bin
-} from './src/gray-code.mjs'
-import {
-  Heap
-} from './src/heap.mjs'
-import {
-  heronsFormula, heronsFormulaBI
-} from './src/herons-formula.mjs'
-import {
-  lcm, lcmBI
-} from './src/lcm.mjs'
-import {
-  ListNode
-} from './src/list-node.mjs'
-import {
-  lucasLehmerBI
-} from './src/lucas-lehmer.mjs'
-import {
-  axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball
-} from './src/math3d.mjs'
-import {
-  matrixAsArray
-} from './src/matrix.mjs'
-import {
-  memoize
-} from './src/memoize.mjs'
-import {
-  mod, modBI
-} from './src/mod.mjs'
+} from './src/combinatorics/gray-code.mjs'
 import {
   nChooseK
-} from './src/n-choose-k.mjs'
-import {
-  naturalSearch
-} from './src/natural-search.mjs'
-import {
-  nelderMead
-} from './src/nelder-mead.mjs'
-import {
-  particleSwarmOptimization
-} from './src/particle-swarm.mjs'
+} from './src/combinatorics/n-choose-k.mjs'
 import {
   permutations, permutationsIterator
-} from './src/permutations.mjs'
+} from './src/combinatorics/permutations.mjs'
 import {
-  phi, phiBI
-} from './src/phi.mjs'
+  SetCnt
+} from './src/data-structures/SetCnt.mjs'
 import {
-  powMod, powModBI
-} from './src/pow-mod.mjs'
+  Trie
+} from './src/data-structures/Trie.mjs'
 import {
-  randNormal
-} from './src/rand-normal.mjs'
+  Heap
+} from './src/data-structures/heap.mjs'
 import {
-  array2range, range2array
-} from './src/range-array.mjs'
+  ListNode
+} from './src/data-structures/list-node.mjs'
 import {
-  setSafeInterval
-} from './src/set-safe-interval.mjs'
+  binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl
+} from './src/developer-utils/binary-search.mjs'
 import {
-  simulatedAnnealing
-} from './src/simulated-annealing.mjs'
+  consumeIteratorNonBlocking
+} from './src/developer-utils/consume-iterator.mjs'
 import {
-  squareRoot, squareRootBI
-} from './src/square-root.mjs'
-import {
-  tonelliShanksBI
-} from './src/tonelli-shanks.mjs'
-import {
-  goldenRatio, goldenRatioBI, goldenRatioStr
-} from './src/golden-ratio.mjs'
-import {
-  createLangtonsAnt, createUnlimitedGrid
-} from './src/langtons-ant.mjs'
+  getType
+} from './src/developer-utils/get-type.mjs'
 import {
   measurePerformance
-} from './src/measure-performance.mjs'
+} from './src/developer-utils/measure-performance.mjs'
 import {
-  chunks, chunksIterator, chunksAsyncIterator
-} from './src/chunks.mjs'
+  memoize
+} from './src/developer-utils/memoize.mjs'
+import {
+  naturalSearch
+} from './src/developer-utils/natural-search.mjs'
+import {
+  randNormal
+} from './src/developer-utils/rand-normal.mjs'
+import {
+  array2range, range2array
+} from './src/developer-utils/range-array.mjs'
+import {
+  setSafeInterval
+} from './src/developer-utils/set-safe-interval.mjs'
+import {
+  barycentricCoordinates
+} from './src/geometry/barycentric.mjs'
+import {
+  axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball
+} from './src/geometry/math3d.mjs'
+import {
+  matrixAsArray
+} from './src/geometry/matrix.mjs'
+import {
+  egcd
+} from './src/number-theory/egcd.mjs'
+import {
+  factors, factorsBI
+} from './src/number-theory/factors.mjs'
+import {
+  gcd, gcdBI
+} from './src/number-theory/gcd.mjs'
+import {
+  lcm, lcmBI
+} from './src/number-theory/lcm.mjs'
+import {
+  lucasLehmerBI
+} from './src/number-theory/lucas-lehmer.mjs'
+import {
+  mobius, mobiusBI
+} from './src/number-theory/mobius.mjs'
+import {
+  mod, modBI
+} from './src/number-theory/mod.mjs'
+import {
+  phi, phiBI
+} from './src/number-theory/phi.mjs'
+import {
+  powMod, powModBI
+} from './src/number-theory/pow-mod.mjs'
+import {
+  tonelliShanksBI
+} from './src/number-theory/tonelli-shanks.mjs'
+import {
+  nelderMead
+} from './src/optimization/nelder-mead.mjs'
+import {
+  particleSwarmOptimization
+} from './src/optimization/particle-swarm.mjs'
+import {
+  simulatedAnnealing
+} from './src/optimization/simulated-annealing.mjs'
+import {
+  goldenRatio, goldenRatioBI, goldenRatioStr
+} from './src/sequences/golden-ratio.mjs'
+import {
+  gpn, gpnBI
+} from './src/sequences/gpn.mjs'
+import {
+  heronsFormula, heronsFormulaBI
+} from './src/sequences/herons-formula.mjs'
+import {
+  squareRoot, squareRootBI
+} from './src/sequences/square-root.mjs'
+import {
+  arrayHistogram
+} from './src/string-arrays/array-histogram.mjs'
+import {
+  fromBase64, fromBase64Url, toBase64, toBase64Url
+} from './src/string-arrays/base64.mjs'
+import {
+  bijective2num, bijective2numBI, num2bijective, num2bijectiveBI
+} from './src/string-arrays/bijective-numeration.mjs'
+import {
+  chunks, chunksAsyncIterator, chunksIterator
+} from './src/string-arrays/chunks.mjs'
+import {
+  copyCase
+} from './src/string-arrays/copy-case.mjs'
+import {
+  formatBigNumber, formatBigNumberBI, wrapFn
+} from './src/string-arrays/format-big-number.mjs'
 
-export * from './src/SetCnt.mjs';
-export * from './src/Trie.mjs';
-export * from './src/array-histogram.mjs';
-export * from './src/base64.mjs';
-export * from './src/bijective-numeration.mjs';
-export * from './src/binary-search.mjs';
-export * from './src/combinations.mjs';
-export * from './src/consume-iterator.mjs';
-export * from './src/chunks.mjs';
-export * from './src/copy-case.mjs';
-export * from './src/egcd.mjs';
-export * from './src/factors.mjs';
-export * from './src/format-big-number.mjs';
-export * from './src/gcd.mjs';
-export * from './src/get-type.mjs';
-export * from './src/gpn.mjs';
-export * from './src/gray-code.mjs';
-export * from './src/heap.mjs';
-export * from './src/herons-formula.mjs';
-export * from './src/lcm.mjs';
-export * from './src/list-node.mjs';
-export * from './src/lucas-lehmer.mjs';
-export * from './src/math3d.mjs';
-export * from './src/matrix.mjs';
-export * from './src/memoize.mjs';
-export * from './src/mod.mjs';
-export * from './src/n-choose-k.mjs';
-export * from './src/natural-search.mjs';
-export * from './src/nelder-mead.mjs';
-export * from './src/particle-swarm.mjs';
-export * from './src/permutations.mjs';
-export * from './src/phi.mjs';
-export * from './src/pow-mod.mjs';
-export * from './src/rand-normal.mjs';
-export * from './src/range-array.mjs';
-export * from './src/set-safe-interval.mjs';
-export * from './src/simulated-annealing.mjs';
-export * from './src/square-root.mjs';
-export * from './src/tonelli-shanks.mjs';
-export * from './src/golden-ratio.mjs';
-export * from './src/langtons-ant.mjs';
-export * from './src/measure-performance.mjs';
+export * from './src/automata/langtons-ant.mjs';
+export * from './src/combinatorics/combinations.mjs';
+export * from './src/combinatorics/gray-code.mjs';
+export * from './src/combinatorics/n-choose-k.mjs';
+export * from './src/combinatorics/permutations.mjs';
+export * from './src/data-structures/SetCnt.mjs';
+export * from './src/data-structures/Trie.mjs';
+export * from './src/data-structures/heap.mjs';
+export * from './src/data-structures/list-node.mjs';
+export * from './src/developer-utils/binary-search.mjs';
+export * from './src/developer-utils/consume-iterator.mjs';
+export * from './src/developer-utils/get-type.mjs';
+export * from './src/developer-utils/measure-performance.mjs';
+export * from './src/developer-utils/memoize.mjs';
+export * from './src/developer-utils/natural-search.mjs';
+export * from './src/developer-utils/rand-normal.mjs';
+export * from './src/developer-utils/range-array.mjs';
+export * from './src/developer-utils/set-safe-interval.mjs';
+export * from './src/geometry/barycentric.mjs';
+export * from './src/geometry/math3d.mjs';
+export * from './src/geometry/matrix.mjs';
+export * from './src/number-theory/egcd.mjs';
+export * from './src/number-theory/factors.mjs';
+export * from './src/number-theory/gcd.mjs';
+export * from './src/number-theory/lcm.mjs';
+export * from './src/number-theory/lucas-lehmer.mjs';
+export * from './src/number-theory/mobius.mjs';
+export * from './src/number-theory/mod.mjs';
+export * from './src/number-theory/phi.mjs';
+export * from './src/number-theory/pow-mod.mjs';
+export * from './src/number-theory/tonelli-shanks.mjs';
+export * from './src/optimization/nelder-mead.mjs';
+export * from './src/optimization/particle-swarm.mjs';
+export * from './src/optimization/simulated-annealing.mjs';
+export * from './src/sequences/golden-ratio.mjs';
+export * from './src/sequences/gpn.mjs';
+export * from './src/sequences/herons-formula.mjs';
+export * from './src/sequences/square-root.mjs';
+export * from './src/string-arrays/array-histogram.mjs';
+export * from './src/string-arrays/base64.mjs';
+export * from './src/string-arrays/bijective-numeration.mjs';
+export * from './src/string-arrays/chunks.mjs';
+export * from './src/string-arrays/copy-case.mjs';
+export * from './src/string-arrays/format-big-number.mjs';
 
 export default [
-  SetCnt, Trie, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, combinations, combinationsIterator, consumeIteratorNonBlocking, chunks, chunksIterator, chunksAsyncIterator, copyCase, egcd, factors, factorsBI, formatBigNumber, formatBigNumberBI, wrapFn, gcd, gcdBI, getType, gpn, gpnBI, bin2gray, gray2bin, Heap, heronsFormula, heronsFormulaBI, lcm, lcmBI, ListNode, lucasLehmerBI, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, memoize, mod, modBI, nChooseK, naturalSearch, nelderMead, particleSwarmOptimization, permutations, permutationsIterator, phi, phiBI, powMod, powModBI, randNormal, array2range, range2array, setSafeInterval, simulatedAnnealing, squareRoot, squareRootBI, tonelliShanksBI, goldenRatio, goldenRatioBI, goldenRatioStr, createLangtonsAnt, createUnlimitedGrid, measurePerformance
+  createLangtonsAnt, createUnlimitedGrid, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, SetCnt, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, getType, measurePerformance, memoize, naturalSearch, randNormal, array2range, range2array, setSafeInterval, barycentricCoordinates, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn
 ];

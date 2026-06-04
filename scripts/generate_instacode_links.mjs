@@ -7,7 +7,24 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const srcDir = path.resolve(__dirname, '../src');
 
-const files = fs.readdirSync(srcDir).filter(name => name.endsWith('.mjs'));
+// Recursive file finder returning paths relative to baseDir with forward slashes
+function getMjsFilesRecursively(dir, baseDir = dir) {
+  let results = [];
+  const list = fs.readdirSync(dir);
+  list.forEach(file => {
+    const fullPath = path.join(dir, file);
+    const stat = fs.statSync(fullPath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(getMjsFilesRecursively(fullPath, baseDir));
+    } else if (file.endsWith('.mjs')) {
+      const relativePath = path.relative(baseDir, fullPath).split(path.sep).join('/');
+      results.push(relativePath);
+    }
+  });
+  return results;
+}
+
+const files = getMjsFilesRecursively(srcDir);
 
 for (const file of files) {
   const filePath = path.join(srcDir, file);
