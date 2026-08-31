@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>data-structures/Trie.mjs - @gkucmierz/utils Developer API</title>
+    
+    
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-data-structures.Heap.html">Heap</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-data-structures.Heap.html#add">add</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.Heap.html#data">data</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.Heap.html#size">size</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.Heap.html#take">take</a></li></ul></li><li><a href="module-data-structures.ListNode.html">ListNode</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-data-structures.ListNode.html#toArr">toArr</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.ListNode.html#.fromArr">fromArr</a></li></ul></li><li><a href="module-data-structures.SetCnt.html">SetCnt</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#Symbol.iterator">Symbol.iterator</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#add">add</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#cnt">cnt</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#delete">delete</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#deleteAll">deleteAll</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#entries">entries</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#has">has</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#keys">keys</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.SetCnt.html#values">values</a></li></ul></li><li><a href="module-data-structures.Trie.html">Trie</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-data-structures.Trie.html#add">add</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.Trie.html#get">get</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.Trie.html#getData">getData</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.Trie.html#has">has</a></li><li data-type='method' style='display: none;'><a href="module-data-structures.Trie.html#remove">remove</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-automata.html">automata</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-automata.html#.createLangtonsAnt">createLangtonsAnt</a></li><li data-type='member' style='display: none;'><a href="module-automata.html#.createUnlimitedGrid">createUnlimitedGrid</a></li></ul></li><li><a href="module-combinatorics.html">combinatorics</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-combinatorics.html#.bin2gray">bin2gray</a></li><li data-type='member' style='display: none;'><a href="module-combinatorics.html#.combinations">combinations</a></li><li data-type='member' style='display: none;'><a href="module-combinatorics.html#.combinationsIterator">combinationsIterator</a></li><li data-type='member' style='display: none;'><a href="module-combinatorics.html#.gray2bin">gray2bin</a></li><li data-type='member' style='display: none;'><a href="module-combinatorics.html#.nChooseK">nChooseK</a></li><li data-type='member' style='display: none;'><a href="module-combinatorics.html#.permutations">permutations</a></li><li data-type='member' style='display: none;'><a href="module-combinatorics.html#.permutationsIterator">permutationsIterator</a></li></ul><ul class='methods'><li data-type='method' style='display: none;'><a href="module-combinatorics.html#~convertBit">convertBit</a></li></ul></li><li></li><li></li><li></li><li><a href="module-data-structures.html">data-structures</a></li><li></li><li></li><li></li><li><a href="module-developer-utils.html">developer-utils</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.array2range">array2range</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.binarySearchArr">binarySearchArr</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.binarySearchGE">binarySearchGE</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.binarySearchLE">binarySearchLE</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.binarySearchRangeIncl">binarySearchRangeIncl</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.consumeIteratorNonBlocking">consumeIteratorNonBlocking</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.getType">getType</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.measurePerformance">measurePerformance</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.memoize">memoize</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.naturalSearch">naturalSearch</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.randNormal">randNormal</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.range2array">range2array</a></li><li data-type='member' style='display: none;'><a href="module-developer-utils.html#.setSafeInterval">setSafeInterval</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-geometry.html">geometry</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-geometry.html#.barycentricCoordinates">barycentricCoordinates</a></li><li data-type='member' style='display: none;'><a href="module-geometry.html#.crossProduct">crossProduct</a></li><li data-type='member' style='display: none;'><a href="module-geometry.html#.matrixAsArray">matrixAsArray</a></li></ul></li><li></li><li></li><li><a href="module-number-theory.html">number-theory</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-number-theory.html#.egcd">egcd</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.factors">factors</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.factorsBI">factorsBI</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.gcd">gcd</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.gcdBI">gcdBI</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.lcm">lcm</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.lcmBI">lcmBI</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.lucasLehmerBI">lucasLehmerBI</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.mobius">mobius</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.mobiusBI">mobiusBI</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.mod">mod</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.modBI">modBI</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.phi">phi</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.phiBI">phiBI</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.powMod">powMod</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.powModBI">powModBI</a></li><li data-type='member' style='display: none;'><a href="module-number-theory.html#.tonelliShanksBI">tonelliShanksBI</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-optimization.html">optimization</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-optimization.html#.nelderMead">nelderMead</a></li><li data-type='member' style='display: none;'><a href="module-optimization.html#.particleSwarmOptimization">particleSwarmOptimization</a></li><li data-type='member' style='display: none;'><a href="module-optimization.html#.simulatedAnnealing">simulatedAnnealing</a></li></ul></li><li></li><li></li><li><a href="module-sequences.html">sequences</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-sequences.html#.goldenRatio">goldenRatio</a></li><li data-type='member' style='display: none;'><a href="module-sequences.html#.goldenRatioBI">goldenRatioBI</a></li><li data-type='member' style='display: none;'><a href="module-sequences.html#.goldenRatioStr">goldenRatioStr</a></li><li data-type='member' style='display: none;'><a href="module-sequences.html#.gpn">gpn</a></li><li data-type='member' style='display: none;'><a href="module-sequences.html#.gpnBI">gpnBI</a></li><li data-type='member' style='display: none;'><a href="module-sequences.html#.heronsFormula">heronsFormula</a></li><li data-type='member' style='display: none;'><a href="module-sequences.html#.heronsFormulaBI">heronsFormulaBI</a></li><li data-type='member' style='display: none;'><a href="module-sequences.html#.squareRoot">squareRoot</a></li><li data-type='member' style='display: none;'><a href="module-sequences.html#.squareRootBI">squareRootBI</a></li></ul></li><li></li><li></li><li></li><li><a href="module-string-arrays.html">string-arrays</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.arrayHistogram">arrayHistogram</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.bijective2num">bijective2num</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.bijective2numBI">bijective2numBI</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.copyCase">copyCase</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.formatBigNumber">formatBigNumber</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.formatBigNumberBI">formatBigNumberBI</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.fromBase64">fromBase64</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.fromBase64Url">fromBase64Url</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.num2bijective">num2bijective</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.num2bijectiveBI">num2bijectiveBI</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.toBase64">toBase64</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.toBase64Url">toBase64Url</a></li><li data-type='member' style='display: none;'><a href="module-string-arrays.html#.wrapFn">wrapFn</a></li></ul><ul class='methods'><li data-type='method' style='display: none;'><a href="module-string-arrays.html#~formatBigNumberBoth">formatBigNumberBoth</a></li></ul></li><li></li><li></li><li></li><li></li><li></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">data-structures/Trie.mjs</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module data-structures
+ */
+
+/**
+ * Creates a Trie (prefix tree) data structure.
+ * Implemented as a proper ES6 Class to fix prototyping documentation and encapsulate nodes.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4ICoxAUwQXwQMxijAQCIABAcwGsBXAYzCxgC8B6WuEAGwGdSA3MGDosQoA|▶ Try it live in Instacode}
+ */
+export class Trie {
+  static #HAS = 0;
+  static #MAP = 1;
+
+  #data = [false, new Map()];
+  #strict;
+
+  /**
+   * Initializes the Trie class object.
+   * @param {string[]} [words=[]] - Initial words to add to the Trie.
+   * @param {boolean} [strict=true] - If true, removing a word cleans up unused nodes.
+   *                                  If false, removal is faster but may leave unused nodes.
+   */
+  constructor(words = [], strict = true) {
+    this.#strict = strict;
+    words.forEach(word => this.add(word));
+  }
+  
+  /**
+   * Adds a word to the Trie.
+   * @param {string} word - The word to add.
+   * @returns {boolean} True if the word was added (didn't exist before), false otherwise.
+   */
+  add(word) {
+    let node = this.#data;
+    for (let i = 0; i &lt; word.length; ++i) {
+      const char = word[i];
+      if (!node[Trie.#MAP]) node[Trie.#MAP] = new Map();
+      const child = node[Trie.#MAP].get(char) ?? [false];
+      node[Trie.#MAP].set(char, child);
+      node = child;
+    }
+    if (node[Trie.#HAS]) return false;
+    node[Trie.#HAS] = true;
+    return true;
+  }
+
+  #listNodes(word) {
+    const nodes = [this.#data];
+    for (let i = 0; i &lt; word.length; ++i) {
+      const node = nodes.at(-1);
+      const char = word[i];
+      if (!node[Trie.#MAP]?.has(char)) {
+        nodes.push([false]);
+        break;
+      }
+      nodes.push(node[Trie.#MAP].get(char));
+    }
+    return nodes;
+  }
+
+  #findNode(word) {
+    return this.#listNodes(word).at(-1);
+  }
+  
+  /**
+   * Removes a word from the Trie.
+   * @param {string} word - The word to remove.
+   * @returns {boolean} True if the word was removed, false if it didn't exist.
+   */
+  remove(word) {
+    const nodes = this.#listNodes(word);
+    const rev = nodes.reverse();
+    const removed = rev.at(0)[Trie.#HAS];
+    rev.at(0)[Trie.#HAS] = false;
+    if (!this.#strict) return removed;
+    for (let i = 0; i &lt; rev.length; ++i) {
+      const node = rev[i];
+      const first = i === 0;
+      if (first) {
+        if (node[Trie.#MAP]) break;
+      } else {
+        if (node[Trie.#MAP]?.size &lt;= 1) {
+          delete node[Trie.#MAP];
+        } else {
+          break;
+        }
+      }
+      if (node[Trie.#HAS]) break;
+    }
+    return removed;
+  }
+  
+  /**
+   * Checks if a word exists in the Trie.
+   * @param {string} word - The word to check.
+   * @returns {boolean} True if the word exists, false otherwise.
+   */
+  has(word) {
+    return this.#findNode(word)[Trie.#HAS];
+  }
+  
+  /**
+   * Returns all words in the Trie that start with the given prefix.
+   * @param {string} begin - The prefix to search for.
+   * @returns {string[]} An array of words starting with the prefix.
+   */
+  get(begin) {
+    const res = [];
+    const loop = (node, str = '') => {
+      if (!node) return;
+      if (node[Trie.#HAS]) res.push(begin + str);
+      const map = node[Trie.#MAP] || new Map();
+      [...map].forEach(([char, n]) => loop(n, str + char));
+    };
+    loop(this.#findNode(begin));
+    return res;
+  }
+  
+  /**
+   * Returns the internal data structure of the Trie.
+   * @returns {Array} The root node of the Trie.
+   */
+  getData() {
+    return this.#data;
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Mon Aug 31 2026 02:21:30 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>
