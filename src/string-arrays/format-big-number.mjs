@@ -15,7 +15,7 @@
 const formatBigNumberBoth = (num, separator = '', wrapFn = _ => _) => {
   const str = String(num);
   const rev = [...str].reverse().join('');
-  const match = rev.match(/(\d*\.\-?)|(\d{3}\-?)|(\d{1,3}\-?)|(\-)/g);
+  const match = rev.match(/(\d*\.[+-]?)|(\d{3}[+-]?)|(\d{1,3}[+-]?)|([+-])/g);
   const revInside = (match && match.join('') === rev)
     ? match.map(part => [...part].reverse().join(''))
     : [str];
@@ -45,6 +45,12 @@ export const formatBigNumber = formatBigNumberBoth;
  */
 export const formatBigNumberBI = formatBigNumberBoth;
 
+/**
+ * Creates an alternating span wrapper function for number segments with 'even' and 'odd' classes.
+ * Useful for syntax highlighting or alternating styles of formatted number segments.
+ *
+ * @returns {function(string): string} A wrapper callback function for number segments.
+ */
 export const wrapFn = () => {
   let even = true;
   return part => {
@@ -53,3 +59,4 @@ export const wrapFn = () => {
     return `<span class="${cls}">${part}</span>`;
   };
 };
+
