@@ -50,6 +50,7 @@ export const formatBigNumberBI = formatBigNumberBoth;
  * Useful for syntax highlighting or alternating styles of formatted number segments.
  *
  * @returns {function(string): string} A wrapper callback function for number segments.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IO4wIYQGIDsEC+CAZjFGAgEQACA5gNYCuAxmCAKYwBeA9I3CAA2AZ0oBuYMHRY8EoA|▶ Try it live in Instacode}
  */
 export const wrapFn = () => {
   let even = true;

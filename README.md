@@ -24,6 +24,7 @@ This library provides a wide range of mathematical functions and data structures
   - `bin2gray`, `gray2bin`: Pure array-cloning bit formatters for Gray code translations.
 
 - **Data Structures**:
+  - `ConflatingQueue`: Asynchronous coalescing work queue with key-based deduplication and controllable concurrency (`class`).
   - `SetCnt`: A set-like structure with element counting (`class`).
   - `Trie`: Efficient prefix tree implementation (`class`).
   - `Heap`: Min-heap priority queue (`class`).
