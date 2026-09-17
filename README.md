@@ -77,7 +77,7 @@ This library provides a wide range of mathematical functions and data structures
   - `binarySearch`: Various binary search implementations (exact, lower bound, upper bound).
   - `naturalSearch`: Natural sorting/search utility for human-readable string comparisons.
   - `range2array`, `array2range`: Convert between ranges and arrays.
-  - `getType`: Precise dynamic type checking.
+  - `Type`, `is`, `of`, `same`: High-performance runtime type detection, introspection, and safe comparison system (v5.0.0).
 
 ## 📚 Documentation
 

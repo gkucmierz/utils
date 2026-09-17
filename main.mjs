@@ -36,8 +36,8 @@ import {
   consumeIteratorNonBlocking
 } from './src/developer-utils/consume-iterator.mjs'
 import {
-  getType
-} from './src/developer-utils/get-type.mjs'
+  Type, Types, is, of, same
+} from './src/developer-utils/type.mjs'
 import {
   measurePerformance
 } from './src/developer-utils/measure-performance.mjs'
@@ -147,7 +147,7 @@ export * from './src/data-structures/heap.mjs';
 export * from './src/data-structures/list-node.mjs';
 export * from './src/developer-utils/binary-search.mjs';
 export * from './src/developer-utils/consume-iterator.mjs';
-export * from './src/developer-utils/get-type.mjs';
+export * from './src/developer-utils/type.mjs';
 export * from './src/developer-utils/measure-performance.mjs';
 export * from './src/developer-utils/memoize.mjs';
 export * from './src/developer-utils/natural-search.mjs';
@@ -182,5 +182,5 @@ export * from './src/string-arrays/copy-case.mjs';
 export * from './src/string-arrays/format-big-number.mjs';
 
 export default [
-  createLangtonsAnt, createUnlimitedGrid, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, ConflatingQueue, SetCnt, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, getType, measurePerformance, memoize, naturalSearch, randNormal, array2range, range2array, setSafeInterval, barycentricCoordinates, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn
+  createLangtonsAnt, createUnlimitedGrid, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, ConflatingQueue, SetCnt, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, Type, Types, is, of, same, measurePerformance, memoize, naturalSearch, randNormal, array2range, range2array, setSafeInterval, barycentricCoordinates, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn
 ];
