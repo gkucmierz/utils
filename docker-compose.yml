@@ -1,8 +1,8 @@
-name: utils-docs
+name: docs-utils
 
 services:
-  utils-docs:
-    container_name: utils-docs
+  docs-utils:
+    container_name: docs-utils
     build:
       context: .
       dockerfile: Dockerfile

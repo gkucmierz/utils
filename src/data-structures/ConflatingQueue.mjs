@@ -39,10 +39,9 @@ export class ConflatingQueue {
    * Enqueues an asynchronous task associated with a specific key.
    * If a pending task with the same key already exists, it is superseded by the new task.
    *
-   * @template T
    * @param {string|number|symbol} key - Unique identifier for task coalescing.
-   * @param {() => Promise<T>|T} taskFn - The async/sync function to execute.
-   * @returns {Promise<T|{ superseded: boolean }>} Resolves with task result or `{ superseded: true }`.
+   * @param {Function} taskFn - The async or sync function to execute.
+   * @returns {Promise<*|{ superseded: boolean }>} Resolves with task result or `{ superseded: true }`.
    */
   enqueue(key, taskFn) {
     if (typeof taskFn !== 'function') {

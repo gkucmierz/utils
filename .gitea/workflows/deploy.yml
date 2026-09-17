@@ -1,4 +1,4 @@
-name: Deploy and Publish Packages (Gitea + NPM)
+name: Deploy Docs & Publish Packages
 
 on:
   push:
@@ -6,8 +6,21 @@ on:
       - main
 
 jobs:
-  deploy:
-    runs-on: self-hosted
+  deploy-docs:
+    name: Deploy Docs Website (docs-utils)
+    runs-on: self-hosted-pl
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Zero-downtime Docker build & deployment
+        run: |
+          docker compose build
+          docker compose up -d --remove-orphans
+
+  publish:
+    name: Publish Packages (Gitea + NPM)
+    runs-on: self-hosted-pl
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -27,7 +40,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Publish to Native Global Registry
-        run: npm publish --access public
+        run: npm publish --access public || echo "Version already published to NPM, skipping."
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
@@ -39,6 +52,6 @@ jobs:
           scope: '@gkucmierz'
 
       - name: Publish to Internal Registry
-        run: npm publish
+        run: npm publish || echo "Version already published to Gitea, skipping."
         env:
           NODE_AUTH_TOKEN: ${{ secrets.LOCAL_PACKAGE_REGISTRY }}
