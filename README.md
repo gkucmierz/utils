@@ -1,9 +1,11 @@
 # @gkucmierz/utils
 
-[![Socket Badge](https://socket.dev/api/badge/npm/package/@gkucmierz/utils)](https://socket.dev/npm/package/@gkucmierz/utils)
-![NPM Version](https://img.shields.io/npm/v/@gkucmierz/utils)
-![License](https://img.shields.io/npm/l/@gkucmierz/utils)
-![Downloads](https://img.shields.io/npm/dm/@gkucmierz/utils)
+[![NPM Version](https://img.shields.io/npm/v/@gkucmierz/utils?color=3b82f6&logo=npm)](https://www.npmjs.com/package/@gkucmierz/utils)
+[![Socket Security](https://img.shields.io/badge/Security-Socket.dev-7036fe?logo=socket&logoColor=white)](https://socket.dev/npm/package/@gkucmierz/utils)
+[![Tests](https://img.shields.io/badge/Tests-153%20passed-22c55e?logo=jasmine&logoColor=white)](https://gitea.7u.pl/gkucmierz/utils)
+[![Downloads](https://img.shields.io/npm/dm/@gkucmierz/utils?color=8b5cf6)](https://www.npmjs.com/package/@gkucmierz/utils)
+[![License](https://img.shields.io/npm/l/@gkucmierz/utils?color=f59e0b)](https://gitea.7u.pl/gkucmierz/utils)
+[![Node Version](https://img.shields.io/node/v/@gkucmierz/utils?color=43853d&logo=node.js&logoColor=white)](https://nodejs.org)
 
 A collection of useful utility functions and data structures for solving algorithmic tasks, competitive programming, and everyday development.
 
@@ -79,8 +81,8 @@ This library provides a wide range of mathematical functions and data structures
 
 ## 📚 Documentation
 
-Full API documentation with examples is available at:
-👉 **[https://gkucmierz.github.io/utils](https://gkucmierz.github.io/utils)**
+- **Production Docs**: 👉 **[https://docs-utils.7u.pl](https://docs-utils.7u.pl)**
+- **GitHub Pages Mirror**: [https://gkucmierz.github.io/utils](https://gkucmierz.github.io/utils)
 
 ## 🔗 Repository
 - **Internal Gitea**: [https://gitea.7u.pl/gkucmierz/utils](https://gitea.7u.pl/gkucmierz/utils)
