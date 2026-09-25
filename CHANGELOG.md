@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.1.0] - 2026-09-25
+
+### ✨ Added
+- **`Stack` Class:** High-performance, array-backed LIFO (Last-In-First-Out) stack data structure (`src/data-structures/Stack.mjs`).
+  - Private `#items = []` encapsulation protecting internal storage from accidental index mutation and leveraging V8 memory locality.
+  - Fluent `push(...items)` and `clear()` method chaining.
+  - Standard LIFO operations: `pop()`, `peek()`, `isEmpty()`, and `size`/`length` getters.
+  - Snapshot export via `toArray()` and native LIFO traversal via `*[Symbol.iterator]()`.
+
 ## [5.0.0] - 2026-09-17
 
 ### 💥 Breaking Changes
