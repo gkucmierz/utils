@@ -21,6 +21,9 @@ import {
   SetCnt
 } from './src/data-structures/SetCnt.mjs'
 import {
+  Stack
+} from './src/data-structures/Stack.mjs'
+import {
   Trie
 } from './src/data-structures/Trie.mjs'
 import {
@@ -142,6 +145,7 @@ export * from './src/combinatorics/n-choose-k.mjs';
 export * from './src/combinatorics/permutations.mjs';
 export * from './src/data-structures/ConflatingQueue.mjs';
 export * from './src/data-structures/SetCnt.mjs';
+export * from './src/data-structures/Stack.mjs';
 export * from './src/data-structures/Trie.mjs';
 export * from './src/data-structures/heap.mjs';
 export * from './src/data-structures/list-node.mjs';
@@ -182,5 +186,5 @@ export * from './src/string-arrays/copy-case.mjs';
 export * from './src/string-arrays/format-big-number.mjs';
 
 export default [
-  createLangtonsAnt, createUnlimitedGrid, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, ConflatingQueue, SetCnt, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, Type, Types, is, of, same, measurePerformance, memoize, naturalSearch, randNormal, array2range, range2array, setSafeInterval, barycentricCoordinates, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn
+  createLangtonsAnt, createUnlimitedGrid, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, ConflatingQueue, SetCnt, Stack, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, Type, Types, is, of, same, measurePerformance, memoize, naturalSearch, randNormal, array2range, range2array, setSafeInterval, barycentricCoordinates, axisAngleToMatrix4, crossProduct, dotProduct, getRotationMatrixFromVectors, multiplyMatrix4, normalize, projectToTrackball, matrixAsArray, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn
 ];
