@@ -74,7 +74,7 @@
     "docs:build": "jsdoc -c jsdoc.json && cp -r docs/@gkucmierz/utils/*/* docs/ && rm -rf docs/@gkucmierz",
     "docs:open": "open docs/index.html",
     "lint": "eslint .",
-    "prepare": "husky"
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "repository": {
     "type": "git",
@@ -88,7 +88,6 @@
     "docdash": "^2.0.2",
     "eslint": "^10.1.0",
     "globals": "^17.4.0",
-    "husky": "^8.0.3",
     "jasmine": "^4.4.0",
     "jsdoc": "^4.0.4",
     "lz-string": "^1.5.0",

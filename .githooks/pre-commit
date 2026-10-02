@@ -1,3 +1,4 @@
+#!/bin/sh
 # Check if GPG signing is enabled
 gpg_sign=$(git config --get commit.gpgsign || echo "false")
 
