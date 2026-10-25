@@ -4,6 +4,7 @@
 
 /**
  * Robust, highly-optimized type detection, introspection, and comparison system.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4ICoE8IFMEF8EBmMUYCARAAIDmA1gK4DGYIWMAXgPR1wgA2AzmQDcwYBmwigA|▶ Try it live in Instacode}
  */
 export class Type {
   // 1. Bottom values & Primitives
@@ -20,6 +21,10 @@ export class Type {
   static OBJECT = 'object';
   static ARRAY = 'array';
   static FUNCTION = 'function';
+  static ASYNC_FUNCTION = 'asyncfunction';
+  static GENERATOR_FUNCTION = 'generatorfunction';
+  static ASYNC_GENERATOR_FUNCTION = 'asyncgeneratorfunction';
+  static CALLABLE = 'callable';
 
   // 3. Standard Built-ins
   static DATE = 'date';
@@ -55,6 +60,9 @@ export class Type {
     if (Array.isArray(expected)) {
       return expected.some(exp => Type.is(val, exp));
     }
+    if (expected === Type.CALLABLE || expected === 'callable') {
+      return Type.isCallable(val);
+    }
     if (typeof expected === 'function') {
       if (expected === Number) return typeof val === 'number' && !Number.isNaN(val);
       if (expected === Boolean) return typeof val === 'boolean' || val instanceof Boolean;
@@ -67,6 +75,16 @@ export class Type {
       return val instanceof expected;
     }
     return Type.of(val) === expected;
+  }
+
+  /**
+   * Checks if a value is callable (regular function, async function, or generator).
+   * @param {*} val - Value to check.
+   * @returns {boolean} True if the value is any callable function.
+   */
+  static isCallable(val) {
+    const t = Type.of(val);
+    return t === 'function' || t === 'asyncfunction' || t === 'generatorfunction' || t === 'asyncgeneratorfunction';
   }
 
   /**
@@ -83,24 +101,35 @@ export class Type {
 
 /**
  * Alias for the {@link Type} class.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4ICoE8IFMDOCC+CAZjFGAgEQACA5gNYCuAxmCFjAF4D0DcIANjgoBuYMAzYcooA|▶ Try it live in Instacode}
  */
 export const Types = Type;
 
 /**
  * Checks if a value matches an expected type.
  * @see {@link Type.is}
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4JAZwQXwQMxlMBAIgAEBzAawFcBjMEAUxgC8B6KuEAGzSIG5goNAKA|▶ Try it live in Instacode}
  */
 export const is = Type.is;
 
 /**
  * Returns the canonical runtime type of any value.
  * @see {@link Type.of}
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4KgMwQXwWmUwIBEAAgOYDWArgMZggCmMAXgPSVwgA2AzoQNzBg6AUA|▶ Try it live in Instacode}
  */
 export const of = Type.of;
 
 /**
  * Compares whether two values have the exact same canonical type.
  * @see {@link Type.same}
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IM4EMwFMEF8EBmMUYCARAAIDmA1gK4DGYIWMAXgPR1wgA2qZANzBgGbMKA|▶ Try it live in Instacode}
  */
 export const same = Type.same;
+
+/**
+ * Checks if a value is callable (regular function, async function, or generator).
+ * @see {@link Type.isCallable}
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4JAZwMIEMA2OsBGOApggL4IBmMUYCARAAIDmA1gK4DGYIxMAXgHp2cEDjT0A3MFCZc+IsWlA|▶ Try it live in Instacode}
+ */
+export const isCallable = Type.isCallable;
 

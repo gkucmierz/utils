@@ -6,6 +6,7 @@
  * High-performance, LIFO (Last-In-First-Out) Stack data structure.
  * Encapsulates an internal private array (#items) to prevent index tampering
  * and optimize V8 memory locality and fast push/pop operations.
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMpwIYGMDWCC+CAZjFGAgEQACA5jgK5ZggCmMAXgPT1wgA2AZwoBuYMHTYcooA|▶ Try it live in Instacode}
  */
 export class Stack {
   #items = [];

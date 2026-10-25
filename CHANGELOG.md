@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.2.0] - 2026-10-26
+
+### ✨ Added
+- **`slugify(text, options)`:** Unicode-preserving URL/heading slug generator (`src/string-arrays/slugify.mjs`) that retains all Unicode letters (`\p{L}`, including Polish, European, and Cyrillic diacritics) and numbers (`\p{N}`) while stripping HTML tags, inline backticks, and punctuation.
+- **`parseHeading(rawText, options)`:** Markdown/HTML heading parser (`src/string-arrays/parse-heading.mjs`) that extracts hierarchical section numbers (e.g. `4.2.`), clean titles, and Unicode-preserving slugs.
+- **`isCallable` & `Type.isCallable(val)`:** Comprehensive callable type guard (`src/developer-utils/type.mjs`) accurately detecting synchronous functions, async functions, generator functions, and async generator functions while safely rejecting non-callables.
+- **Callable Constants:** Added `Type.ASYNC_FUNCTION` (`'asyncfunction'`), `Type.GENERATOR_FUNCTION` (`'generatorfunction'`), `Type.ASYNC_GENERATOR_FUNCTION` (`'asyncgeneratorfunction'`), and `Type.CALLABLE` (`'callable'`).
+- **`Type.is` Callable Integration:** `Type.is(fn, Type.CALLABLE)` and `is(fn, 'callable')` directly leverage `isCallable(val)`.
+
 ## [5.1.0] - 2026-09-25
 
 ### ✨ Added

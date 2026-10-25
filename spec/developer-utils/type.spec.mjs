@@ -1,4 +1,4 @@
-import { Type, Types, is, of, same } from '../../main.mjs';
+import { Type, Types, is, of, same, isCallable } from '../../main.mjs';
 
 describe('Type system', () => {
 
@@ -18,6 +18,10 @@ describe('Type system', () => {
       expect(Type.OBJECT).toEqual('object');
       expect(Type.ARRAY).toEqual('array');
       expect(Type.FUNCTION).toEqual('function');
+      expect(Type.ASYNC_FUNCTION).toEqual('asyncfunction');
+      expect(Type.GENERATOR_FUNCTION).toEqual('generatorfunction');
+      expect(Type.ASYNC_GENERATOR_FUNCTION).toEqual('asyncgeneratorfunction');
+      expect(Type.CALLABLE).toEqual('callable');
 
       // 3. Standard Built-ins
       expect(Type.DATE).toEqual('date');
@@ -174,4 +178,49 @@ describe('Type system', () => {
       expect(same(1, NaN)).toBe(false);
     });
   });
+
+  describe('Type.isCallable and isCallable()', () => {
+    it('should detect synchronous functions', () => {
+      expect(Type.isCallable(() => {})).toBe(true);
+      expect(Type.isCallable(function() {})).toBe(true);
+      expect(isCallable(() => {})).toBe(true);
+      expect(isCallable(function() {})).toBe(true);
+      expect(isCallable(new Function())).toBe(true);
+    });
+
+    it('should detect asynchronous functions', () => {
+      expect(Type.isCallable(async () => {})).toBe(true);
+      expect(Type.isCallable(async function() {})).toBe(true);
+      expect(isCallable(async () => {})).toBe(true);
+      expect(isCallable(async function() {})).toBe(true);
+    });
+
+    it('should detect generator functions', () => {
+      expect(Type.isCallable(function* () {})).toBe(true);
+      expect(Type.isCallable(async function* () {})).toBe(true);
+      expect(isCallable(function* () {})).toBe(true);
+      expect(isCallable(async function* () {})).toBe(true);
+    });
+
+    it('should reject non-callables', () => {
+      expect(isCallable(null)).toBe(false);
+      expect(isCallable(undefined)).toBe(false);
+      expect(isCallable({})).toBe(false);
+      expect(isCallable([])).toBe(false);
+      expect(isCallable('function')).toBe(false);
+      expect(isCallable(42)).toBe(false);
+      expect(isCallable(true)).toBe(false);
+      expect(isCallable(NaN)).toBe(false);
+      expect(isCallable(new Date())).toBe(false);
+    });
+
+    it('should work via Type.is with CALLABLE constant and string', () => {
+      expect(Type.is(() => {}, Type.CALLABLE)).toBe(true);
+      expect(Type.is(async () => {}, Type.CALLABLE)).toBe(true);
+      expect(Type.is(function* () {}, 'callable')).toBe(true);
+      expect(Type.is(42, Type.CALLABLE)).toBe(false);
+      expect(is(async () => {}, 'callable')).toBe(true);
+    });
+  });
 });
+
