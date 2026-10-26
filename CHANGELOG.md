@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.3.0] - 2026-10-26
+
+### ✨ Added
+- **`navigateGrid(currentIndex, totalItems, direction, columnsOrOptions, maybeOptions)` & `computeCyclicGridIndex`:** 2D jagged grid / matrix navigation (`src/developer-utils/grid-navigation.mjs`) that properly handles incomplete last rows (trailing gaps) by computing valid row counts per column ($R_c = \lfloor(N - 1 - c)/C\rfloor + 1$) and supporting hierarchical wrapping options (`wrap = true` master default, with granular `wrapHoriz` / `wrapHorizontal`, `wrapVert` / `wrapVertical`, and `rowStrict` overrides).
+- **`detectRenderedGridColumns(gridEl, itemSelector)`:** Live DOM bounding-box column detector (`getBoundingClientRect()` with `getComputedStyle(gridEl).gridTemplateColumns` fallback) for responsive 2D/1D grid navigation.
+
 ## [5.2.0] - 2026-10-26
 
 ### ✨ Added
