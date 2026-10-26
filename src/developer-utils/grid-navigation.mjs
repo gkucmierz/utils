@@ -6,18 +6,20 @@
  * Resolves the next 0-based index when navigating a 2D grid (matrix) that may contain
  * trailing gaps in its last row (`totalItems` not divisible by `columns`).
  *
+ * Pure mathematical/index function — completely independent of the DOM.
+ *
  * Wrapping configuration hierarchy:
  * - `wrap` (boolean, default `true`): master default for both axes.
  * - `wrapHoriz` / `wrapHorizontal` (boolean, optional): overrides `wrap` for horizontal movement (`left` / `right`).
  * - `wrapVert` / `wrapVertical` (boolean, optional): overrides `wrap` for vertical movement (`up` / `down`).
  * - `rowStrict` (boolean, default `false`): when `true`, horizontal movement wraps/clamps strictly within the current row instead of reading order.
  *
- * When `columns === 1` (single-column mobile layout), `right` behaves identically to `down`
+ * When `columns === 1` (single-column layout), `right` behaves identically to `down`
  * and `left` behaves identically to `up`.
  *
  * @param {number} currentIndex - Current active 0-based index (`0 <= currentIndex < totalItems`).
  * @param {number} totalItems - Total number of items in the grid ($N \ge 0$).
- * @param {'ArrowLeft'|'ArrowRight'|'ArrowUp'|'ArrowDown'|'left'|'right'|'up'|'down'} direction - Movement direction.
+ * @param {'left'|'right'|'up'|'down'|'ArrowLeft'|'ArrowRight'|'ArrowUp'|'ArrowDown'} direction - Movement direction.
  * @param {number|Object} [columnsOrOptions=1] - Column count ($C \ge 1$) or options object.
  * @param {Object} [maybeOptions={}] - Optional configuration when 4th argument is a column count.
  * @returns {number} Next 0-based index, or `-1` if `totalItems <= 0`.
@@ -66,20 +68,20 @@ export const navigateGrid = (
   let deltaV = 0;
 
   switch (direction) {
-  case 'ArrowRight':
   case 'right':
+  case 'ArrowRight':
     deltaH = 1;
     break;
-  case 'ArrowLeft':
   case 'left':
+  case 'ArrowLeft':
     deltaH = -1;
     break;
-  case 'ArrowDown':
   case 'down':
+  case 'ArrowDown':
     deltaV = 1;
     break;
-  case 'ArrowUp':
   case 'up':
+  case 'ArrowUp':
     deltaV = -1;
     break;
   default:
@@ -128,64 +130,46 @@ export const navigateGrid = (
 };
 
 /**
- * Alias for `navigateGrid` for backwards compatibility.
- * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMZUgVzgUwMICeqANiKgOIwgAmAkgHbU4AeCAvggGYwYIBEAAQDmAa0yowIHDABeAemwhiAZz4BuYMHRZchEmUo0GTZhqA|▶ Try it live in Instacode}
- */
-export const computeCyclicGridIndex = navigateGrid;
-
-/**
- * Detects the live number of rendered columns in a CSS Grid / Flex container
- * by inspecting the bounding rectangles (`getBoundingClientRect()`) of its visible children,
- * falling back to `getComputedStyle(gridEl).gridTemplateColumns`.
+ * Pure higher-order geometric utility that detects the number of columns in the first row
+ * of a 2D layout from an iterable of items and a row-offset projector function.
  *
- * @param {HTMLElement|null} gridEl - Grid container element.
- * @param {string} [itemSelector='.ext-card'] - Selector for grid items (falls back to direct `children`).
- * @returns {number} Detected column count ($\ge 1$).
- * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4ICYFM7oMZwEroB2GM6qA4jCKgMJQA2ArmIQM4IC+CAZjFGAgBEAAQDmAa0bYwIdDABeAekZwQ9VoIDcwYBiy4CxOWUrU6TFq21A|▶ Try it live in Instacode}
+ * Counts how many consecutive leading items share the same row coordinate (`y` / `top`)
+ * within the given `tolerance`. Completely independent of the DOM.
+ *
+ * @param {Iterable<*>} items - Iterable of numbers (row offsets) or arbitrary items.
+ * @param {Function|number} [getRowOffset=(x) => x] - Pure projector `(item, index) => number` (or numeric tolerance if 2nd arg is a number).
+ * @param {number} [tolerance=0] - Maximum allowed absolute difference between an item's row offset and the first item's offset.
+ * @returns {number} Detected number of columns in the first row ($\ge 1$).
+ * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4ICYFM7oMZwOIwioDCUANgK5gB2AzggL4IBmMUYCARAAIDmA1hWxgQ6GAC8A9BTggytTgG5gwDFlwEipSjVrKgA|▶ Try it live in Instacode}
  */
-export const detectRenderedGridColumns = (gridEl, itemSelector = '.ext-card') => {
-  if (!gridEl) {
+export const detectGridColumns = (items, getRowOffset = (x) => x, tolerance = 0) => {
+  if (!items || typeof items[Symbol.iterator] !== 'function') {
     return 1;
   }
 
-  let items = [];
-  if (typeof gridEl.querySelectorAll === 'function' && itemSelector) {
-    items = Array.from(gridEl.querySelectorAll(itemSelector));
-  }
-  if (items.length === 0 && gridEl.children) {
-    items = Array.from(gridEl.children);
-  }
+  const isFn = typeof getRowOffset === 'function';
+  const projector = isFn ? getRowOffset : (x) => x;
+  const tol = Math.max(0, Number(isFn ? tolerance : getRowOffset) || 0);
 
-  items = items.filter((el) =>
-    typeof el.checkVisibility === 'function' ? el.checkVisibility() : true
-  );
+  let firstOffset = null;
+  let firstRowCount = 0;
+  let idx = 0;
 
-  if (items.length >= 2 && typeof items[0].getBoundingClientRect === 'function') {
-    const firstTop = items[0].getBoundingClientRect().top;
-    let firstRowCount = 0;
-    for (const item of items) {
-      const rect = item.getBoundingClientRect();
-      if (Math.abs(rect.top - firstTop) <= 10) {
-        firstRowCount += 1;
-      } else {
-        break;
-      }
+  for (const item of items) {
+    const raw = projector(item, idx++);
+    const offset = typeof raw === 'number' ? raw : Number(raw);
+    if (!Number.isFinite(offset)) {
+      continue;
     }
-    if (firstRowCount >= 1) {
-      return firstRowCount;
+    if (firstOffset === null) {
+      firstOffset = offset;
+      firstRowCount = 1;
+    } else if (Math.abs(offset - firstOffset) <= tol) {
+      firstRowCount += 1;
+    } else {
+      break;
     }
   }
 
-  if (typeof window !== 'undefined' && typeof window.getComputedStyle === 'function') {
-    const template = window.getComputedStyle(gridEl).gridTemplateColumns || '';
-    const tracks = template
-      .trim()
-      .split(/\s+/)
-      .filter(Boolean);
-    if (tracks.length >= 1) {
-      return tracks.length;
-    }
-  }
-
-  return 1;
+  return Math.max(1, firstRowCount);
 };

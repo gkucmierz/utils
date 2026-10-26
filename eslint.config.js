@@ -10,13 +10,12 @@ export default [
     }, {}),
   },
   {
-    // Apply to all core utility matrices
+    // Apply to all core utility matrices — strictly pure JS (no DOM/Browser globals allowed)
     files: ['**/*.js', '**/*.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        ...globals.browser,
         ...globals.node,
       },
     },
@@ -24,7 +23,20 @@ export default [
       'no-unused-vars': 'off',
       'no-undef': 'off',
       'no-debugger': 'off',
-      'indent': ['error', 2]
+      'indent': ['error', 2],
+      'no-restricted-globals': [
+        'error',
+        { name: 'window', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'document', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'navigator', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'HTMLElement', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'Element', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'Node', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'localStorage', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'sessionStorage', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'location', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' },
+        { name: 'history', message: '@gkucmierz/utils must remain 100% pure JS and blind to DOM/Browser globals.' }
+      ]
     }
   },
   {

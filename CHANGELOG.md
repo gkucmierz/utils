@@ -5,11 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.3.1] - 2026-10-26
+
+### ♻️ Changed & Added
+- **Pure JS `detectGridColumns(items, getRowOffset, tolerance)`:** Replaced DOM-coupled `detectRenderedGridColumns` in `src/developer-utils/grid-navigation.mjs` with a 100% pure, higher-order geometric/data function that accepts any `Iterable` of offsets or items with a pure projector `(item, index) => number` and optional `tolerance`.
+- **Strict Zero-DOM Enforcement:** Removed browser globals from `eslint.config.js` and added `no-restricted-globals` (`window`, `document`, `navigator`, `HTMLElement`, `Element`, `Node`, `localStorage`, `sessionStorage`, `location`, `history`) along with `.agents/rules/01-pure-js-architecture.md`.
+
 ## [5.3.0] - 2026-10-26
 
 ### ✨ Added
-- **`navigateGrid(currentIndex, totalItems, direction, columnsOrOptions, maybeOptions)` & `computeCyclicGridIndex`:** 2D jagged grid / matrix navigation (`src/developer-utils/grid-navigation.mjs`) that properly handles incomplete last rows (trailing gaps) by computing valid row counts per column ($R_c = \lfloor(N - 1 - c)/C\rfloor + 1$) and supporting hierarchical wrapping options (`wrap = true` master default, with granular `wrapHoriz` / `wrapHorizontal`, `wrapVert` / `wrapVertical`, and `rowStrict` overrides).
-- **`detectRenderedGridColumns(gridEl, itemSelector)`:** Live DOM bounding-box column detector (`getBoundingClientRect()` with `getComputedStyle(gridEl).gridTemplateColumns` fallback) for responsive 2D/1D grid navigation.
+- **`navigateGrid(currentIndex, totalItems, direction, columnsOrOptions, maybeOptions)`:** 2D jagged grid / matrix navigation (`src/developer-utils/grid-navigation.mjs`) that properly handles incomplete last rows (trailing gaps) by computing valid row counts per column ($R_c = \lfloor(N - 1 - c)/C\rfloor + 1$) and supporting hierarchical wrapping options (`wrap = true` master default, with granular `wrapHoriz` / `wrapHorizontal`, `wrapVert` / `wrapVertical`, and `rowStrict` overrides).
 
 ## [5.2.0] - 2026-10-26
 

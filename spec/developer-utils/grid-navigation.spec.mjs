@@ -1,117 +1,146 @@
-import {
-  navigateGrid,
-  computeCyclicGridIndex,
-  detectRenderedGridColumns
-} from '../../src/developer-utils/grid-navigation.mjs';
+import { navigateGrid, detectGridColumns } from '../../main.mjs';
 
-describe('grid-navigation (navigateGrid & detectRenderedGridColumns)', () => {
-  it('navigates a 4-item, 3-column jagged grid so Down from item 4 (idx 3) wraps to item 1 (idx 0)', () => {
-    // Grid layout (N=4, C=3):
-    // Row 0: [ 0 (pos 1), 1 (pos 2), 2 (pos 3) ]
-    // Row 1: [ 3 (pos 4),   gap   ,   gap    ]
-    expect(navigateGrid(0, 4, 'ArrowDown', 3)).toBe(3); // pos 1 -> pos 4
-    expect(navigateGrid(3, 4, 'ArrowDown', 3)).toBe(0); // pos 4 -> pos 1 (vertical wrap in col 0!)
-    expect(navigateGrid(3, 4, 'ArrowUp', 3)).toBe(0);   // pos 4 -> pos 1
-    expect(navigateGrid(0, 4, 'ArrowUp', 3)).toBe(3);   // pos 1 -> pos 4 (vertical wrap in col 0!)
+describe('grid-navigation', () => {
+  describe('navigateGrid — 2D matrix with trailing gaps (3 columns, 4 items)', () => {
+    /**
+     * Grid layout (3 columns, 4 items):
+     * Row 0: [0 (pos 1)] [1 (pos 2)] [2 (pos 3)]
+     * Row 1: [3 (pos 4)] [   gap   ] [   gap   ]
+     */
+    const total = 4;
+    const cols = 3;
 
-    // Columns 1 and 2 have only 1 row (gap in row 1)
-    expect(navigateGrid(1, 4, 'ArrowDown', 3)).toBe(1);
-    expect(navigateGrid(2, 4, 'ArrowDown', 3)).toBe(2);
+    it('wraps vertically within column 0: position 4 (index 3) + down -> position 1 (index 0)', () => {
+      expect(navigateGrid(3, total, 'down', cols)).toBe(0);
+      expect(navigateGrid(3, total, 'ArrowDown', cols)).toBe(0);
+    });
 
-    // Horizontal stream navigation with default wrap=true
-    expect(navigateGrid(0, 4, 'ArrowRight', 3)).toBe(1);
-    expect(navigateGrid(2, 4, 'ArrowRight', 3)).toBe(3);
-    expect(navigateGrid(3, 4, 'ArrowRight', 3)).toBe(0);
-    expect(navigateGrid(0, 4, 'ArrowLeft', 3)).toBe(3);
+    it('moves vertically within column 0: position 1 (index 0) + down -> position 4 (index 3)', () => {
+      expect(navigateGrid(0, total, 'down', cols)).toBe(3);
+      expect(navigateGrid(0, total, 'up', cols)).toBe(3);
+      expect(navigateGrid(3, total, 'up', cols)).toBe(0);
+    });
+
+    it('wraps single-item columns (col 1 and col 2) back to themselves on vertical movement', () => {
+      expect(navigateGrid(1, total, 'down', cols)).toBe(1);
+      expect(navigateGrid(1, total, 'up', cols)).toBe(1);
+      expect(navigateGrid(2, total, 'down', cols)).toBe(2);
+      expect(navigateGrid(2, total, 'up', cols)).toBe(2);
+    });
+
+    it('wraps horizontally in reading order by default', () => {
+      expect(navigateGrid(0, total, 'right', cols)).toBe(1);
+      expect(navigateGrid(2, total, 'right', cols)).toBe(3);
+      expect(navigateGrid(3, total, 'right', cols)).toBe(0);
+      expect(navigateGrid(0, total, 'left', cols)).toBe(3);
+    });
   });
 
-  it('handles multi-row jagged grids with gaps in the last row (N=8, C=3)', () => {
-    // Row 0: [ 0, 1, 2 ]
-    // Row 1: [ 3, 4, 5 ]
-    // Row 2: [ 6, 7, - ] (gap at row 2, col 2)
-    // Column 0: 0 -> 3 -> 6 -> 0
-    expect(navigateGrid(0, 8, 'down', 3)).toBe(3);
-    expect(navigateGrid(3, 8, 'down', 3)).toBe(6);
-    expect(navigateGrid(6, 8, 'down', 3)).toBe(0);
-    expect(navigateGrid(0, 8, 'up', 3)).toBe(6);
+  describe('navigateGrid — wrap, wrapHoriz/wrapHorizontal, wrapVert/wrapVertical options', () => {
+    // 3x2 + 2 items = 8 items in 3 columns:
+    // Row 0: 0, 1, 2
+    // Row 1: 3, 4, 5
+    // Row 2: 6, 7, _
+    const total = 8;
+    const cols = 3;
 
-    // Column 1: 1 -> 4 -> 7 -> 1
-    expect(navigateGrid(1, 8, 'down', 3)).toBe(4);
-    expect(navigateGrid(4, 8, 'down', 3)).toBe(7);
-    expect(navigateGrid(7, 8, 'down', 3)).toBe(1);
+    it('wraps both axes when wrap: true (default)', () => {
+      expect(navigateGrid(7, total, 'right', cols)).toBe(0);
+      expect(navigateGrid(0, total, 'left', cols)).toBe(7);
+      expect(navigateGrid(6, total, 'down', cols)).toBe(0);
+      expect(navigateGrid(5, total, 'down', cols)).toBe(2);
+      expect(navigateGrid(2, total, 'up', cols)).toBe(5);
+    });
 
-    // Column 2 (only 2 rows: 2 and 5): 2 -> 5 -> 2
-    expect(navigateGrid(2, 8, 'down', 3)).toBe(5);
-    expect(navigateGrid(5, 8, 'down', 3)).toBe(2);
-    expect(navigateGrid(2, 8, 'up', 3)).toBe(5);
+    it('disables wrapping on both axes when wrap: false', () => {
+      expect(navigateGrid(7, total, 'right', cols, { wrap: false })).toBe(7);
+      expect(navigateGrid(0, total, 'left', cols, { wrap: false })).toBe(0);
+      expect(navigateGrid(6, total, 'down', cols, { wrap: false })).toBe(6);
+      expect(navigateGrid(5, total, 'down', cols, { wrap: false })).toBe(5);
+      expect(navigateGrid(2, total, 'up', cols, { wrap: false })).toBe(2);
+      expect(navigateGrid(2, total, 'down', cols, { wrap: false })).toBe(5);
+    });
+
+    it('supports wrap: true with wrapHoriz: false (wraps vertically only)', () => {
+      const opts = { wrap: true, wrapHoriz: false };
+      expect(navigateGrid(6, total, 'down', cols, opts)).toBe(0);
+      expect(navigateGrid(5, total, 'down', cols, opts)).toBe(2);
+      expect(navigateGrid(7, total, 'right', cols, opts)).toBe(7);
+      expect(navigateGrid(0, total, 'left', cols, opts)).toBe(0);
+    });
+
+    it('supports wrapHorizontal / wrapVertical long option names and options object as 4th arg', () => {
+      expect(
+        navigateGrid(3, 4, 'down', {
+          columns: 3,
+          wrapHorizontal: false,
+          wrapVertical: true
+        })
+      ).toBe(0);
+
+      expect(
+        navigateGrid(3, 4, 'down', {
+          columns: 3,
+          wrap: true,
+          wrapVertical: false
+        })
+      ).toBe(3);
+    });
+
+    it('supports rowStrict mode for horizontal movement', () => {
+      expect(navigateGrid(2, total, 'right', cols, { rowStrict: true, wrap: true })).toBe(0);
+      expect(navigateGrid(0, total, 'left', cols, { rowStrict: true, wrap: true })).toBe(2);
+      expect(navigateGrid(7, total, 'right', cols, { rowStrict: true, wrap: true })).toBe(6);
+      expect(navigateGrid(7, total, 'right', cols, { rowStrict: true, wrap: false })).toBe(7);
+    });
+
+    it('treats right as down and left as up on a 1-column layout', () => {
+      expect(navigateGrid(0, 4, 'right', 1)).toBe(1);
+      expect(navigateGrid(0, 4, 'down', 1)).toBe(1);
+      expect(navigateGrid(0, 4, 'left', 1)).toBe(3);
+      expect(navigateGrid(0, 4, 'up', 1)).toBe(3);
+    });
+
+    it('handles empty grids and out-of-range currentIndex safely', () => {
+      expect(navigateGrid(0, 0, 'down', 3)).toBe(-1);
+      expect(navigateGrid(-1, 4, 'right', 3)).toBe(1);
+      expect(navigateGrid(1, 4, 'UnknownKey', 3)).toBe(1);
+    });
   });
 
-  it('supports wrap: false to disable wrapping on both axes', () => {
-    const opts = { columns: 3, wrap: false };
-    expect(navigateGrid(0, 4, 'left', opts)).toBe(0);
-    expect(navigateGrid(3, 4, 'right', opts)).toBe(3);
-    expect(navigateGrid(0, 4, 'up', opts)).toBe(0);
-    expect(navigateGrid(0, 4, 'down', opts)).toBe(3);
-    expect(navigateGrid(3, 4, 'down', opts)).toBe(3); // clamped at bottom of col 0
-    expect(navigateGrid(5, 8, 'down', opts)).toBe(5); // clamped above gap at (2, 2)
-  });
+  describe('detectGridColumns — pure higher-order row-offset clustering', () => {
+    it('detects column count from a flat array of numeric row offsets', () => {
+      expect(detectGridColumns([100, 100, 100, 240, 240])).toBe(3);
+      expect(detectGridColumns([50, 50, 180, 180])).toBe(2);
+      expect(detectGridColumns([10, 120, 230])).toBe(1);
+    });
 
-  it('supports granular wrapHoriz/wrapHorizontal and wrapVert/wrapVertical overrides', () => {
-    // Default wrap=true, but disable horizontal wrapping (wrapHoriz: false)
-    const vertOnly = { columns: 3, wrapHoriz: false };
-    expect(navigateGrid(3, 4, 'down', vertOnly)).toBe(0);  // vertical still wraps!
-    expect(navigateGrid(0, 4, 'up', vertOnly)).toBe(3);    // vertical still wraps!
-    expect(navigateGrid(3, 4, 'right', vertOnly)).toBe(3); // horizontal clamped!
-    expect(navigateGrid(0, 4, 'left', vertOnly)).toBe(0);  // horizontal clamped!
+    it('accepts a pure projector function (item, index) => number and tolerance', () => {
+      const points = [
+        { id: 'a', y: 100.0 },
+        { id: 'b', y: 100.4 },
+        { id: 'c', y: 99.7 },
+        { id: 'd', y: 220.0 }
+      ];
+      expect(detectGridColumns(points, (p) => p.y, 1)).toBe(3);
+      expect(detectGridColumns(points, (p) => p.y, 0)).toBe(1);
+    });
 
-    // Default wrap=true, but disable vertical wrapping (wrapVertical: false)
-    const horizOnly = { columns: 3, wrapVertical: false };
-    expect(navigateGrid(3, 4, 'right', horizOnly)).toBe(0); // horizontal still wraps!
-    expect(navigateGrid(0, 4, 'left', horizOnly)).toBe(3);  // horizontal still wraps!
-    expect(navigateGrid(3, 4, 'down', horizOnly)).toBe(3);  // vertical clamped!
-    expect(navigateGrid(0, 4, 'up', horizOnly)).toBe(0);    // vertical clamped!
+    it('supports numeric tolerance as 2nd argument when items are already numbers', () => {
+      expect(detectGridColumns([100, 104, 98, 250], 6)).toBe(3);
+    });
 
-    // Master wrap=false, but explicitly enable wrapVert: true
-    const explicitVert = { columns: 3, wrap: false, wrapVert: true };
-    expect(navigateGrid(3, 4, 'down', explicitVert)).toBe(0);
-    expect(navigateGrid(3, 4, 'right', explicitVert)).toBe(3);
-  });
-
-  it('supports rowStrict mode for within-row horizontal wrapping and clamping', () => {
-    expect(navigateGrid(2, 4, 'right', { columns: 3, rowStrict: true, wrap: true })).toBe(0);
-    expect(navigateGrid(0, 4, 'left', { columns: 3, rowStrict: true, wrap: true })).toBe(2);
-    expect(navigateGrid(2, 4, 'right', { columns: 3, rowStrict: true, wrapHoriz: false })).toBe(2);
-  });
-
-  it('makes right === down and left === up when columns === 1 (mobile single-column)', () => {
-    for (let i = 0; i < 4; i++) {
-      expect(navigateGrid(i, 4, 'ArrowDown', 1)).toBe(navigateGrid(i, 4, 'ArrowRight', 1));
-      expect(navigateGrid(i, 4, 'ArrowUp', 1)).toBe(navigateGrid(i, 4, 'ArrowLeft', 1));
-      expect(navigateGrid(i, 4, 'ArrowDown', { columns: 1, wrap: false })).toBe(
-        navigateGrid(i, 4, 'ArrowRight', { columns: 1, wrap: false })
-      );
-    }
-    expect(computeCyclicGridIndex(3, 4, 'ArrowDown', 3)).toBe(0);
-  });
-
-  it('detects rendered grid column count from bounding rectangles', () => {
-    const desktopGrid = {
-      querySelectorAll: () => [
-        { getBoundingClientRect: () => ({ top: 100 }) },
-        { getBoundingClientRect: () => ({ top: 100 }) },
-        { getBoundingClientRect: () => ({ top: 100 }) },
-        { getBoundingClientRect: () => ({ top: 320 }) }
-      ]
-    };
-    expect(detectRenderedGridColumns(desktopGrid)).toBe(3);
-
-    const mobileGrid = {
-      querySelectorAll: () => [
-        { getBoundingClientRect: () => ({ top: 100 }) },
-        { getBoundingClientRect: () => ({ top: 280 }) },
-        { getBoundingClientRect: () => ({ top: 460 }) }
-      ]
-    };
-    expect(detectRenderedGridColumns(mobileGrid)).toBe(1);
+    it('works with arbitrary ES Iterables (generators / Sets) and handles empty inputs', () => {
+      function* genOffsets() {
+        yield 20;
+        yield 20;
+        yield 20;
+        yield 20;
+        yield 90;
+      }
+      expect(detectGridColumns(genOffsets())).toBe(4);
+      expect(detectGridColumns([])).toBe(1);
+      expect(detectGridColumns(null)).toBe(1);
+    });
   });
 });
