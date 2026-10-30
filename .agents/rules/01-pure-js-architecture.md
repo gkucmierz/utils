@@ -10,7 +10,7 @@
 1. **Brak dostępu do obiektów przeglądarki / DOM:**
    - W kodzie źródłowym (`src/**/*.mjs`) oraz testach (`spec/**/*.mjs`) obowiązuje **bezwzględny zakaz** odwoływania się do:
      `window`, `document`, `navigator`, `location`, `history`, `localStorage`, `sessionStorage`, `HTMLElement`, `Element`, `Node`, `Event`, `querySelector*`, `getBoundingClientRect`, `getComputedStyle`, `checkVisibility` itp.
-   - Zakaz ten jest dodatkowo egzekwowany automatycznie przez regułę `no-restricted-globals` w [`eslint.config.js`](file:///Users/gkucmierz/workspace/utils/eslint.config.js) uruchamianą w `.githooks/pre-commit`.
+   - Zakaz ten jest dodatkowo egzekwowany automatycznie przez regułę `no-restricted-globals` w [`eslint.config.js`](../../eslint.config.js) uruchamianą w `.githooks/pre-commit`.
 2. **Uniwersalność uruchomieniowa (Universal Runtime & Instacode Compatibility):**
    - Każda wyeksportowana funkcja i klasa musi działać identycznie w:
      - czystym silniku V8 / Node.js / Deno / Bun,
@@ -42,7 +42,7 @@
 
 ## 3. Obowiązkowy Rygor Wydawniczy w `@gkucmierz/utils`
 
-Przed każdym commitem lub wydaniem nowej wersji w `/Users/gkucmierz/workspace/utils`:
+Przed każdym commitem lub wydaniem nowej wersji w `~/workspace/utils`:
 1. Uruchom generowanie eksportów głównych i linków Instacode:
    ```bash
    npm run build:main
