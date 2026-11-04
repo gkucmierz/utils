@@ -75,6 +75,9 @@ import {
   matrixAsArray
 } from './src/geometry/matrix.mjs'
 import {
+  OrthoSet, diffBox, diffRange, measureBox, measureRange, mutualBox, mutualRange, sharedMeasureNd, sumBox, sumRange, xorBox, xorRange
+} from './src/geometry/range-set.mjs'
+import {
   egcd
 } from './src/number-theory/egcd.mjs'
 import {
@@ -175,6 +178,7 @@ export * from './src/developer-utils/type.mjs';
 export * from './src/geometry/barycentric.mjs';
 export * from './src/geometry/math3d.mjs';
 export * from './src/geometry/matrix.mjs';
+export * from './src/geometry/range-set.mjs';
 export * from './src/number-theory/egcd.mjs';
 export * from './src/number-theory/factors.mjs';
 export * from './src/number-theory/gcd.mjs';
@@ -202,5 +206,5 @@ export * from './src/string-arrays/parse-heading.mjs';
 export * from './src/string-arrays/slugify.mjs';
 
 export default [
-  createLangtonsAnt, createUnlimitedGrid, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, ConflatingQueue, SetCnt, Stack, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, detectGridColumns, navigateGrid, measurePerformance, memoize, naturalSearch, randNormal, array2range, range2array, setSafeInterval, Type, Types, is, isCallable, of, same, barycentricCoordinates, applyScreenDragQuat, axisAngleToMatrix4, axisAngleToQuat, crossProduct, dotProduct, eulerYXZToQuat, getRotationMatrixFromVectors, matToEulerYXZ, matToQuat, multiplyMatrix4, multiplyQuat, normalize, normalizeQuat, projectToTrackball, quatToMat, rotateVecByQuat, slerp, matrixAsArray, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn, parseHeading, slugify
+  createLangtonsAnt, createUnlimitedGrid, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, ConflatingQueue, SetCnt, Stack, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, detectGridColumns, navigateGrid, measurePerformance, memoize, naturalSearch, randNormal, array2range, range2array, setSafeInterval, Type, Types, is, isCallable, of, same, barycentricCoordinates, applyScreenDragQuat, axisAngleToMatrix4, axisAngleToQuat, crossProduct, dotProduct, eulerYXZToQuat, getRotationMatrixFromVectors, matToEulerYXZ, matToQuat, multiplyMatrix4, multiplyQuat, normalize, normalizeQuat, projectToTrackball, quatToMat, rotateVecByQuat, slerp, matrixAsArray, OrthoSet, diffBox, diffRange, measureBox, measureRange, mutualBox, mutualRange, sharedMeasureNd, sumBox, sumRange, xorBox, xorRange, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn, parseHeading, slugify
 ];
