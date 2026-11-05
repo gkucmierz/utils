@@ -60,5 +60,4 @@ code-recipes
 .agent
 AGENTS.md
 agents.md
-.dashboard
-.agent-working
+.dashboard-app
