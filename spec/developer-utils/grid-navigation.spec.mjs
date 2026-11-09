@@ -106,6 +106,20 @@ describe('grid-navigation', () => {
       expect(navigateGrid(-1, 4, 'right', 3)).toBe(1);
       expect(navigateGrid(1, 4, 'UnknownKey', 3)).toBe(1);
     });
+
+    it('supports spanLastRow and preferredCol for 2x3 grids with a full-width spanned last row (5 items in 2 cols)', () => {
+      // Layout:
+      // Row 0: [0, 1]
+      // Row 1: [2, 3]
+      // Row 2: [4, 4] (item 4 spans both col 0 and col 1)
+      expect(navigateGrid(3, 5, 'down', 2, { spanLastRow: true })).toBe(4);
+      expect(navigateGrid(2, 5, 'down', 2, { spanLastRow: true })).toBe(4);
+      expect(navigateGrid(4, 5, 'up', 2, { spanLastRow: true, preferredCol: 1 })).toBe(3);
+      expect(navigateGrid(4, 5, 'up', 2, { spanLastRow: true, preferredCol: 0 })).toBe(2);
+      expect(navigateGrid(4, 5, 'down', 2, { spanLastRow: true, preferredCol: 1 })).toBe(1);
+      expect(navigateGrid(4, 5, 'down', 2, { spanLastRow: true, preferredCol: 0 })).toBe(0);
+      expect(navigateGrid(1, 5, 'up', 2, { spanLastRow: true })).toBe(4);
+    });
   });
 
   describe('detectGridColumns — pure higher-order row-offset clustering', () => {
