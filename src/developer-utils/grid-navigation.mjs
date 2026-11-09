@@ -3,8 +3,64 @@
  */
 
 /**
+ * Builds a 2D occupancy matrix `rows[r][c] = itemIndex` (or `-1` for empty gap)
+ * when `spanLastRow` or `colSpans` is enabled.
+ *
+ * @param {number} totalItems
+ * @param {number} cols
+ * @param {Object} opts
+ * @returns {{ matrix: number[][], itemPos: Array<{ row: number, cols: number[] }> }}
+ */
+const buildSpannedGridMatrix = (totalItems, cols, opts = {}) => {
+  const spanLastRow = Boolean(opts.spanLastRow);
+  const colSpans = opts.colSpans || null;
+  const matrix = [];
+  const itemPos = Array.from({ length: totalItems }, () => ({ row: 0, cols: [] }));
+
+  let curRow = new Array(cols).fill(-1);
+  let c = 0;
+
+  for (let i = 0; i < totalItems; i += 1) {
+    let span = 1;
+    if (colSpans) {
+      const rawSpan = Array.isArray(colSpans) ? colSpans[i] : colSpans[i];
+      if (Number.isFinite(Number(rawSpan)) && Number(rawSpan) >= 1) {
+        span = Math.min(cols, Math.floor(Number(rawSpan)));
+      }
+    }
+    if (c + span > cols) {
+      matrix.push(curRow);
+      curRow = new Array(cols).fill(-1);
+      c = 0;
+    }
+    if (spanLastRow && i === totalItems - 1 && c < cols) {
+      span = cols - c;
+    }
+    const rowIdx = matrix.length;
+    itemPos[i].row = rowIdx;
+    for (let k = 0; k < span && c < cols; k += 1) {
+      curRow[c] = i;
+      itemPos[i].cols.push(c);
+      c += 1;
+    }
+    if (c >= cols) {
+      matrix.push(curRow);
+      curRow = new Array(cols).fill(-1);
+      c = 0;
+    }
+  }
+
+  if (c > 0) {
+    matrix.push(curRow);
+  }
+
+  return { matrix, itemPos };
+};
+
+/**
  * Resolves the next 0-based index when navigating a 2D grid (matrix) that may contain
- * trailing gaps in its last row (`totalItems` not divisible by `columns`).
+ * trailing gaps in its last row (`totalItems` not divisible by `columns`) or spanned cells
+ * (`spanLastRow: true` / `colSpans` / `preferredCol`).
  *
  * Pure mathematical/index function — completely independent of the DOM.
  *
@@ -13,6 +69,9 @@
  * - `wrapHoriz` / `wrapHorizontal` (boolean, optional): overrides `wrap` for horizontal movement (`left` / `right`).
  * - `wrapVert` / `wrapVertical` (boolean, optional): overrides `wrap` for vertical movement (`up` / `down`).
  * - `rowStrict` (boolean, default `false`): when `true`, horizontal movement wraps/clamps strictly within the current row instead of reading order.
+ * - `spanLastRow` (boolean, default `false`): when `true`, the final item (`totalItems - 1`) spans all remaining columns in the last row (e.g. a 2x3 grid where row 2 has a full-width card `[4, 4]`).
+ * - `colSpans` (number[]|Object, optional): explicit column span per item index (`>= 1`).
+ * - `preferredCol` (number, optional): preferred column index (`0 <= preferredCol < columns`) preserved when stepping vertically out of a multi-column spanned item.
  *
  * When `columns === 1` (single-column layout), `right` behaves identically to `down`
  * and `left` behaves identically to `up`.
@@ -60,6 +119,7 @@ export const navigateGrid = (
         ? opts.wrapVert
         : baseWrap;
   const rowStrict = Boolean(opts.rowStrict);
+  const hasSpans = Boolean(opts.spanLastRow || opts.colSpans);
 
   const row = Math.floor(cur / cols);
   const col = cur % cols;
@@ -91,6 +151,26 @@ export const navigateGrid = (
   // Horizontal movement (left / right)
   if (deltaH !== 0) {
     if (rowStrict) {
+      if (hasSpans && cols > 1) {
+        const { matrix, itemPos } = buildSpannedGridMatrix(totalItems, cols, opts);
+        const curRowIdx = itemPos[cur]?.row ?? 0;
+        const rowItems = [];
+        for (const cellItem of matrix[curRowIdx] || []) {
+          if (cellItem >= 0 && !rowItems.includes(cellItem)) {
+            rowItems.push(cellItem);
+          }
+        }
+        const posInRow = rowItems.indexOf(cur);
+        if (posInRow < 0 || rowItems.length <= 0) return cur;
+        const nextPos = posInRow + deltaH;
+        if (nextPos >= 0 && nextPos < rowItems.length) {
+          return rowItems[nextPos];
+        }
+        if (wrapHoriz) {
+          return rowItems[((nextPos % rowItems.length) + rowItems.length) % rowItems.length];
+        }
+        return cur;
+      }
       const rowStart = row * cols;
       const rowLen = Math.min(cols, totalItems - rowStart);
       if (rowLen <= 0) return cur;
@@ -110,6 +190,42 @@ export const navigateGrid = (
     }
     if (wrapHoriz) {
       return ((nextIdx % totalItems) + totalItems) % totalItems;
+    }
+    return cur;
+  }
+
+  // Vertical movement (up / down) when spanned cells are configured
+  if (hasSpans && cols > 1) {
+    const { matrix, itemPos } = buildSpannedGridMatrix(totalItems, cols, opts);
+    const curInfo = itemPos[cur] || { row: 0, cols: [0] };
+    const occupiedCols = curInfo.cols.length > 0 ? curInfo.cols : [0];
+    let targetCol = occupiedCols[0];
+    if (occupiedCols.length > 1 && Number.isFinite(Number(opts.preferredCol))) {
+      const pref = Math.max(0, Math.min(cols - 1, Math.floor(Number(opts.preferredCol))));
+      if (occupiedCols.includes(pref)) {
+        targetCol = pref;
+      }
+    }
+
+    const validRowsForCol = [];
+    for (let r = 0; r < matrix.length; r += 1) {
+      if (matrix[r][targetCol] >= 0) {
+        validRowsForCol.push(r);
+      }
+    }
+    if (validRowsForCol.length === 0) return cur;
+
+    const curRowPos = validRowsForCol.indexOf(curInfo.row);
+    const baseRowPos = curRowPos >= 0 ? curRowPos : 0;
+    const nextRowPos = baseRowPos + deltaV;
+    if (nextRowPos >= 0 && nextRowPos < validRowsForCol.length) {
+      return matrix[validRowsForCol[nextRowPos]][targetCol];
+    }
+    if (wrapVert) {
+      const wrappedPos =
+        ((nextRowPos % validRowsForCol.length) + validRowsForCol.length) %
+        validRowsForCol.length;
+      return matrix[validRowsForCol[wrappedPos]][targetCol];
     }
     return cur;
   }
