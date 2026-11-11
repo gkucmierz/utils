@@ -1,13 +1,31 @@
-name: Deploy Docs & Publish Packages
+name: Deploy Docs & Dual-Publish Package (@gkucmierz/utils)
 
 on:
   push:
     branches:
       - main
+      - master
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
+  publish:
+    uses: gkucmierz/ci-workflows/.gitea/workflows/publish-package.yml@main
+    with:
+      runs_on: self-hosted-pl
+      run_tests: true
+      run_build: true
+      build_script: 'build:main'
+      publish_private: true
+      publish_npmjs: true
+      gitea_owner: 'gkucmierz'
+      package_scope: '@gkucmierz'
+    secrets: inherit
+
   deploy-docs:
-    name: Deploy Docs Website (docs-utils)
+    name: Deploy Docs Website (docs-utils.7u.pl)
+    needs: publish
     runs-on: self-hosted-pl
     steps:
       - name: Check out repository code
@@ -17,41 +35,3 @@ jobs:
         run: |
           docker compose build
           docker compose up -d --remove-orphans
-
-  publish:
-    name: Publish Packages (Gitea + NPM)
-    runs-on: self-hosted-pl
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-
-      - name: Install dependencies and build
-        run: |
-          npm ci
-          npm run build:main
-
-      - name: Run automated tests
-        run: npm test
-
-      # -------------- PUBLISH DO NPMJS.ORG ----------------
-      - name: Setup Node for NPM Registry
-        uses: actions/setup-node@v3
-        with:
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Publish to Native Global Registry
-        run: npm publish --access public || echo "Version already published to NPM, skipping."
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-      # -------------- PUBLISH DO GITEA.7U.PL --------------
-      - name: Setup Node for Gitea Packages
-        uses: actions/setup-node@v3
-        with:
-          registry-url: 'https://gitea.7u.pl/api/packages/gkucmierz/npm/'
-          scope: '@gkucmierz'
-
-      - name: Publish to Internal Registry
-        run: npm publish || echo "Version already published to Gitea, skipping."
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.LOCAL_PACKAGE_REGISTRY }}

@@ -83,6 +83,9 @@
   "homepage": "https://gitea.7u.pl/gkucmierz/utils",
   "author": "Grzegorz Kućmierz",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "docdash": "^2.0.2",
