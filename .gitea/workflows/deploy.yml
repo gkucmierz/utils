@@ -16,11 +16,8 @@ jobs:
       runs_on: self-hosted-pl
       run_tests: true
       run_build: true
-      build_script: 'build:main'
       publish_private: true
       publish_npmjs: true
-      gitea_owner: 'gkucmierz'
-      package_scope: '@gkucmierz'
     secrets: inherit
 
   deploy-docs:
