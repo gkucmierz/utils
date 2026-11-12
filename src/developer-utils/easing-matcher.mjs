@@ -46,7 +46,7 @@ const normalizeEasingSamples = samples => {
  * @param {number} p1y
  * @param {number} p2x
  * @param {number} p2y
- * @returns {(t: number) => number}
+ * @returns {function(number): number}
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IM5QDYDcCmAhHALxBxgQF8EAzGKMBAIgAEBzAawFcBjMEmQgPQc4IDKgYBuYMHTZ8RPlKA|▶ Try it live in Instacode}
  */
 export const solveBezier = (p1x, p1y, p2x, p2y) => t => {
@@ -105,7 +105,7 @@ export const EASING_PRESETS = Object.freeze({
  * Matches telemetry samples against standard CSS easing presets.
  * Supports both frame delta samples ({ dy, dt } / { diff, diffT }) and cumulative points ({ t, y }).
  * Returns sorted list of preset matches with RMSE and percentage score.
- * @param {Array<{ diff?: number, dy?: number, diffT?: number, dt?: number, t?: number, y?: number }>} samples
+ * @param {Array<Object>} samples
  * @returns {Array<{ name: string, match: number, rmse: number }>}
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IGYjgUQIYGcQB2A5ggL5oxRgIBEAAkQNYCuAxmCAKYwBeA9MzggANrhoBuYMHRY8hIpKA|▶ Try it live in Instacode}
  */
@@ -124,8 +124,8 @@ export function fitEasing(samples) {
 /**
  * Estimates optimal cubic-bezier control points and asymmetry metrics for raw telemetry samples.
  * Uses a 2-stage coarse-to-fine search over (x1, y1, x2, y2) in [0, 1]^4.
- * @param {Array<{ diff?: number, dy?: number, diffT?: number, dt?: number, t?: number, y?: number }>} samples
- * @returns {{ asymmetryRatio: number, midpointT: number, cssBezier: string, controlPoints: [number, number, number, number], matchPercentage: number, evaluate: (t: number) => number } | null}
+ * @param {Array<Object>} samples
+ * @returns {?{ asymmetryRatio: number, midpointT: number, cssBezier: string, controlPoints: Array<number>, matchPercentage: number, evaluate: function(number): number }}
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IKYGc7gIZ1QUW3RADsBzABWxmzHQQF8EAzGKMBAIgAEyBrAK4BjMCFQwAXgHoBWADbpOAbmDAMWMLgJFSlarXQqgA|▶ Try it live in Instacode}
  */
 export function estimateEasingParams(samples) {
@@ -215,7 +215,7 @@ export function estimateEasingParams(samples) {
  * @param {number} vCurr Current velocity in pixels/second
  * @param {number} targetDist Remaining distance to target in pixels
  * @param {number} duration Total duration in milliseconds
- * @returns {(t: number) => number}
+ * @returns {function(number): number}
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMYwKYEM4YJIB2uMMArhHCAEYA2GAolgM4YIC+CAZjFGAgEQABAOYBrUqjAgMMAF4B6UpRpN+AbmDB02XIWJkK1OoxYagA|▶ Try it live in Instacode}
  */
 export function createInterruptibleEase(vCurr, targetDist, duration) {
