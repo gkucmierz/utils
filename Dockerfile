@@ -1,5 +1,5 @@
 # Stage 1: Build documentation
-FROM node:lts-alpine as build-stage
+FROM node:22-alpine AS build-stage
 
 # Set working directory
 WORKDIR /app
@@ -15,7 +15,7 @@ COPY . .
 RUN npm run docs:build
 
 # Stage 2: Serve the application with Nginx
-FROM nginx:stable-alpine as production-stage
+FROM nginx:stable-alpine AS production-stage
 
 # Copy the built JSDoc artifacts from the build stage
 COPY --from=build-stage /app/docs /usr/share/nginx/html

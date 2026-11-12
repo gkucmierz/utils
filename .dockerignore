@@ -1,6 +1,11 @@
 node_modules
-.git
-.husky
-.github
-.gitea
 docs
+.git
+.agents
+.agent
+AGENTS.md
+agents.md
+.dashboard-app
+.ecosystem-governance
+code-recipes
+.DS_Store
