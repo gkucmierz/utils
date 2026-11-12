@@ -159,7 +159,7 @@ const computeClusterConsensusValue = (values) => {
  * - `success: true` is returned **if and only if** the largest mutually-equal clique $C^*$ has size $|C^*| \ge K$
  *   (e.g., at least $4$ out of $5$ datapoints are mutually equal within $0.01\%$).
  *
- * @param {Array<number|number[]|{source?: string, id?: string, value: number|number[]}>} datapoints - Input datapoints.
+ * @param {Array<(number|Array<number>|Object)>} datapoints - Input datapoints.
  * @param {Object} [options={}] - Quorum configuration options.
  * @param {number} [options.k=4] - Minimum number of mutually-equal datapoints required for success ($K$).
  * @param {number} [options.n=5] - Expected total number of independent sources ($N$).
@@ -332,7 +332,7 @@ export const evaluateQuorum = (
  * Convenience helper for the standard $4\text{-of-}5$ quorum check with $0.01\%$ (`0.0001`)
  * maximum relative error tolerance.
  *
- * @param {Array<number|number[]|{source?: string, id?: string, value: number|number[]}>} datapoints - 5 source datapoints.
+ * @param {Array<(number|Array<number>|Object)>} datapoints - 5 source datapoints.
  * @param {Object} [options={}] - Optional overrides (`maxRelativeError`, `strictN`, `zeroFloor`).
  * @returns {Object} Quorum evaluation result.
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IKYDcCGAbArpuVARV1lzABYoAzAVgQF8FqYowEAiAAQHMBrXAGMwIVDABeAelxwQ2AM4cA3MGAYc+QiTKUatFUA|▶ Try it live in Instacode}
