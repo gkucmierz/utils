@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.5.0] - 2026-11-12
+
+### ✨ Added & Improved
+- **Shared Monadic Core `getNaturalSearch` (`naturalSearch` + `naturalSearchBI`):**
+  - Added arbitrary-precision `BigInt` solver `naturalSearchBI(cond, retFirstTrue = true, maxCap = (1n << 16384n) - 1n)` alongside `naturalSearch`, both instantiated from a single zero-duplication `getNaturalSearch` factory (`src/developer-utils/natural-search.mjs`).
+  - Added `maxCap` fail-safe loop protection (`Number.MAX_SAFE_INTEGER` for `naturalSearch`, `2^16384 - 1` ≈ 4,932 decimal digits / ~3 ms fail-safe for `naturalSearchBI`), returning `-1` / `-1n` when a predicate never turns truthy up to `maxCap`.
+  - Implemented strict zero-extra-bit arithmetic (`max > halfCap ? cap : max * TWO` and `min + half(max - min)`), preventing IEEE-754 float precision loss near `2^53 - 1` and eliminating spurious `RangeError` overflows at JS engine `BigInt` bit ceilings.
+  - Documented cross-engine `BigInt` hardware ceilings (64-bit V8 `2^30` bits / `128 MiB` vs SpiderMonkey & JavaScriptCore `2^20` bits / `128 KiB`) and quadratic `O(B²)` galloping cost in JSDoc (`docs-utils.7u.pl`) and `README.md`.
+
 ## [5.3.1] - 2026-10-26
 
 ### ♻️ Changed & Added

@@ -75,9 +75,24 @@ This library provides a wide range of mathematical functions and data structures
   - `consumeIteratorNonBlocking`: Yield consumption macro-tasks queue resolver for heavy computations.
   - `memoize`: Function memoization based on arguments.
   - `binarySearch`: Various binary search implementations (exact, lower bound, upper bound).
-  - `naturalSearch`: Natural sorting/search utility for human-readable string comparisons.
+  - `naturalSearch`, `naturalSearchBI`: Exponential-galloping + binary-search boundary solver (`Number` up to `2^53 - 1` and arbitrary-precision `BigInt` twin via shared monadic factory `getNaturalSearch`, with `maxCap` loop protection).
   - `range2array`, `array2range`: Convert between ranges and arrays.
   - `Type`, `is`, `of`, `same`: High-performance runtime type detection, introspection, and safe comparison system (v5.0.0).
+
+## ⚠️ `naturalSearchBI` — JS Engine `BigInt` Limits & Quadratic `O(B²)` Warning
+
+ECMAScript (TC39) does not standardize `BigInt.MAX_VALUE`. Every JavaScript engine enforces its own internal bit-length ceiling and throws `RangeError: Maximum BigInt size exceeded` when exceeded — **most notably a `1024×` gap between 64-bit V8 and Safari / Firefox**:
+
+| JS Engine | Runtimes | Hard Bit Ceiling | Max `BigInt` Value | RAM / Value | Worst-Case Fail-Safe Time |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Default `maxCap`** | All engines (portable default) | `16,384` bits (`2^14`) | `(1n << 16384n) - 1n` (~`4,932` digits) | `2 KiB` | `~3 ms` |
+| **SpiderMonkey / JSC** | Firefox, Safari, iOS WebKit, Bun | **`1,048,576` bits (`2^20`)** | `(1n << 1048576n) - 1n` (~`315,652` digits) | `128 KiB` | `~7.3 s` |
+| **V8 (32-bit)** | 32-bit Android / WASM32 | `536,870,912` bits (`2^29`) | `2^(2^29) - 1` (~`161.6M` digits) | `64 MiB` | Unbounded (days) |
+| **V8 (64-bit)** | Chrome, Node.js, Edge, Deno | **`1,073,741,824` bits (`2^30`)** | `2^(2^30) - 1` (~`323.2M` digits) | `128 MiB` | Unbounded (~88 days) |
+
+1. **Non-V8 Crash Risk (`RangeError`):** Passing a custom `maxCap >= (1n << 1048576n)` works on 64-bit V8, but **will immediately throw `RangeError: Maximum BigInt size exceeded` on Firefox, Safari (macOS/iOS), and Bun**.
+2. **Quadratic `O(B²)` Galloping Cost:** Unlike 64-bit `Number` (`O(1)` shift), doubling a `b`-bit `BigInt` copies `O(b)` machine words, making `B` doublings cost `O(B²)` CPU time. Keep `maxCap` bounded to your domain's realistic upper scale so unsatisfiable predicates fail fast (`-1n`).
+3. **Zero-Extra-Bit Invariant:** Both `naturalSearch` and `naturalSearchBI` guard galloping via `max > halfCap ? cap : max * TWO` and bisection via `min + half(max - min)`, never allocating even 1 bit beyond `maxCap`.
 
 ## 📚 Documentation
 
