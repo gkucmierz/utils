@@ -3,6 +3,9 @@ import {
   createLangtonsAnt, createUnlimitedGrid
 } from './src/automata/langtons-ant.mjs'
 import {
+  cartesianProduct, cartesianProductIterator, combinationsWithReplacement, combinationsWithReplacementIterator, prod, prodBI, product, productIterator, rangeIterator
+} from './src/combinatorics/cartesian-product.mjs'
+import {
   combinations, combinationsIterator
 } from './src/combinatorics/combinations.mjs'
 import {
@@ -160,6 +163,7 @@ import {
 } from './src/string-arrays/slugify.mjs'
 
 export * from './src/automata/langtons-ant.mjs';
+export * from './src/combinatorics/cartesian-product.mjs';
 export * from './src/combinatorics/combinations.mjs';
 export * from './src/combinatorics/gray-code.mjs';
 export * from './src/combinatorics/n-choose-k.mjs';
@@ -214,5 +218,5 @@ export * from './src/string-arrays/parse-heading.mjs';
 export * from './src/string-arrays/slugify.mjs';
 
 export default [
-  createLangtonsAnt, createUnlimitedGrid, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, ConflatingQueue, SetCnt, Stack, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, EASING_PRESETS, createInterruptibleEase, estimateEasingParams, fitEasing, solveBezier, detectGridColumns, navigateGrid, measurePerformance, memoize, naturalSearch, naturalSearchBI, QUORUM_CONFIG, QUORUM_DEFAULT_K, QUORUM_DEFAULT_N, QUORUM_MAX_RELATIVE_ERROR, QUORUM_MAX_RELATIVE_ERROR_PCT, QUORUM_ZERO_FLOOR_EPSILON, computeRelativeError, evaluateQuorum, evaluateQuorum4of5, isQuorumEqual, randNormal, array2range, range2array, setSafeInterval, Type, Types, is, isCallable, of, same, barycentricCoordinates, applyScreenDragQuat, axisAngleToMatrix4, axisAngleToQuat, crossProduct, dotProduct, eulerYXZToQuat, getRotationMatrixFromVectors, matToEulerYXZ, matToQuat, multiplyMatrix4, multiplyQuat, normalize, normalizeQuat, projectToTrackball, quatToMat, rotateVecByQuat, slerp, matrixAsArray, OrthoSet, containsPoint1D, containsPointNd, diffBox, diffRange, formatRange, measureBox, measureRange, mutualBox, mutualRange, parseRange, range, sharedMeasureNd, sumBox, sumRange, xorBox, xorRange, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn, parseHeading, slugify
+  createLangtonsAnt, createUnlimitedGrid, cartesianProduct, cartesianProductIterator, combinationsWithReplacement, combinationsWithReplacementIterator, prod, prodBI, product, productIterator, rangeIterator, combinations, combinationsIterator, bin2gray, gray2bin, nChooseK, permutations, permutationsIterator, ConflatingQueue, SetCnt, Stack, Trie, Heap, ListNode, binarySearchArr, binarySearchGE, binarySearchLE, binarySearchRangeIncl, consumeIteratorNonBlocking, EASING_PRESETS, createInterruptibleEase, estimateEasingParams, fitEasing, solveBezier, detectGridColumns, navigateGrid, measurePerformance, memoize, naturalSearch, naturalSearchBI, QUORUM_CONFIG, QUORUM_DEFAULT_K, QUORUM_DEFAULT_N, QUORUM_MAX_RELATIVE_ERROR, QUORUM_MAX_RELATIVE_ERROR_PCT, QUORUM_ZERO_FLOOR_EPSILON, computeRelativeError, evaluateQuorum, evaluateQuorum4of5, isQuorumEqual, randNormal, array2range, range2array, setSafeInterval, Type, Types, is, isCallable, of, same, barycentricCoordinates, applyScreenDragQuat, axisAngleToMatrix4, axisAngleToQuat, crossProduct, dotProduct, eulerYXZToQuat, getRotationMatrixFromVectors, matToEulerYXZ, matToQuat, multiplyMatrix4, multiplyQuat, normalize, normalizeQuat, projectToTrackball, quatToMat, rotateVecByQuat, slerp, matrixAsArray, OrthoSet, containsPoint1D, containsPointNd, diffBox, diffRange, formatRange, measureBox, measureRange, mutualBox, mutualRange, parseRange, range, sharedMeasureNd, sumBox, sumRange, xorBox, xorRange, egcd, factors, factorsBI, gcd, gcdBI, lcm, lcmBI, lucasLehmerBI, mobius, mobiusBI, mod, modBI, phi, phiBI, powMod, powModBI, tonelliShanksBI, nelderMead, particleSwarmOptimization, simulatedAnnealing, goldenRatio, goldenRatioBI, goldenRatioStr, gpn, gpnBI, heronsFormula, heronsFormulaBI, squareRoot, squareRootBI, arrayHistogram, fromBase64, fromBase64Url, toBase64, toBase64Url, bijective2num, bijective2numBI, num2bijective, num2bijectiveBI, chunks, chunksAsyncIterator, chunksIterator, copyCase, formatBigNumber, formatBigNumberBI, wrapFn, parseHeading, slugify
 ];
