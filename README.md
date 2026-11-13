@@ -15,6 +15,57 @@ A collection of useful utility functions and data structures for solving algorit
 npm install @gkucmierz/utils
 ```
 
+*(Optional — when installing from the internal `7u.pl` Gitea registry via `.npmrc`:)*
+
+```ini
+@gkucmierz:registry=https://gitea.7u.pl/api/packages/gkucmierz/npm/
+```
+
+## 🚀 Quick Start & Importing
+
+### 1. ES Modules (Node.js, Vite, Bun, Deno, `instacode.app`)
+
+`@gkucmierz/utils` is a pure zero-dependency ES Module (`"type": "module"`). Import named utilities directly from the package root:
+
+```js
+import { factors, factorsBI, gcd, is, same, naturalSearch } from '@gkucmierz/utils';
+
+factors(360);                     // [2, 2, 2, 3, 3, 5]
+factorsBI(2n ** 32n + 1n);        // [641n, 6700417n]
+gcd(84, 126);                     // 42
+is([1, 2, 3], 'array');           // true
+same({ a: 1 }, { a: 1 });         // true
+naturalSearch(x => x * x >= 100); // 10
+```
+
+### 2. Direct Subpath Imports (Single-File Granularity)
+
+Every module inside `src/` is shipped in the package and can be imported directly without loading the barrel entrypoint:
+
+```js
+import { factors, factorsBI } from '@gkucmierz/utils/src/number-theory/factors.mjs';
+import { is, of, same } from '@gkucmierz/utils/src/developer-utils/type.mjs';
+```
+
+### 3. Browser `<script type="module">` / CDN (Zero Build Step)
+
+```html
+<script type="module">
+  import { factors, combinations } from 'https://esm.sh/@gkucmierz/utils';
+
+  console.log(factors(2026));          // [2, 1013]
+  console.log(combinations([1, 2, 3], 2)); // [[1, 2], [1, 3], [2, 3]]
+</script>
+```
+
+### 4. CommonJS (`require` via Dynamic `import()`)
+
+In legacy `.cjs` scripts, load the ESM package with dynamic `import()`:
+
+```js
+const { factors, is } = await import('@gkucmierz/utils');
+```
+
 ## ✨ Features
 
 This library provides a wide range of mathematical functions and data structures, including:

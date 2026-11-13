@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.6.0] - 2026-11-13
+
+### ✨ Added
+- **Streaming Combinatorial Generators & Multiplicative Reducers (`src/combinatorics/cartesian-product.mjs`):**
+  - `productIterator(poolOrSize, repeat = 1)` & `product(poolOrSize, repeat = 1)` — iterative mixed-radix odometer generator streaming $k$-fold Cartesian powers ($A^k$, mirroring Python's `itertools.product(pool, repeat=k)`) in $\mathcal{O}(|A| + k)$ memory with zero call-stack recursion. Accepts non-negative integer shorthand (`10` $\to$ `0..9`) or any `Iterable`.
+  - `cartesianProductIterator(...pools)` & `cartesianProduct(...pools)` — lazy $N$-ary Cartesian product ($A_1 \times A_2 \times \dots \times A_m$) across heterogeneous pools (`number | Array | Iterable`).
+  - `combinationsWithReplacementIterator(n, kOrPool)` & `combinationsWithReplacement(n, kOrPool)` — lexicographic multiset combinations generator yielding $\binom{k+n-1}{n}$ non-decreasing tuples in $\mathcal{O}(n)$ space.
+  - `rangeIterator(startOrStop, stop?, step?)` — lazy $\mathcal{O}(1)$-memory arithmetic sequence generator mirroring Python's `range()`.
+  - `prod(iterable, start = 1)` & `prodBI(iterable, start = 1n)` — streaming multiplicative reducers (IEEE-754 `Number` and arbitrary-precision `BigInt`) mirroring Python's `math.prod()`.
+
+## [5.5.1] - 2026-11-13
+
+### 📚 Documentation
+- **Quick Start & Importing Guide (`README.md`):** Added copy-paste examples for standard ES Module named imports (`Node.js`, `Vite`, `instacode.app`), direct single-file `src/` subpath imports, zero-build browser CDN `<script type="module">` usage (`esm.sh`), dynamic `import()` in CommonJS, and optional Gitea `.npmrc` registry configuration.
+
 ## [5.5.0] - 2026-11-12
 
 ### ✨ Added & Improved
