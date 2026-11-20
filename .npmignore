@@ -1,6 +1,7 @@
 # Scripts and testing logic shouldn't be publicly scanned as vulnerabilities
 scripts/
 spec/
+tests/
 
 # CI/CD and Version Control
 .github/
@@ -8,4 +9,5 @@ spec/
 
 # Ignore documentation sources (only README is needed)
 docs/
+docs-src/
 jsdoc.json
