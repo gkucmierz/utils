@@ -40,6 +40,21 @@ export default [
     }
   },
   {
+    // Interactive visual documentation UI in docs-src/ runs in the browser
+    files: ['docs-src/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+      },
+    },
+    rules: {
+      'indent': ['error', 2],
+      'no-restricted-globals': 'off',
+    },
+  },
+  {
     // Global bypass constraints
     ignores: [
       'node_modules/**',
