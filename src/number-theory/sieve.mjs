@@ -7,7 +7,7 @@
  * Generates primes strictly below `max` in O(max log log max) time.
  *
  * @param {number} [max=100000] - Exclusive upper bound for the sieve.
- * @returns {{ isPrime: (n: number) => boolean, getPrimes: (limit?: number) => number[] }}
+ * @returns {{isPrime: Function, getPrimes: Function}} Sieve API (`isPrime(n)` and `getPrimes(limit)`).
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMogKYDcMIL4IBmMUYCARAAIDmA1gK4DGYmMAXgPT1wgA2AzuQDcwYOmwYRQA|▶ Try it live in Instacode}
  */
 export const Sieve = (max = 100e3) => {
