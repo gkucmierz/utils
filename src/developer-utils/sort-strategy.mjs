@@ -64,8 +64,8 @@ function normalizeSortSpecs(specs = []) {
  * with zero intermediate tuple allocations — optimal for precomputed primitive fields
  * and small collections ($N < 32$).
  *
- * @param {Array<string|Function|{ key: string|Function, order?: 'asc'|'desc', compare?: Function, expensive?: boolean }>} specs
- * @returns {(a: any, b: any) => number}
+ * @param {Array<string|Function|Object>} specs - Sort keys or spec objects (`{ key, order, compare, expensive }`).
+ * @returns {Function} Comparator function `(a, b) => number`.
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMYwKYEM4YGIA2OAwlJFjDrAgL4IBmMZCARAAIDmA1gK6pggMMAF4B6HnBAEAziwDcwYOmy5CJMhApUYCoA|▶ Try it live in Instacode}
  */
 function compileFlatComparator(normalized) {
@@ -95,12 +95,12 @@ export function createFlatComparator(specs = []) {
  *  - Uses Schwartzian DSU (computing every key exactly $O(N)$ times) when any spec has `expensive: true`
  *    and `items.length >= dsuThreshold`.
  *
- * @param {Array<any>} items
- * @param {Array<string|Function|{ key: string|Function, order?: 'asc'|'desc', compare?: Function, expensive?: boolean }>} specs
+ * @param {Array<*>} items
+ * @param {Array<string|Function|Object>} specs - Sort keys or spec objects (`{ key, order, compare, expensive }`).
  * @param {Object} [options={}]
- * @param {'auto'|'flat'|'dsu'} [options.strategy='auto']
+ * @param {string} [options.strategy='auto'] - `'auto'`, `'flat'`, or `'dsu'`.
  * @param {number} [options.dsuThreshold=32]
- * @returns {Array<any>}
+ * @returns {Array<*>}
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IM6zgIQJ4GU4wCGcApgObYIC+CAZjFGAgEQACZA1gK4DGYIJGAC8A9FzggANqmYBuYMHTwc+IqQrygA|▶ Try it live in Instacode}
  */
 export function sortByStrategy(
@@ -161,7 +161,7 @@ export function sortByStrategy(
  * `{ item, keys }` tuple so repeated `toSortedArray()` calls, sliding-window trims, or
  * live WebSocket merges pay **zero** additional key-extraction cost.
  *
- * @param {Array<string|Function|{ key: string|Function, order?: 'asc'|'desc', compare?: Function, expensive?: boolean }>} specs
+ * @param {Array<string|Function|Object>} specs - Sort keys or spec objects (`{ key, order, compare, expensive }`).
  * @param {Object} [options={}]
  * @param {number} [options.maxSize=0] - Optional sliding-window cap (0 = unbounded).
  * @see {@link https://instacode.app/run/FASwtgDg9gTgLgAgN4IMYwKYEM4YCIaqw4YAmAynJlmAgL4IBmMUtARAAIDmA1gK6owIDDABeAej5wQAGwDObANzBg6bLgJEYJClWxhlQA|▶ Try it live in Instacode}
